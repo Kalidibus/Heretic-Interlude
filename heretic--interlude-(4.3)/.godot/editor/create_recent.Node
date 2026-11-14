@@ -1,0 +1,14 @@
+Control
+OnscreenKeyboard
+Label
+HBoxContainer
+MarginContainer
+VBoxContainer
+Node
+PanelContainer
+Container
+Panel
+Sprite2D
+CanvasLayer
+ColorRect
+TextureRect

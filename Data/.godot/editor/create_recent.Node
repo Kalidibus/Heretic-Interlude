@@ -1,3 +1,5 @@
+Control
+OnscreenKeyboard
 Label
 HBoxContainer
 MarginContainer
@@ -10,5 +12,3 @@ Sprite2D
 CanvasLayer
 ColorRect
 TextureRect
-Control
-NinePatchRect

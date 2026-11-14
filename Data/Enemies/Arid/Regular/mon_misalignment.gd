@@ -75,7 +75,7 @@ func Realign():
 			await get_tree().create_timer(0.5).timeout
 	#calculates the total amount leeched, and how much to give back to enemies
 	var enemy_array = get_enemy_targets()
-	var amount_healed = total_leech / enemy_array.size()
+	var amount_healed: int = int(total_leech / float(enemy_array.size()))
 
 	#gives it back to enemies
 	for e in enemy_array:

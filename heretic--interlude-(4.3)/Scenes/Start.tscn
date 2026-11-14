@@ -1,0 +1,195 @@
+[gd_scene load_steps=13 format=3 uid="uid://7e6cnxckdu1r"]
+
+[ext_resource type="Script" path="res://Scenes/Start.gd" id="2"]
+[ext_resource type="Shader" path="res://Scenes/Pulse.gdshader" id="2_gli6f"]
+[ext_resource type="Texture2D" uid="uid://f8qvvoa8gywk" path="res://Assets/UI/Selector.png" id="2_mlm8r"]
+[ext_resource type="Texture2D" uid="uid://1s5kagy5rbqi" path="res://Assets/Classes/Bastard Fist/Bastard Fist-splash.png" id="2_w7kvi"]
+[ext_resource type="Texture2D" uid="uid://cns46s3vqu18r" path="res://Assets/UI/Button/panel-029.png" id="3_4b804"]
+[ext_resource type="Theme" uid="uid://dny0ibmsfjqu5" path="res://Assets/UI/Heretic_Theme.tres" id="3_4ibb0"]
+[ext_resource type="Texture2D" uid="uid://cuk64eey7amyb" path="res://Assets/Classes/Erde Cleric/Cleric-splash.png" id="3_tehd8"]
+[ext_resource type="Texture2D" uid="uid://0gp0a602to8y" path="res://Assets/Classes/Fel Mage/Fel Mage-splash.png" id="4_5lx84"]
+[ext_resource type="Texture2D" uid="uid://dbhb1nc0x28xj" path="res://Assets/Classes/Fortress/Fortress-splash.png" id="5_kx5lb"]
+[ext_resource type="Shader" path="res://Scenes/Vignette.gdshader" id="5_n5ayi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0o5c"]
+shader = ExtResource("2_gli6f")
+shader_parameter/Frequency = 1.0
+shader_parameter/MaxOpacity = 1.0
+shader_parameter/MinimumOpacity = 0.7
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3hbya"]
+shader = ExtResource("5_n5ayi")
+shader_parameter/inner_radius = 0.3
+shader_parameter/outer_radius = 1.0
+shader_parameter/vignette_strength = 3.0
+shader_parameter/dither_strength = 0.03
+shader_parameter/vignette_color = null
+
+[node name="Start" type="MarginContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -319.0
+offset_right = 200.0
+offset_bottom = 319.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="Control"]
+layout_mode = 2
+offset_left = 467.0
+offset_top = 316.0
+offset_right = 675.0
+offset_bottom = 347.0
+text = "[Dev] Go direct to Combat"
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 354.0
+offset_right = 627.0
+offset_bottom = 385.0
+text = "DEBUG [learn skill]"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+visible = false
+position = Vector2(6, 618)
+scale = Vector2(0.16483, 0.16483)
+texture = ExtResource("2_w7kvi")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control"]
+visible = false
+position = Vector2(405, 603)
+scale = Vector2(0.16483, 0.16483)
+texture = ExtResource("3_tehd8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control"]
+visible = false
+position = Vector2(301, 683)
+scale = Vector2(0.16483, 0.16483)
+texture = ExtResource("4_5lx84")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Control"]
+visible = false
+position = Vector2(143, 682)
+scale = Vector2(0.16483, 0.16483)
+texture = ExtResource("5_kx5lb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+material = SubResource("ShaderMaterial_u0o5c")
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_mlm8r")
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Dungeon" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_4ibb0")
+text = "Enter the Dungeon"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/Dungeon"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -20.0
+offset_right = 75.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4b804")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="HireButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_4ibb0")
+text = "Go to Guild"
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_4ibb0")
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_4ibb0")
+text = "Load"
+
+[node name="PauseButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_4ibb0")
+text = "[DEBUG] PauseMenu"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_4ibb0")
+text = "Exit"
+
+[node name="debug" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_4ibb0")
+text = "DEBUG"
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_3hbya")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="Control/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Dungeon" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HireButton" to="." method="_on_hire_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/debug" to="." method="_on_debug_pressed"]

@@ -1,0 +1,313 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxf0tjpf272mb"]
+
+[ext_resource type="Script" path="res://Scenes/Guild/CharacterCreate.gd" id="1_vmlei"]
+[ext_resource type="Texture2D" uid="uid://f8qvvoa8gywk" path="res://Assets/UI/Selector.png" id="2_htkpp"]
+[ext_resource type="Theme" uid="uid://dny0ibmsfjqu5" path="res://Assets/UI/Heretic_Theme.tres" id="3_m3uef"]
+[ext_resource type="StyleBox" uid="uid://c5n473klf8oug" path="res://Assets/UI/Panel/System_Panel.tres" id="4_73u02"]
+
+[node name="CharacterCreate" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+script = ExtResource("1_vmlei")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MainMenu" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MainMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_htkpp")
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MainMenu"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MainMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MainMenu/HBoxContainer"]
+layout_mode = 2
+
+[node name="CharUnlock" type="Button" parent="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_m3uef")
+text = "Unlock New Classes"
+
+[node name="AdjustParty" type="Button" parent="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_m3uef")
+text = "Reconfigure Party"
+
+[node name="SkillsButton" type="Button" parent="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_m3uef")
+text = "Learn Skills"
+
+[node name="ReturnButton" type="Button" parent="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_m3uef")
+text = "Return to the Main Screen"
+
+[node name="Select_and_Stats" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Select_and_Stats"]
+layout_mode = 2
+
+[node name="Name" type="HBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Name"]
+layout_mode = 2
+text = "Character Name:"
+
+[node name="UserEnteredName" type="LineEdit" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Name"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_m3uef")
+
+[node name="Job" type="HBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Job"]
+layout_mode = 2
+text = "Character Vocation:"
+
+[node name="BackButton" type="Button" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Job"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_m3uef")
+text = "<-"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Job"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_m3uef")
+item_count = 9
+popup/item_0/text = "Fortress"
+popup/item_1/text = "Fel Mage"
+popup/item_1/id = 1
+popup/item_2/text = "Bastard Fist"
+popup/item_2/id = 2
+popup/item_3/text = "Strider"
+popup/item_3/id = 3
+popup/item_4/text = "Redeemer"
+popup/item_4/id = 4
+popup/item_5/text = "Dancer"
+popup/item_5/id = 5
+popup/item_6/text = "Illusionist"
+popup/item_6/id = 6
+popup/item_7/text = "Samurai"
+popup/item_7/id = 7
+popup/item_8/text = "War Mage"
+popup/item_8/id = 8
+
+[node name="ForwardButton" type="Button" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Job"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_m3uef")
+text = "->"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="Labels" type="VBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HP" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+text = "HP:"
+
+[node name="MP" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+text = "MP:"
+
+[node name="STR" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+text = "Strength:"
+
+[node name="DEF" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+text = "Defense:"
+
+[node name="INT" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+text = "Intelligence:"
+
+[node name="FTH" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+text = "Faith:"
+
+[node name="RES" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+text = "Resistance:"
+
+[node name="EVD" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+text = "Evasion:"
+
+[node name="SPD" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+layout_mode = 2
+text = "Speed:"
+
+[node name="Stats" type="VBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HP_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-"
+
+[node name="MP_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-"
+
+[node name="STR_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-"
+
+[node name="DEF_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-"
+
+[node name="INT_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-"
+
+[node name="FTH_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-"
+
+[node name="RES_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-"
+
+[node name="EVD_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-"
+
+[node name="SPD_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-"
+
+[node name="CreateCharButton" type="Button" parent="HBoxContainer/Select_and_Stats/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_m3uef")
+text = "Create a new Character"
+
+[node name="Description" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Description"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Description/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Description/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 800
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Vocation:[/b]
+"
+fit_content = true
+
+[node name="job_name_display" type="RichTextLabel" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Description:[/b]
+"
+fit_content = true
+
+[node name="job_description_display" type="RichTextLabel" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Description/MarginContainer"]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_m3uef")
+theme_override_styles/panel = ExtResource("4_73u02")
+
+[node name="CharaSplashBox" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="CharaSplash" type="TextureRect" parent="HBoxContainer/CharaSplashBox"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -796.224
+offset_right = -10.0
+offset_bottom = 980.0
+size_flags_horizontal = 10
+expand_mode = 5
+
+[connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/CharUnlock" to="." method="_on_char_unlock_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/AdjustParty" to="." method="_on_adjust_party_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/SkillsButton" to="." method="_on_skills_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_RETURN_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Select_and_Stats/VBoxContainer2/Job/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="item_selected" from="HBoxContainer/Select_and_Stats/VBoxContainer2/Job/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="HBoxContainer/Select_and_Stats/VBoxContainer2/Job/ForwardButton" to="." method="_on_forward_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Select_and_Stats/VBoxContainer2/CreateCharButton" to="." method="_on_create_char_button_pressed"]

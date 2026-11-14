@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://7e6cnxckdu1r"]
+[gd_scene format=3 uid="uid://7e6cnxckdu1r"]
 
-[ext_resource type="Script" path="res://Scenes/Start.gd" id="2"]
-[ext_resource type="Shader" path="res://Scenes/Pulse.gdshader" id="2_gli6f"]
+[ext_resource type="Script" uid="uid://c8s7vy8jlyxtu" path="res://Scenes/Start.gd" id="2"]
+[ext_resource type="Shader" uid="uid://baxfegjr38g1e" path="res://Shaders/Pulse.gdshader" id="2_gli6f"]
 [ext_resource type="Texture2D" uid="uid://f8qvvoa8gywk" path="res://Assets/UI/Selector.png" id="2_mlm8r"]
 [ext_resource type="Texture2D" uid="uid://1s5kagy5rbqi" path="res://Assets/Classes/Bastard Fist/Bastard Fist-splash.png" id="2_w7kvi"]
 [ext_resource type="Texture2D" uid="uid://cns46s3vqu18r" path="res://Assets/UI/Button/panel-029.png" id="3_4b804"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cuk64eey7amyb" path="res://Assets/Classes/Erde Cleric/Cleric-splash.png" id="3_tehd8"]
 [ext_resource type="Texture2D" uid="uid://0gp0a602to8y" path="res://Assets/Classes/Fel Mage/Fel Mage-splash.png" id="4_5lx84"]
 [ext_resource type="Texture2D" uid="uid://dbhb1nc0x28xj" path="res://Assets/Classes/Fortress/Fortress-splash.png" id="5_kx5lb"]
-[ext_resource type="Shader" path="res://Scenes/Vignette.gdshader" id="5_n5ayi"]
+[ext_resource type="Shader" uid="uid://dcghmrijbj8j1" path="res://Shaders/Vignette.gdshader" id="5_n5ayi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u0o5c"]
 shader = ExtResource("2_gli6f")

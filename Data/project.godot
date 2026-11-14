@@ -8,12 +8,16 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Heretic: Interlude"
 config/description="Proof of concept test version"
 run/main_scene="res://Scenes/Start.tscn"
-config/features=PackedStringArray("4.3")
+config/features=PackedStringArray("4.7")
 boot_splash/image="res://Assets/UI/Selector.png"
 config/icon="res://Assets/Classes/Fortress/Fortress-profile.png"
 
@@ -21,15 +25,15 @@ config/icon="res://Assets/Classes/Fortress/Fortress-profile.png"
 
 PartyStats="*res://Scenes/Battle Scenes/Party.tscn"
 Items="*res://Scenes/Battle Scenes/Items.tscn"
-Globals="*res://Scenes/Globals.gd"
-SaveandLoad="*res://Scenes/SaveandLoad.gd"
-CharacterChanges="*res://Scenes/Other/CharacterChanges.gd"
+Globals="*res://Scenes/Global System/Globals.gd"
+SaveandLoad="*res://Scenes/PlayerData/SaveandLoad.gd"
+CharacterChanges="*res://Scenes/PlayerData/CharacterChanges.gd"
 JobDict="*res://Classes/Classes.tscn"
 ItemDict="*res://Items/ItemDict.tscn"
 PlayerData="*res://Scenes/PlayerData/PlayerData.tscn"
 EnemyDict="*res://Enemies/EnemyDict.tscn"
-TransitionScreen="*res://Scenes/Transition/TransitionScreen.tscn"
-QuestManager="*res://Scenes/Other/quest_manager.gd"
+TransitionScreen="*res://Scenes/Global System/TransitionScreen.tscn"
+QuestManager="*res://Scenes/Global System/quest_manager.gd"
 
 [display]
 
