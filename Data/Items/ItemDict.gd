@@ -12,7 +12,7 @@ func _ready() -> void:
 		var path := ITEMS_DIR.path_join(file_name)
 		var item := load(path) as ItemClass
 		items_by_id[item.item_id] = item
-	print(str(items_by_id))
+
 
 func get_item(id: StringName) -> ItemClass:
 	return items_by_id.get(id)

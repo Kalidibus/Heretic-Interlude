@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://igxlefqno2xw"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_cl830"]
+
+[resource]
+script = ExtResource("1_cl830")
+skill_id = &"s0001"
+skill_name = "Taunt"
+skill_description = "Marks self, increasing odds of enemies targetting Fortress. Also increases base aggro."
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

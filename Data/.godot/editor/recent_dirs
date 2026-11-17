@@ -1,3 +1,5 @@
+res://Skills/
+res://Items/
 res://Items/Item Files/
 res://Scenes/Global System/
 res://Assets/UI/Panel/
@@ -5,12 +7,9 @@ res://Assets/UI/Button/
 res://Assets/UI/
 res://Scenes/Guild/SkillVendor/
 res://Enemies/Arid/Regular/
-res://Scenes/Transition/
 res://Scenes/Battle Scenes/
 res://Scenes/Guild/
 res://Enemies/
-res://Scenes/PlayerData/
-res://Items/
 res://Assets/Classes/
 res://Classes/War Mage/
 res://Classes/

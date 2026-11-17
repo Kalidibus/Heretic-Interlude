@@ -10,4 +10,5 @@ item_subtype = 14
 item_name = "Scrap Metal"
 description = "Placeholder"
 sell_value = 100
+item_rarity = 1
 metadata/_custom_type_script = "uid://cmthgiwuu1hpq"
