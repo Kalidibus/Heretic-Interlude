@@ -23,11 +23,8 @@ func FillItems(type):
 	var count = 0
 	
 	for n in PlayerData.inventory:
-		print(type)
-		print(str(PlayerData.inventory))
-		print(ItemDict.GetItemType(n))
 		if ItemDict.GetItemType(n) == type:
-			var name = ItemDict.GetItemName(n)
+			var name = ItemDict.get_item(n.item_name) #trying new ItemDict method
 			var qty = PlayerData.GetInvItemQty(n)
 			var desc = ItemDict.GetItemDesc(n)
 		
@@ -41,7 +38,7 @@ func FillItems(type):
 		$VBoxContainer.add_child(label)
 		label.text = "None"
 
-func CreateFilter(type):
+func CreateFilter(type):	#not needed anymore?
 	filternode = OptionButton.new()
 	$VBoxContainer.add_child(filternode)
 	
@@ -52,62 +49,58 @@ func RemoveFilter() -> void:
 	if filternode != null:
 		filternode.queue_free()
 
-func _on_items_pressed() -> void:
-	ClearItems()
-	FillItems("items")
+#func _on_items_pressed() -> void:
+#	ClearItems()
+#	FillItems("items")
 
 func _on_crafting_pressed() -> void:
 	ClearItems()
-	FillItems("components")
+	FillItems(ItemDict.item_subtype.component)
 
 func _on_head_pressed() -> void:
 	ClearItems()
-	FillItems("head")
+	FillItems(ItemDict.item_subtype.head)
 
 func _on_body_pressed() -> void:
 	ClearItems()
-	FillItems("body")
+	FillItems(ItemDict.item_subtype.body)
 
 func _on_gloves_pressed() -> void:
 	ClearItems()
-	FillItems("gloves")
+	FillItems(ItemDict.item_subtype.gloves)
 
 func _on_pants_pressed() -> void:
 	ClearItems()
-	FillItems("pants")
+	FillItems(ItemDict.item_subtype.pants)
 
 func _on_rings_pressed() -> void:
 	ClearItems()
-	FillItems("ring")
+	FillItems(ItemDict.item_subtype.ring)
 
 func _on_necklaces_pressed() -> void:
 	ClearItems()
-	FillItems("neck")
+	FillItems(ItemDict.item_subtype.necklace)
 
 func _on_hand_pressed() -> void:
 	ClearItems()
-	CreateFilter("type")
-	FillItems("weapon1hand")
+	FillItems(ItemDict.item_type.one_handed_weapon)
 
 func _on_two_handed_pressed() -> void:
 	ClearItems()
-	CreateFilter("type")
-	FillItems("weapon2hand")
-
+	FillItems(ItemDict.item_type.two_handed_weapon)
 
 func _on_shields_pressed() -> void:
 	ClearItems()
-	FillItems("shield")
+	FillItems(ItemDict.item_subtype.shield)
 
 func _on_arcana_pressed() -> void:
 	ClearItems()
-	print(str(ItemDict.item_subtypes))
-	FillItems(ItemDict.item_subtypes.arcana)
+	FillItems(ItemDict.item_subtype.arcana)
 
 func _on_augments_pressed() -> void:
 	ClearItems()
-	FillItems("augments")
+	FillItems(ItemDict.item_subtype.augments)
 
 func _on_key_pressed() -> void:
 	ClearItems()
-	FillItems("key")
+	FillItems(ItemDict.item_subtype.key)

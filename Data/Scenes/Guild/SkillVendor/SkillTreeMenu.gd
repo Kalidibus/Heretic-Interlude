@@ -2,6 +2,7 @@ extends MarginContainer
 
 @onready var cost_item: Label = %CostItem
 @onready var cost_amount: Label = %CostAmount
+@onready var unlock_material: ItemClass = ItemDict.get_item(&"c0005")
 
 var char_id 
 var job_id
@@ -11,8 +12,8 @@ var party_sequence = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GetTree()
-	cost_item.text = ItemDict.GetItemName(ItemDict.item.comp4)
-	cost_amount.text = str(PlayerData.GetInvItemQty(ItemDict.item.comp4))
+	cost_item.text = unlock_material.item_name
+	cost_amount.text = str(PlayerData.GetInvItemQty(unlock_material))
 	%BackButton.disabled = true
 	if PlayerData.party_order.size() ==1: %ForwardButton.disabled = true
 
@@ -49,7 +50,7 @@ func FillTree():
 		count += 1
 
 func UpdateCount():
-	cost_amount.text = str(PlayerData.GetInvItemQty(ItemDict.item.comp4))
+	cost_amount.text = str(PlayerData.GetInvItemQty(unlock_material))
 
 
 func _on_return_button_pressed() -> void:

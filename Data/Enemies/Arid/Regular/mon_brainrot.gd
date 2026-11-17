@@ -4,10 +4,10 @@ func _ready():
 	charname = "Brain Rot"
 	reward_xp = Globals.RNG_range(20, 35)
 	loot_table = {
-		ItemDict.item.comp1: 15,
-		ItemDict.item.comp2: 15,
-		ItemDict.item.comp3: 15,
-		ItemDict.item.comp4: 15}
+		ItemDict.get_item(&"c0001"): 15,
+		ItemDict.get_item(&"c0002"): 15,
+		ItemDict.get_item(&"c0003"): 15,
+		ItemDict.get_item(&"c0004"): 15}
 	roll_count = Globals.ROLL_COUNT
 	
 	enemy = true

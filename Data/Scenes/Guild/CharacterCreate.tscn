@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxf0tjpf272mb"]
+[gd_scene format=3 uid="uid://cxf0tjpf272mb"]
 
-[ext_resource type="Script" path="res://Scenes/Guild/CharacterCreate.gd" id="1_vmlei"]
+[ext_resource type="Script" uid="uid://b0k5y4jjdohq" path="res://Scenes/Guild/CharacterCreate.gd" id="1_vmlei"]
 [ext_resource type="Texture2D" uid="uid://f8qvvoa8gywk" path="res://Assets/UI/Selector.png" id="2_htkpp"]
 [ext_resource type="Theme" uid="uid://dny0ibmsfjqu5" path="res://Assets/UI/Heretic_Theme.tres" id="3_m3uef"]
 [ext_resource type="StyleBox" uid="uid://c5n473klf8oug" path="res://Assets/UI/Panel/System_Panel.tres" id="4_73u02"]
 
-[node name="CharacterCreate" type="MarginContainer"]
+[node name="CharacterCreate" type="MarginContainer" unique_id=1848615611]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,90 +17,91 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 script = ExtResource("1_vmlei")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=716052623]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="MainMenu" type="VBoxContainer" parent="HBoxContainer"]
+[node name="MainMenu" type="VBoxContainer" parent="HBoxContainer" unique_id=884516848]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MainMenu"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MainMenu" unique_id=614580986]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_htkpp")
 stretch_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MainMenu"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MainMenu" unique_id=778187943]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MainMenu"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MainMenu" unique_id=1385928000]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MainMenu/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MainMenu/HBoxContainer" unique_id=1719668008]
 layout_mode = 2
 
-[node name="CharUnlock" type="Button" parent="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer"]
+[node name="CharUnlock" type="Button" parent="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer" unique_id=1613543926]
 layout_mode = 2
 theme = ExtResource("3_m3uef")
 text = "Unlock New Classes"
 
-[node name="AdjustParty" type="Button" parent="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer"]
+[node name="AdjustParty" type="Button" parent="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer" unique_id=1554337990]
 layout_mode = 2
 theme = ExtResource("3_m3uef")
 text = "Reconfigure Party"
 
-[node name="SkillsButton" type="Button" parent="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer"]
+[node name="SkillsButton" type="Button" parent="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer" unique_id=1158586739]
 layout_mode = 2
 theme = ExtResource("3_m3uef")
 text = "Learn Skills"
 
-[node name="ReturnButton" type="Button" parent="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer"]
+[node name="ReturnButton" type="Button" parent="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer" unique_id=533178039]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_m3uef")
 text = "Return to the Main Screen"
 
-[node name="Select_and_Stats" type="MarginContainer" parent="HBoxContainer"]
+[node name="Select_and_Stats" type="MarginContainer" parent="HBoxContainer" unique_id=2016607388]
 layout_mode = 2
 theme_override_constants/margin_top = 80
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Select_and_Stats"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Select_and_Stats" unique_id=295948639]
 layout_mode = 2
 
-[node name="Name" type="HBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2"]
+[node name="Name" type="HBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2" unique_id=1710264660]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Name"]
+[node name="Label" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Name" unique_id=1083137469]
 layout_mode = 2
 text = "Character Name:"
 
-[node name="UserEnteredName" type="LineEdit" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Name"]
+[node name="UserEnteredName" type="LineEdit" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Name" unique_id=693163613]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_m3uef")
 
-[node name="Job" type="HBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2"]
+[node name="Job" type="HBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2" unique_id=1398041088]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Job"]
+[node name="Label" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Job" unique_id=1907780833]
 layout_mode = 2
 text = "Character Vocation:"
 
-[node name="BackButton" type="Button" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Job"]
+[node name="BackButton" type="Button" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Job" unique_id=46774443]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_m3uef")
 text = "<-"
 
-[node name="OptionButton" type="OptionButton" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Job"]
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Job" unique_id=45899556]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_m3uef")
 item_count = 9
 popup/item_0/text = "Fortress"
+popup/item_0/id = 0
 popup/item_1/text = "Fel Mage"
 popup/item_1/id = 1
 popup/item_2/text = "Bastard Fist"
@@ -118,119 +119,119 @@ popup/item_7/id = 7
 popup/item_8/text = "War Mage"
 popup/item_8/id = 8
 
-[node name="ForwardButton" type="Button" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Job"]
+[node name="ForwardButton" type="Button" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/Job" unique_id=762146687]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_m3uef")
 text = "->"
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2" unique_id=962527483]
 layout_mode = 2
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer" unique_id=719872503]
 layout_mode = 2
 theme_override_constants/separation = 26
 
-[node name="Labels" type="VBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer"]
+[node name="Labels" type="VBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer" unique_id=301035462]
 layout_mode = 2
 
-[node name="HP" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+[node name="HP" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels" unique_id=1116147532]
 layout_mode = 2
 text = "HP:"
 
-[node name="MP" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+[node name="MP" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels" unique_id=475742415]
 layout_mode = 2
 text = "MP:"
 
-[node name="STR" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+[node name="STR" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels" unique_id=859323988]
 layout_mode = 2
 text = "Strength:"
 
-[node name="DEF" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+[node name="DEF" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels" unique_id=1138600425]
 layout_mode = 2
 text = "Defense:"
 
-[node name="INT" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+[node name="INT" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels" unique_id=362696035]
 layout_mode = 2
 text = "Intelligence:"
 
-[node name="FTH" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+[node name="FTH" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels" unique_id=211638871]
 layout_mode = 2
 text = "Faith:"
 
-[node name="RES" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+[node name="RES" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels" unique_id=69813809]
 layout_mode = 2
 text = "Resistance:"
 
-[node name="EVD" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+[node name="EVD" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels" unique_id=172103888]
 layout_mode = 2
 text = "Evasion:"
 
-[node name="SPD" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels"]
+[node name="SPD" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Labels" unique_id=588941441]
 layout_mode = 2
 text = "Speed:"
 
-[node name="Stats" type="VBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer"]
+[node name="Stats" type="VBoxContainer" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer" unique_id=51283690]
 layout_mode = 2
 
-[node name="HP_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+[node name="HP_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats" unique_id=158781469]
 unique_name_in_owner = true
 layout_mode = 2
 text = "-"
 
-[node name="MP_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+[node name="MP_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats" unique_id=930291970]
 unique_name_in_owner = true
 layout_mode = 2
 text = "-"
 
-[node name="STR_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+[node name="STR_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats" unique_id=2127923390]
 unique_name_in_owner = true
 layout_mode = 2
 text = "-"
 
-[node name="DEF_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+[node name="DEF_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats" unique_id=331869506]
 unique_name_in_owner = true
 layout_mode = 2
 text = "-"
 
-[node name="INT_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+[node name="INT_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats" unique_id=637422396]
 unique_name_in_owner = true
 layout_mode = 2
 text = "-"
 
-[node name="FTH_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+[node name="FTH_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats" unique_id=1827890594]
 unique_name_in_owner = true
 layout_mode = 2
 text = "-"
 
-[node name="RES_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+[node name="RES_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats" unique_id=196830326]
 unique_name_in_owner = true
 layout_mode = 2
 text = "-"
 
-[node name="EVD_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+[node name="EVD_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats" unique_id=1918098475]
 unique_name_in_owner = true
 layout_mode = 2
 text = "-"
 
-[node name="SPD_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats"]
+[node name="SPD_stat" type="Label" parent="HBoxContainer/Select_and_Stats/VBoxContainer2/MarginContainer/HBoxContainer/Stats" unique_id=460102240]
 unique_name_in_owner = true
 layout_mode = 2
 text = "-"
 
-[node name="CreateCharButton" type="Button" parent="HBoxContainer/Select_and_Stats/VBoxContainer2"]
+[node name="CreateCharButton" type="Button" parent="HBoxContainer/Select_and_Stats/VBoxContainer2" unique_id=488795993]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_m3uef")
 text = "Create a new Character"
 
-[node name="Description" type="Control" parent="HBoxContainer"]
+[node name="Description" type="Control" parent="HBoxContainer" unique_id=976760615]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Description"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Description" unique_id=1224451280]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -240,58 +241,58 @@ grow_vertical = 2
 size_flags_vertical = 4
 theme_override_constants/margin_left = 30
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Description/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Description/MarginContainer" unique_id=250170763]
 layout_mode = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 50
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Description/MarginContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Description/MarginContainer/MarginContainer" unique_id=622445942]
 layout_mode = 2
 theme_override_constants/margin_right = 800
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer" unique_id=622590603]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer/VBoxContainer" unique_id=688386790]
 layout_mode = 2
 bbcode_enabled = true
 text = "[b]Vocation:[/b]
 "
 fit_content = true
 
-[node name="job_name_display" type="RichTextLabel" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+[node name="job_name_display" type="RichTextLabel" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer/VBoxContainer" unique_id=67565090]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 bbcode_enabled = true
 fit_content = true
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer/VBoxContainer" unique_id=1905110978]
 layout_mode = 2
 bbcode_enabled = true
 text = "[b]Description:[/b]
 "
 fit_content = true
 
-[node name="job_description_display" type="RichTextLabel" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer/VBoxContainer"]
+[node name="job_description_display" type="RichTextLabel" parent="HBoxContainer/Description/MarginContainer/MarginContainer/MarginContainer/VBoxContainer" unique_id=1158852972]
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
 fit_content = true
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Description/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Description/MarginContainer" unique_id=1051042720]
 z_index = -1
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_m3uef")
 theme_override_styles/panel = ExtResource("4_73u02")
 
-[node name="CharaSplashBox" type="Control" parent="HBoxContainer"]
+[node name="CharaSplashBox" type="Control" parent="HBoxContainer" unique_id=277804218]
 layout_mode = 2
 
-[node name="CharaSplash" type="TextureRect" parent="HBoxContainer/CharaSplashBox"]
+[node name="CharaSplash" type="TextureRect" parent="HBoxContainer/CharaSplashBox" unique_id=688661046]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = -796.224
@@ -303,9 +304,9 @@ expand_mode = 5
 [connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/CharUnlock" to="." method="_on_char_unlock_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/AdjustParty" to="." method="_on_adjust_party_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/SkillsButton" to="." method="_on_skills_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_RETURN_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainMenu/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Select_and_Stats/VBoxContainer2/Job/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="item_selected" from="HBoxContainer/Select_and_Stats/VBoxContainer2/Job/OptionButton" to="." method="_on_option_button_item_selected"]

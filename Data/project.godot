@@ -26,14 +26,15 @@ config/icon="res://Assets/Classes/Fortress/Fortress-profile.png"
 PartyStats="*res://Scenes/Battle Scenes/Party.tscn"
 Items="*res://Scenes/Battle Scenes/Items.tscn"
 Globals="*res://Scenes/Global System/Globals.gd"
-SaveandLoad="*res://Scenes/PlayerData/SaveandLoad.gd"
-CharacterChanges="*res://Scenes/PlayerData/CharacterChanges.gd"
+SaveandLoad="*res://PlayerData/SaveandLoad.gd"
+CharacterChanges="*res://PlayerData/CharacterChanges.gd"
 JobDict="*res://Classes/Classes.tscn"
 ItemDict="*res://Items/ItemDict.tscn"
-PlayerData="*res://Scenes/PlayerData/PlayerData.tscn"
+PlayerData="*res://PlayerData/PlayerData.tscn"
 EnemyDict="*res://Enemies/EnemyDict.tscn"
 TransitionScreen="*res://Scenes/Global System/TransitionScreen.tscn"
 QuestManager="*res://Scenes/Global System/quest_manager.gd"
+CG="*uid://bc6vr82t43gb2"
 
 [display]
 

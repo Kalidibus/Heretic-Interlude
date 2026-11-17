@@ -3,7 +3,7 @@ class_name SkillUpgradeButton
 
 var current_level
 var max_level
-var cost_item = ItemDict.item.comp4
+@onready var cost_item = ItemDict.get_item(&"c0005")
 var cost_amount = 5
 var skill_id
 var char_id
@@ -34,12 +34,12 @@ func RefreshInfo():
 	skill_level_label.text = str(current_level)
 	max_level_label.text = str(max_level)
 	cost_amount_label.text = str(cost_amount)
-	cost_item_label.text = str(ItemDict.GetItemName(cost_item))
+	cost_item_label.text = cost_item.item_name
 	CheckParentLevel()
 	
 
 func _on_pressed() -> void:
-	if not PlayerData.inventory.has(cost_item) or not PlayerData.inventory[cost_item] >= cost_amount: Globals.system_message("not enough " + ItemDict.GetItemName(cost_item))
+	if not PlayerData.inventory.has(cost_item) or not PlayerData.inventory[cost_item] >= cost_amount: Globals.system_message("not enough " + cost_item.item_name)
 	#elif: pass
 	else:
 		if current_level < max_level:

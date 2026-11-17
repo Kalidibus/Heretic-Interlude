@@ -1,21 +1,20 @@
-res://Addons
-res://Scenes/Other
-res://Assets/UI/Panel
-res://Assets/UI/Button
-res://Assets/UI
-res://Scenes/Guild/SkillVendor
-res://Enemies/Arid/Regular
-res://Scenes/Other/PauseMenu
-res://Scenes/Transition
-res://Scenes/Battle Scenes
-res://Scenes/Guild
-res://Enemies
-res://Scenes/PlayerData
-res://Items
-res://Assets/Classes
-res://Classes/War Mage
-res://Classes
-res://Scenes
-res://Assets/backgrounds
-res://Scenes/Dungeon
-res://Scenes/Dungeon/Fortress
+res://Items/Item Files/
+res://Scenes/Global System/
+res://Assets/UI/Panel/
+res://Assets/UI/Button/
+res://Assets/UI/
+res://Scenes/Guild/SkillVendor/
+res://Enemies/Arid/Regular/
+res://Scenes/Transition/
+res://Scenes/Battle Scenes/
+res://Scenes/Guild/
+res://Enemies/
+res://Scenes/PlayerData/
+res://Items/
+res://Assets/Classes/
+res://Classes/War Mage/
+res://Classes/
+res://Scenes/
+res://Assets/backgrounds/
+res://Scenes/Dungeon/
+res://Scenes/Dungeon/Fortress/

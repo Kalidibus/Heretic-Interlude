@@ -4,10 +4,10 @@ func _ready():
 	charname = "Pylon"
 	reward_xp = Globals.RNG_range(10, 20)
 	loot_table = {
-		ItemDict.item.comp1: 55,
-		ItemDict.item.comp2: 15,
-		ItemDict.item.comp3: 15,
-		ItemDict.item.comp4: 15}
+		ItemDict.get_item(&"c00001"): 55,
+		ItemDict.get_item(&"c00002"): 15,
+		ItemDict.get_item(&"c00003"): 15,
+		ItemDict.get_item(&"c00004"): 15}
 	roll_count = Globals.ROLL_COUNT
 	
 	enemy = true

@@ -5,29 +5,30 @@ func _ready() -> void:
 
 #Function receives the ID of character who's equipping an item, the slot, and the item ID.
 #Equips it and moves anything already in the slot to inventory space.
-func add_equipment(charid, slot, add_eqp, location) -> void:
-	var char = PlayerData.get(location)[str(charid)]
+func add_equipment(charid, add_eqp, location) -> void:
+	var character = PlayerData.get(location)[str(charid)]
 	
-	if char["equipment"][slot] != null:
-		AddtoInventory(char["equipment"][slot], 1)
-	char["equipment"][slot] = add_eqp
-	var stats = ItemDict.GetItemStats(add_eqp)
-	for n in stats:
-		char["gear_statmods"][n] = stats[n]
+	if character["equipment"].get(add_eqp.item_slot) != null:
+		remove_equipment(charid, add_eqp, location)
+	character["equipment"][add_eqp.item_slot] = add_eqp
 
-func AddtoInventory(itemid, qty) -> void:
-	if not PlayerData.inventory.has(itemid):
-		PlayerData.inventory[itemid] = qty
-	else:
-		PlayerData.inventory[itemid] += qty
+func remove_equipment(charid, remove_eqp, location) -> void:
+	var character = PlayerData.get(location)[str(charid)]
+	character["equipment"].erase(remove_eqp.item_slot)
 
-func RemovefromInventory(itemid, qty):
-	if not PlayerData.inventory.has(itemid):
+func AddtoInventory(item: ItemClass , qty: int) -> void:
+	if not PlayerData.inventory.has(item):
+		PlayerData.inventory[item] = qty
+	else:
+		PlayerData.inventory[item] += qty
+
+func RemovefromInventory(item: ItemClass , qty: int):
+	if not PlayerData.inventory.has(item):
 		return 0
-	if PlayerData.inventory[itemid] < qty:
+	if PlayerData.inventory[item] < qty:
 		return 0
 	else:
-		PlayerData.inventory[itemid] -= qty
+		PlayerData.inventory[item] -= qty
 		return 1
 
 func GainXP(charid, xp):

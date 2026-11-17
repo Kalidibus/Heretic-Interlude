@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bah0sjprg27oh"]
+
+[ext_resource type="Script" uid="uid://bgpsgq6eoxn62" path="res://PlayerData/PlayerData.gd" id="1_fgewf"]
+
+[node name="PlayerData" type="Node" unique_id=864005801]
+script = ExtResource("1_fgewf")
+
+[node name="Party" type="Node" parent="." unique_id=607947461]
+
+[node name="Inventory" type="Node" parent="." unique_id=120468291]
+
+[node name="Roster" type="Node" parent="." unique_id=369660542]

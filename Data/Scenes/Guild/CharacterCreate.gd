@@ -1,5 +1,7 @@
 extends Node
 
+@onready var unlock_resource: ItemClass = ItemDict.get_item(&"c0000")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await get_tree().create_timer(0.2).timeout
@@ -7,10 +9,6 @@ func _ready() -> void:
 	CharaDetails(0)
 	%BackButton.disabled = true
 	%UserEnteredName.grab_focus()
-	
-	#Disables options that aren't unlocked yet
-	#%OptionButton
-
 
 func _on_return_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Start.tscn")
@@ -21,8 +19,8 @@ func _on_create_char_button_pressed() -> void:
 	var user_selected_job = %OptionButton.selected
 	var cost = JobDict.GetHireCost(user_selected_job)
 	
-	if not PlayerData.inventory.has(ItemDict.item.comp1) or PlayerData.inventory[ItemDict.item.comp1] < cost:
-		Globals.system_message("Not enough " +ItemDict.GetItemName(ItemDict.item.comp1) + " to hire.")
+	if not PlayerData.inventory.has(unlock_resource) or PlayerData.inventory[unlock_resource] < cost:
+		Globals.system_message("Not enough " +unlock_resource.item_name + " to hire.")
 		return
 	
 	if not user_entered_name:
@@ -33,7 +31,7 @@ func _on_create_char_button_pressed() -> void:
 		Globals.system_message("No job selected!")
 		return
 	
-	var choice = await Globals.system_message_choice("Spend " + str(cost) + " " + ItemDict.GetItemName(ItemDict.item.comp1) + " to hire " + str(user_entered_name) + "?", "Yes", "No")
+	var choice = await Globals.system_message_choice("Spend " + str(cost) + " " + unlock_resource.item_name + " to hire " + str(user_entered_name) + "?", "Yes", "No")
 	if choice == "right": return
 	
 	#look at current roster. Look at the last Character ID created and add +1 for the new character. Checks for empty roster. 
@@ -57,27 +55,18 @@ func _on_create_char_button_pressed() -> void:
 		"known_skills" = [],
 		"skill_levels" = {},
 		"equipment" = {
-			"main_hand": "",
-			"off_hand":  "",
-			"head":  "",
-			"body":  "",
-			"gloves": "",
-			"pants": "",
-			"necklace": "",
-			"ring_1": "",
-			"ring_2": ""
 		},
 		"status" = {},
 		"combatlabel" = null,
 		"combatnode" = null
 	}
 	#give starting equipment
-	CharacterChanges.add_equipment(newcharid, "head", ItemDict.item.head1, "roster")
-	CharacterChanges.add_equipment(newcharid, "body", ItemDict.item.body1, "roster")
-	CharacterChanges.add_equipment(newcharid, "main_hand", ItemDict.item.sword1, "roster")
+	CharacterChanges.add_equipment(newcharid, ItemDict.get_item(&"h0001"), "roster")
+	CharacterChanges.add_equipment(newcharid, ItemDict.get_item(&"b0001"), "roster")
+	CharacterChanges.add_equipment(newcharid, ItemDict.get_item(&"w0001"), "roster")
 	
 	#pay hiring price
-	CharacterChanges.RemovefromInventory(ItemDict.item.comp1, cost)
+	CharacterChanges.RemovefromInventory(unlock_resource, cost)
 	
 	#Create success pop-up dialogue
 	if AutoAddtoParty(PlayerData.roster[str(newcharid)]) == false:

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemClass" format=3 uid="uid://dbfddx3cphr3h"]
+
+[ext_resource type="Script" uid="uid://cmthgiwuu1hpq" path="res://Items/Items.gd" id="1_qmbnp"]
+
+[resource]
+script = ExtResource("1_qmbnp")
+item_id = &"w0001"
+item_slot = 2
+item_name = "Corroded Stick"
+description = "A corroded chunk of metal that provides little to no use in combat, and will surely fail the user at the most critical moment."
+sell_value = 2
+metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

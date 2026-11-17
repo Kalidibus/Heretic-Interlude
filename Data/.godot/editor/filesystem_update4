@@ -1,8 +1,35 @@
-res://Scenes/Global System/Globals.gd
-res://Scenes/Dungeon/Player.gd
-res://Classes/Classes.tscn
+res://Scenes/Guild/CharacterCreate.tscn
 res://Assets/UI/Heretic_Theme.tres
-res://Scenes/Pulse.gdshader
-res://Scenes/Vignette.gdshader
-res://Scenes/PauseMenu/PauseMenu.gd
-res://Scenes/PauseMenu/PartyMenu.gd
+res://Shaders/Vignette.gdshader
+res://Shaders/Pulse.gdshader
+res://Scenes/PlayerData/CharacterChanges.gd
+res://Items/ItemDict.gd
+res://Items/ItemDict.tscn
+res://Items/Items.gd
+res://Scenes/Guild/CharacterCreate.gd
+res://Classes/unlock_requirements.gd
+res://Enemies/Arid/Regular/mon_pylon.gd
+res://Scenes/PauseMenu/ItemMenu.gd
+res://Enemies/Arid/Regular/mon_brainrot.gd
+res://Enemies/Arid/Regular/mon_misalignment.gd
+res://Scenes/Guild/Unlocks.gd
+res://Scenes/Guild/SkillVendor/SkillUpgradeButton.gd
+res://Items/Item Files/c0001-dregs.tres
+res://Items/Item Files/w0001-bluntstick.tres
+res://Items/Item Files/h0001-corrodedhelm.tres
+res://Items/Item Files/b0001-corrodedarmour.tres
+res://Scenes/Guild/UnlockGuiBox.gd
+res://Scenes/PlayerData/PlayerData.tscn
+res://Scenes/PlayerData/PlayerData.gd
+res://Classes/Classes.tscn
+res://Items/Item Files/c0000-dregs.tres
+res://Items/Item Files/c0001-scrapmetal.tres
+res://Items/Item Files/c0002-oilybonefragments.tres
+res://Items/Item Files/c0003-arcanetraces.tres
+res://Items/Item Files/c0004-billiousremnant.tres
+res://Scenes/Start.gd
+res://Scenes/Guild/SkillVendor/SkillTreeMenu.gd
+res://Items/Item Files/c0005-ruinouscitrine.tres
+res://Scenes/PlayerData/Inventory.tscn
+res://PlayerData/Inventory.tscn
+res://PlayerData/SaveandLoad.gd

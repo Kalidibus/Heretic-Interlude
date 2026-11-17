@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemClass" format=3 uid="uid://dbg7dlox3xetr"]
+
+[ext_resource type="Script" uid="uid://cmthgiwuu1hpq" path="res://Items/Items.gd" id="1_al5k4"]
+
+[resource]
+script = ExtResource("1_al5k4")
+item_id = &"h0001"
+item_type = 2
+item_subtype = 8
+item_slot = 1
+item_name = "Corroded Helm"
+description = "placeholder"
+sell_value = 5
+metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemClass" format=3 uid="uid://bpgntvohl1bgl"]
+
+[ext_resource type="Script" uid="uid://cmthgiwuu1hpq" path="res://Items/Items.gd" id="1_l81oq"]
+
+[resource]
+script = ExtResource("1_l81oq")
+item_id = &"c0000"
+item_type = 4
+item_subtype = 14
+item_name = "Dregs"
+description = "Meager dregs of an age long succumbed to rot."
+sell_value = 25
+metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

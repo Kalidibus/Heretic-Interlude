@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemClass" format=3 uid="uid://bcnbhkhd51mmj"]
+
+[ext_resource type="Script" uid="uid://cmthgiwuu1hpq" path="res://Items/Items.gd" id="1_w2crx"]
+
+[resource]
+script = ExtResource("1_w2crx")
+item_id = &"c0003"
+item_type = 4
+item_subtype = 14
+item_name = "Arcane Traces"
+description = "placeholder"
+sell_value = 100
+metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

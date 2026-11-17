@@ -152,7 +152,6 @@ func _on_Items_pressed():
 		for n in PlayerData.inventory:
 
 			var item = n
-			print(str(PlayerData.inventory))
 			var itemdesc = Items.items[n]
 			var active_character = Combat.active_character
 			

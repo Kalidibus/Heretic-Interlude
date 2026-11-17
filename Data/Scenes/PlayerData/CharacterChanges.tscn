@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://efw1x5wuue0"]
-
-[ext_resource type="Script" uid="uid://dosm0h44slkd3" path="res://Scenes/PlayerData/CharacterChanges.gd" id="1_js3m5"]
-
-[node name="PlayerData" type="Node"]
-script = ExtResource("1_js3m5")

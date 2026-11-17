@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemClass" format=3 uid="uid://by0u08nxa3myj"]
+
+[ext_resource type="Script" uid="uid://cmthgiwuu1hpq" path="res://Items/Items.gd" id="1_1khqy"]
+
+[resource]
+script = ExtResource("1_1khqy")
+item_id = &"b0001"
+item_type = 2
+item_subtype = 9
+item_slot = 2
+item_name = "Corroded Armour"
+description = "placeholder"
+sell_value = 5
+metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

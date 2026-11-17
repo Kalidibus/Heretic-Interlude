@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemClass" format=3 uid="uid://6g7gbo64oy0k"]
+
+[ext_resource type="Script" uid="uid://cmthgiwuu1hpq" path="res://Items/Items.gd" id="1_1prtb"]
+
+[resource]
+script = ExtResource("1_1prtb")
+item_id = &"c0002"
+item_type = 4
+item_subtype = 14
+item_name = "Oily Bone Fragments"
+description = "placeholder"
+sell_value = 100
+metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

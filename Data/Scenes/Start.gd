@@ -4,10 +4,11 @@ func _ready():
 	#SaveandLoad.load_file()
 	
 	#DEBUG SECTION:
-	CharacterChanges.AddtoInventory(ItemDict.item.comp1, 15)
-	CharacterChanges.AddtoInventory(ItemDict.item.comp2, 15)
-	CharacterChanges.AddtoInventory(ItemDict.item.comp3, 15)
-	CharacterChanges.AddtoInventory(ItemDict.item.comp4, 15)
+	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0000"), 15)
+	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0001"), 15)
+	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0002"), 15)
+	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0003"), 15)
+	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0004"), 15)
 	print(PlayerData.roster)
 	%Dungeon.grab_focus()
 

@@ -3,8 +3,8 @@ extends Node
 var roster = {}
 var party = {}
 var party_order = []
-var inventory = {}
-var unlocked_classes = ["0", "1", "2", "3", "4"]
+var inventory: Dictionary[ItemClass, int] = {}
+var unlocked_classes = ["0", "1", "2", "3", "4"] #this needs to be changed to an enum in the Job dictionary and referenced against that here. 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
