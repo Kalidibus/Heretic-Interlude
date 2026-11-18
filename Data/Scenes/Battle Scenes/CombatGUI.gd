@@ -146,26 +146,25 @@ func _on_Skills_pressed():
 func _on_Items_pressed():
 	lastpushed = "Items"
 	ClearSecondMenu()
-	if PlayerData.inventory.is_empty():
-		BattleLog("No Items")
-	else:
-		for n in PlayerData.inventory:
+	var emptycheck: int
 
-			var item = n
-			var itemdesc = Items.items[n]
-			var active_character = Combat.active_character
-			
-			var skillnode = load("res://Scenes/Battle Scenes/SkillNode.tscn").instantiate()
-			secondmenu.add_child(skillnode)
-			skillnode.SetSkill(item, itemdesc)
-			skillnode.get_child(0).connect("pressed",Callable(Items,n).bind(active_character))
-	
+	for item in PlayerData.inventory:
+		if item.can_be_used != ItemClass.uses.everywhere and item.can_be_used != ItemClass.uses.combat_only:
+			continue
+		var skillnode = load("res://Scenes/Battle Scenes/SkillNode.tscn").instantiate()
+		secondmenu.add_child(skillnode)
+		skillnode.SetSkill(str(item.item_name + " - (" +str(PlayerData.inventory[item])+")") , item.description)
+		#skillnode.get_child(0).connect("pressed",Callable(Items,n).bind(active_character))
+		emptycheck += 1
 	
 		var label = Label.new()
 		label.text = "ITEMS"
 		secondmenu.add_child(label)
 		secondmenu.move_child(label, 0)
 		secondmenu.get_child(1).get_child(0).grab_focus()
+		
+	if emptycheck == 0:
+		BattleLog("No Items")
 
 #when the defend button is pressed, active character will get 50% extra DEF. 
 func _on_Defend_pressed(): 

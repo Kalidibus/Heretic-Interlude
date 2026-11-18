@@ -70,7 +70,6 @@ func GetSkillInfo(skillid, skill):
 func CheckParentLevel():
 	if get_parent() is SkillUpgradeButton:
 		var parent = get_parent()
-		print(parent)
 		if parent.current_level >= parent_required_level:
 			disabled = false
 

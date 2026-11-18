@@ -40,8 +40,6 @@ func FillTree():
 	
 	for skill in skills:
 		var node = skill_tree_node.get_node("%Skill" + str(count))
-		print(skills[skill])
-		print(node)
 		node.GetSkillInfo(skill, skills[skill])
 		for known in PlayerData.party[char_id]["known_skills"]:
 			if skill == known:

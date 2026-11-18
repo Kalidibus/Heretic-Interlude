@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://cqpl51h4jm0r0"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_2vju8"]
+
+[resource]
+script = ExtResource("1_2vju8")
+skill_id = &"s0002"
+skill_name = "Meager Potion"
+skill_description = "Triggered upon consuming a Meager Potion	"
+skill_target = 17
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

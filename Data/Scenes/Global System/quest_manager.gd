@@ -17,7 +17,6 @@ var quest_progress: int = 0
 
 func ReturnQuestInfo():
 	return quest_dictionary[active_quest]
-	print(quest_dictionary[active_quest])
 
 func StartNewQuest(newquest: quest_type):
 	if active_quest == quest_type.NONE:
@@ -30,6 +29,5 @@ func BattleWon():
 
 func CheckCompletion():
 	if quest_dictionary[active_quest][quest.NEEDED_QTY] == quest_progress:
-		print("quest completed")
 		Globals.system_message("Quest Complete! Return to Town to claim your rewards.")
 		active_quest = quest_type.COMPLETE

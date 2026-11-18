@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://chl7c1d5g70sb" path="res://Scenes/PauseMenu/ItemMenu.gd" id="1_5qxyk"]
 [ext_resource type="Theme" uid="uid://dny0ibmsfjqu5" path="res://Assets/UI/Heretic_Theme.tres" id="2_sq5gh"]
 
-[node name="ItemMenu" type="MarginContainer"]
+[node name="ItemMenu" type="MarginContainer" unique_id=310406254]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,22 +12,22 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_5qxyk")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=84851500]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1578813927]
 layout_mode = 2
 
-[node name="WeaponBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+[node name="WeaponBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=1064955258]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer2/WeaponBox"]
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer2/WeaponBox" unique_id=1168249183]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 
-[node name="Button8" type="Label" parent="VBoxContainer/HBoxContainer2/WeaponBox/Panel"]
+[node name="Button8" type="Label" parent="VBoxContainer/HBoxContainer2/WeaponBox/Panel" unique_id=1366823268]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -42,42 +42,42 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Weapons"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/WeaponBox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/WeaponBox" unique_id=761359391]
 layout_mode = 2
 
-[node name="1Hand" type="Button" parent="VBoxContainer/HBoxContainer2/WeaponBox/HBoxContainer"]
+[node name="1Hand" type="Button" parent="VBoxContainer/HBoxContainer2/WeaponBox/HBoxContainer" unique_id=1113075455]
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 text = "One-Handed Weapons"
 
-[node name="Two-Handed" type="Button" parent="VBoxContainer/HBoxContainer2/WeaponBox/HBoxContainer"]
+[node name="Two-Handed" type="Button" parent="VBoxContainer/HBoxContainer2/WeaponBox/HBoxContainer" unique_id=1372796067]
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 text = "Two-Handed Weapons"
 
-[node name="Shields" type="Button" parent="VBoxContainer/HBoxContainer2/WeaponBox/HBoxContainer"]
+[node name="Shields" type="Button" parent="VBoxContainer/HBoxContainer2/WeaponBox/HBoxContainer" unique_id=1655505974]
 custom_minimum_size = Vector2(115, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 text = "Shields"
 
-[node name="Arcana" type="Button" parent="VBoxContainer/HBoxContainer2/WeaponBox/HBoxContainer"]
+[node name="Arcana" type="Button" parent="VBoxContainer/HBoxContainer2/WeaponBox/HBoxContainer" unique_id=1692237752]
 custom_minimum_size = Vector2(115, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 text = "Arcana"
 
-[node name="GearBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+[node name="GearBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=131174581]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer2/GearBox"]
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer2/GearBox" unique_id=1084449533]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 
-[node name="Button8" type="Label" parent="VBoxContainer/HBoxContainer2/GearBox/Panel"]
+[node name="Button8" type="Label" parent="VBoxContainer/HBoxContainer2/GearBox/Panel" unique_id=200622153]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -92,54 +92,54 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Gear"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/GearBox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/GearBox" unique_id=443301002]
 layout_mode = 2
 
-[node name="Head" type="Button" parent="VBoxContainer/HBoxContainer2/GearBox/HBoxContainer"]
+[node name="Head" type="Button" parent="VBoxContainer/HBoxContainer2/GearBox/HBoxContainer" unique_id=830002046]
 custom_minimum_size = Vector2(115, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 text = "Head"
 
-[node name="Body" type="Button" parent="VBoxContainer/HBoxContainer2/GearBox/HBoxContainer"]
+[node name="Body" type="Button" parent="VBoxContainer/HBoxContainer2/GearBox/HBoxContainer" unique_id=1158654459]
 custom_minimum_size = Vector2(115, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 text = "Body"
 
-[node name="Gloves" type="Button" parent="VBoxContainer/HBoxContainer2/GearBox/HBoxContainer"]
+[node name="Gloves" type="Button" parent="VBoxContainer/HBoxContainer2/GearBox/HBoxContainer" unique_id=763993581]
 custom_minimum_size = Vector2(115, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 text = "Gloves"
 
-[node name="Pants" type="Button" parent="VBoxContainer/HBoxContainer2/GearBox/HBoxContainer"]
+[node name="Pants" type="Button" parent="VBoxContainer/HBoxContainer2/GearBox/HBoxContainer" unique_id=1146485033]
 custom_minimum_size = Vector2(115, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 text = "Pants"
 
-[node name="Rings" type="Button" parent="VBoxContainer/HBoxContainer2/GearBox/HBoxContainer"]
+[node name="Rings" type="Button" parent="VBoxContainer/HBoxContainer2/GearBox/HBoxContainer" unique_id=974739909]
 custom_minimum_size = Vector2(115, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 text = "Rings"
 
-[node name="Necklaces" type="Button" parent="VBoxContainer/HBoxContainer2/GearBox/HBoxContainer"]
+[node name="Necklaces" type="Button" parent="VBoxContainer/HBoxContainer2/GearBox/HBoxContainer" unique_id=1782475266]
 custom_minimum_size = Vector2(115, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 text = "Necklaces"
 
-[node name="ItemBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+[node name="ItemBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=909355768]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer2/ItemBox"]
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer2/ItemBox" unique_id=614416083]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 
-[node name="Button8" type="Label" parent="VBoxContainer/HBoxContainer2/ItemBox/Panel"]
+[node name="Button8" type="Label" parent="VBoxContainer/HBoxContainer2/ItemBox/Panel" unique_id=1042147071]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -154,34 +154,34 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Loot & Other"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/ItemBox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/ItemBox" unique_id=1085473899]
 layout_mode = 2
 
-[node name="Items" type="Button" parent="VBoxContainer/HBoxContainer2/ItemBox/HBoxContainer"]
+[node name="Items" type="Button" parent="VBoxContainer/HBoxContainer2/ItemBox/HBoxContainer" unique_id=516064989]
 custom_minimum_size = Vector2(115, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 text = "Consumables"
 
-[node name="Crafting" type="Button" parent="VBoxContainer/HBoxContainer2/ItemBox/HBoxContainer"]
+[node name="Crafting" type="Button" parent="VBoxContainer/HBoxContainer2/ItemBox/HBoxContainer" unique_id=859782142]
 custom_minimum_size = Vector2(115, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
-text = "Crafting"
+text = "Components"
 
-[node name="Augments" type="Button" parent="VBoxContainer/HBoxContainer2/ItemBox/HBoxContainer"]
+[node name="Augments" type="Button" parent="VBoxContainer/HBoxContainer2/ItemBox/HBoxContainer" unique_id=209257128]
 custom_minimum_size = Vector2(115, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 text = "Augments"
 
-[node name="Key" type="Button" parent="VBoxContainer/HBoxContainer2/ItemBox/HBoxContainer"]
+[node name="Key" type="Button" parent="VBoxContainer/HBoxContainer2/ItemBox/HBoxContainer" unique_id=1046278166]
 custom_minimum_size = Vector2(115, 30)
 layout_mode = 2
 theme = ExtResource("2_sq5gh")
 text = "Key"
 
-[node name="Items" type="GridContainer" parent="VBoxContainer"]
+[node name="Items" type="GridContainer" parent="VBoxContainer" unique_id=954952472]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 2

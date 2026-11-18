@@ -5,6 +5,7 @@ enum type {one_handed_weapon, two_handed_weapon, armour, accessory, loot}
 enum subtype {sword, shield, axe, polearm, arcana, hammer, stave, glaive, head, body, gloves, pants, ring, necklace, component, consumable, augments, key}
 enum slot {none, head, body, main_hand, off_hand, gloves, pants, necklace, ring}
 enum rarity {common, uncommon, rare, legendary}
+enum uses {none = 0, everywhere = 1, field_only = 2, combat_only = 3}
 
 @export var item_id: StringName
 @export var item_type: type
@@ -14,8 +15,9 @@ enum rarity {common, uncommon, rare, legendary}
 @export_multiline var description: String = "placeholder"
 @export var sell_value: int = 0
 @export var item_rarity: rarity
-# Use stat names as keys, such as &"PHY" or &"MAG".
 @export var weapon_damage_modifiers: Dictionary[CG.damage_type, int] = {}
+@export var can_be_used: uses
+@export var effect_on_use: Array[SkillClass]
 
 # Use stat names as keys, such as &"FTH" or &"STR".
 @export var stat_modifiers: Dictionary[CG.stat, int] = {}

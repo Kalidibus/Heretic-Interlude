@@ -11,7 +11,16 @@ enum target {
 	FRONT_ENEMIES = 5,
 	FRONT_ALLIES = 6,
 	BACK_ENEMIES = 7,
-	BACK_ALLIES = 8
+	BACK_ALLIES = 8,
+	EVERYONE = 9, 
+	RANDOM = 10, 
+	RANDOM_ENEMY = 11,
+	RANDOM_ALLY = 12, 
+	RANDOM_FRONT_ENEMY = 13, 
+	RANDOM_FRONT_ALLY = 14, 
+	RANDOM_BACK_ENEMY = 15, 
+	RANDOM_BACK_ALLY = 16,
+	SINGLE_ANYONE = 17
 }
 
 
@@ -21,7 +30,7 @@ enum target {
 @export var skill_target: target
 @export var skill_trigger: StringName
 @export var skill_max_level: int = 1
-@export var skill_book: SkillBook.books
+@export var skill_book: SkillDict.books
 
 var skill_level: int
 

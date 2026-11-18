@@ -38,7 +38,7 @@ func _on_givestuff_pressed() -> void:
 	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0003"), 50)
 	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0004"), 50)
 	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0005"), 50)
-	print(PlayerData.inventory)
+	CharacterChanges.AddtoInventory(ItemDict.get_item(&"i0001"), 3)
 	get_tree().reload_current_scene()
 
 func _on_takestuff_pressed() -> void:

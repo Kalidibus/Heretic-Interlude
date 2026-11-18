@@ -9,7 +9,6 @@ func _ready():
 	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0002"), 15)
 	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0003"), 15)
 	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0004"), 15)
-	print(PlayerData.roster)
 	%Dungeon.grab_focus()
 
 func _on_StartButton_pressed():

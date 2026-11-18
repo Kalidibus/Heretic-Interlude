@@ -1,21 +1,21 @@
-res://PlayerData/Inventory.tscn
+res://Skills/SkillDict.gd
+res://Items/ItemDict.tscn
 res://Assets/UI/Heretic_Theme.tres
 res://Shaders/Vignette.gdshader
 res://Shaders/Pulse.gdshader
-res://Items/Items.gd
-res://Items/Item Files/c0001-scrapmetal.tres
-res://Items/Item Files/c0002-oilybonefragments.tres
-res://Items/Item Files/c0003-arcanetraces.tres
-res://Items/Item Files/c0004-billiousremnant.tres
-res://Items/Item Files/c0005-ruinouscitrine.tres
-res://Items/ItemDict.tscn
-res://Items/Item Files/r0001-gentlerepose.tres
+res://Skills/Skill Files/s0001-taunt.gd
 res://Skills/Skills.gd
-res://Skills/SkillFiles/s0001-taunt.tres
 res://Skills/SkillActions.gd
-res://Skills/ActiveSkills.gd
-res://Skills/SkillBooks/FortressSkills.gd
-res://Skills/SkillDict.gd
-res://Items/ItemDict.gd
-res://Skills/SkillBooks/FelMageSkills.gd
-res://Skills/Skill Files/s0001-taunt.tres
+res://Skills/Skill Actions/sa0001-singledamage.gd
+res://Scenes/PauseMenu/ItemMenu.gd
+res://Scenes/PauseMenu/ItemMenu.tscn
+res://Scenes/PauseMenu/ItemBlock.tscn
+res://Scenes/Battle Scenes/CombatGUI.gd
+res://Scenes/Global System/quest_manager.gd
+res://Scenes/Guild/SkillVendor/SkillTreeMenu.gd
+res://Scenes/Guild/SkillVendor/SkillUpgradeButton.gd
+res://Scenes/Start.gd
+res://Scenes/Guild/Unlocks.gd
+res://Items/Items.gd
+res://Items/Item Files/i0001-weakpotion.tres
+res://Skills/Skill Files/s0002-meagerpotion.tres
