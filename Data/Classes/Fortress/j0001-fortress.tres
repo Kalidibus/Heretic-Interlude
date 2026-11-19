@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="JobsClass" format=3 uid="uid://bfebaxtfj41jn"]
+
+[ext_resource type="Texture2D" uid="uid://diwcq2vq3fbux" path="res://Assets/Classes/Fortress/Fortress-PartyLabel.png" id="1_dwepl"]
+[ext_resource type="Script" uid="uid://bnypl80u8otx2" path="res://Classes/Jobs.gd" id="1_o7jf5"]
+[ext_resource type="Texture2D" uid="uid://coaxx58modqde" path="res://Assets/Classes/Fortress/Fortress-profile.png" id="2_yb5iw"]
+[ext_resource type="PackedScene" uid="uid://tdr7rffcjmcd" path="res://Classes/Fortress/SkillTree-Fortress.tscn" id="3_vipt3"]
+[ext_resource type="Texture2D" uid="uid://dbhb1nc0x28xj" path="res://Assets/Classes/Fortress/Fortress-splash.png" id="4_g2osc"]
+
+[resource]
+script = ExtResource("1_o7jf5")
+job_id = &"j0001"
+job_name = "Fortress"
+job_description = "An iron wall to keep Lamentations at bay. 
+
+The Fortress vocation excels at defending the party from physical attacks. Taking hits from enemies repeatedly will also accumulate a resource called [b]Ire[/b] which can be used to trigger powerful counter-attacks. 
+
+While the Fortresses' shields can protect against magic attacks to some degree, they are not as well suited for foes that deal elemental damage."
+job_splash_image = ExtResource("4_g2osc")
+job_profile_image = ExtResource("2_yb5iw")
+job_label_image = ExtResource("1_dwepl")
+job_skill_tree = ExtResource("3_vipt3")
+metadata/_custom_type_script = "uid://bnypl80u8otx2"

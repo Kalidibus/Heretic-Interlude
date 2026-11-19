@@ -2,6 +2,33 @@ extends Node
 
 var job_dictionary
 enum resources {charname, node, resource, splash, splash_pos, profile, label, skill_tree}
+enum stats {
+	HP = 0,
+	MAXHP = 1,
+	MP = 2,
+	MAXMP = 3,
+	STR = 4,
+	DEF = 5,
+	DEX = 6,
+	RES = 7,
+	INT = 8,
+	FTH = 9,
+	EVD = 10,
+	ACC = 11,
+	SPD = 12,
+	CRIT = 13,
+	CRITDMG = 14,
+	HATE = 15,
+}
+enum stat_scale {
+	F = 0,
+	E = 1,
+	D = 2,
+	C = 3,
+	B = 4,
+	A = 5,
+	S = 6,
+}
 
 const S = 10
 const A = 9
