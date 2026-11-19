@@ -33,17 +33,17 @@ func _on_return_button_pressed() -> void:
 
 
 func _on_givestuff_pressed() -> void:
-	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0001"), 50)
-	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0002"), 50)
-	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0003"), 50)
-	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0004"), 50)
-	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0005"), 50)
-	CharacterChanges.AddtoInventory(ItemDict.get_item(&"i0001"), 3)
+	CharacterChanges.AddtoInventory(&"c0001", 50)
+	CharacterChanges.AddtoInventory(&"c0002", 50)
+	CharacterChanges.AddtoInventory(&"c0003", 50)
+	CharacterChanges.AddtoInventory(&"c0004", 50)
+	CharacterChanges.AddtoInventory(&"c0005", 50)
+	CharacterChanges.AddtoInventory(&"i0001", 3)
 	get_tree().reload_current_scene()
 
 func _on_takestuff_pressed() -> void:
-	CharacterChanges.RemovefromInventory(ItemDict.get_item(&"c0001"), 5)
-	CharacterChanges.RemovefromInventory(ItemDict.get_item(&"c0002"), 5)
-	CharacterChanges.RemovefromInventory(ItemDict.get_item(&"c0003"), 5)
-	CharacterChanges.RemovefromInventory(ItemDict.get_item(&"c0004"), 5)
+	CharacterChanges.RemovefromInventory(&"c0001", 5)
+	CharacterChanges.RemovefromInventory(&"c0002", 5)
+	CharacterChanges.RemovefromInventory(&"c0003", 5)
+	CharacterChanges.RemovefromInventory(&"c0004", 5)
 	get_tree().reload_current_scene()

@@ -1,6 +1,6 @@
 extends Node
 
-@onready var unlock_resource: ItemClass = ItemDict.get_item(&"c0000")
+@onready var unlock_resource: StringName = &"c0000"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,7 +20,7 @@ func _on_create_char_button_pressed() -> void:
 	var cost = JobDict.GetHireCost(user_selected_job)
 	
 	if not PlayerData.inventory.has(unlock_resource) or PlayerData.inventory[unlock_resource] < cost:
-		Globals.system_message("Not enough " +unlock_resource.item_name + " to hire.")
+		Globals.system_message("Not enough " +ItemDict.get_item(unlock_resource).item_name + " to hire.")
 		return
 	
 	if not user_entered_name:
@@ -31,7 +31,7 @@ func _on_create_char_button_pressed() -> void:
 		Globals.system_message("No job selected!")
 		return
 	
-	var choice = await Globals.system_message_choice("Spend " + str(cost) + " " + unlock_resource.item_name + " to hire " + str(user_entered_name) + "?", "Yes", "No")
+	var choice = await Globals.system_message_choice("Spend " + str(cost) + " " + ItemDict.get_item(unlock_resource).item_name + " to hire " + str(user_entered_name) + "?", "Yes", "No")
 	if choice == "right": return
 	
 	#look at current roster. Look at the last Character ID created and add +1 for the new character. Checks for empty roster. 
@@ -61,9 +61,9 @@ func _on_create_char_button_pressed() -> void:
 		"combatnode" = null
 	}
 	#give starting equipment
-	CharacterChanges.add_equipment(newcharid, ItemDict.get_item(&"h0001"), "roster")
-	CharacterChanges.add_equipment(newcharid, ItemDict.get_item(&"b0001"), "roster")
-	CharacterChanges.add_equipment(newcharid, ItemDict.get_item(&"w0001"), "roster")
+	CharacterChanges.add_equipment(newcharid, &"h0001", "roster")
+	CharacterChanges.add_equipment(newcharid, &"b0001", "roster")
+	CharacterChanges.add_equipment(newcharid, &"w0001", "roster")
 	
 	#pay hiring price
 	CharacterChanges.RemovefromInventory(unlock_resource, cost)

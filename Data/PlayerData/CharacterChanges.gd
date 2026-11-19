@@ -8,21 +8,21 @@ func _ready() -> void:
 func add_equipment(charid, add_eqp, location) -> void:
 	var character = PlayerData.get(location)[str(charid)]
 	
-	if character["equipment"].get(add_eqp.item_slot) != null:
+	if character["equipment"].get(ItemDict.items_by_id.get(add_eqp).item_slot) != null:
 		remove_equipment(charid, add_eqp, location)
-	character["equipment"][add_eqp.item_slot] = add_eqp
+	character["equipment"][ItemDict.items_by_id.get(add_eqp).item_slot] = add_eqp
 
 func remove_equipment(charid, remove_eqp, location) -> void:
 	var character = PlayerData.get(location)[str(charid)]
-	character["equipment"].erase(remove_eqp.item_slot)
+	character["equipment"].erase(ItemDict.items_by_id.get(remove_eqp).item_slot)
 
-func AddtoInventory(item: ItemClass , qty: int) -> void:
+func AddtoInventory(item: StringName , qty: int) -> void:
 	if not PlayerData.inventory.has(item):
 		PlayerData.inventory[item] = qty
 	else:
 		PlayerData.inventory[item] += qty
 
-func RemovefromInventory(item: ItemClass , qty: int):
+func RemovefromInventory(item: StringName , qty: int):
 	if not PlayerData.inventory.has(item):
 		return 0
 	if PlayerData.inventory[item] < qty:

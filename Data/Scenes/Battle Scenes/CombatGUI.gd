@@ -149,11 +149,11 @@ func _on_Items_pressed():
 	var emptycheck: int
 
 	for item in PlayerData.inventory:
-		if item.can_be_used != ItemClass.uses.everywhere and item.can_be_used != ItemClass.uses.combat_only:
+		if ItemDict.items_by_id.get(item).can_be_used != ItemClass.uses.everywhere and ItemDict.items_by_id.get(item).can_be_used != ItemClass.uses.combat_only:
 			continue
 		var skillnode = load("res://Scenes/Battle Scenes/SkillNode.tscn").instantiate()
 		secondmenu.add_child(skillnode)
-		skillnode.SetSkill(str(item.item_name + " - (" +str(PlayerData.inventory[item])+")") , item.description)
+		skillnode.SetSkill(str(ItemDict.items_by_id.get(item).item_name + " - (" +str(PlayerData.inventory[item])+")") , ItemDict.items_by_id.get(item).description)
 		#skillnode.get_child(0).connect("pressed",Callable(Items,n).bind(active_character))
 		emptycheck += 1
 	

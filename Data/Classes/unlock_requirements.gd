@@ -3,68 +3,69 @@ extends Node
 @onready var req = {
 	#Fortress
 	"0" = {
-		"0" = {"itemid" = ItemDict.get_item("c0001"), "needed" = 20},
-		"1" = {"itemid" = ItemDict.get_item("c0002"), "needed" = 20},
-		"2" = {"itemid" = ItemDict.get_item("c0003"), "needed" = 20},
-		"3" = {"itemid" = ItemDict.get_item("c0004"), "needed" = 20}
+		"0" = {"itemid" = &"c0001", "needed" = 20},
+		"1" = {"itemid" = &"c0002", "needed" = 20},
+		"2" = {"itemid" = &"c0003", "needed" = 20},
+		"3" = {"itemid" = &"c0004", "needed" = 20}
 		},
 	#Fel Mage
 	"1" = {
-		"0" = {"itemid" = ItemDict.get_item("c0001"), "needed" = 20},
-		"1" = {"itemid" = ItemDict.get_item("c0002"), "needed" = 20},
-		"2" = {"itemid" = ItemDict.get_item("c0003"), "needed" = 20},
-		"3" = {"itemid" = ItemDict.get_item("c0004"), "needed" = 20}
+		"0" = {"itemid" = &"c0001", "needed" = 20},
+		"1" = {"itemid" = &"c0002", "needed" = 20},
+		"2" = {"itemid" = &"c0003", "needed" = 20},
+		"3" = {"itemid" = &"c0004", "needed" = 20}
 		},
 	#Bastard Fist
 	"2" = {
-		"0" = {"itemid" = ItemDict.get_item("c0001"), "needed" = 20},
-		"1" = {"itemid" = ItemDict.get_item("c0002"), "needed" = 20},
-		"2" = {"itemid" = ItemDict.get_item("c0003"), "needed" = 20},
-		"3" = {"itemid" = ItemDict.get_item("c0004"), "needed" = 20}
+		"0" = {"itemid" = &"c0001", "needed" = 20},
+		"1" = {"itemid" = &"c0002", "needed" = 20},
+		"2" = {"itemid" = &"c0003", "needed" = 20},
+		"3" = {"itemid" = &"c0004", "needed" = 20}
 		},
 	#Shade Hunter
 	"3" = {
-		"0" = {"itemid" = ItemDict.get_item("c0001"), "needed" = 20},
-		"1" = {"itemid" = ItemDict.get_item("c0002"), "needed" = 20},
-		"2" = {"itemid" = ItemDict.get_item("c0003"), "needed" = 20},
-		"3" = {"itemid" = ItemDict.get_item("c0004"), "needed" = 20}
+		"0" = {"itemid" = &"c0001", "needed" = 20},
+		"1" = {"itemid" = &"c0002", "needed" = 20},
+		"2" = {"itemid" = &"c0003", "needed" = 20},
+		"3" = {"itemid" = &"c0004", "needed" = 20}
 		},
 	#Erde Cleric
 	"4" = {
-		"0" = {"itemid" = ItemDict.get_item("c0001"), "needed" = 20},
-		"1" = {"itemid" = ItemDict.get_item("c0002"), "needed" = 20},
-		"2" = {"itemid" = ItemDict.get_item("c0003"), "needed" = 20},
-		"3" = {"itemid" = ItemDict.get_item("c0004"), "needed" = 20}
+		"0" = {"itemid" = &"c0001", "needed" = 20},
+		"1" = {"itemid" = &"c0002", "needed" = 20},
+		"2" = {"itemid" = &"c0003", "needed" = 20},
+		"3" = {"itemid" = &"c0004", "needed" = 20}
 		},
 	#Dancer
 	"5" = {
-		"0" = {"itemid" = ItemDict.get_item("c0001"), "needed" = 20},
-		"1" = {"itemid" = ItemDict.get_item("c0002"), "needed" = 20},
-		"2" = {"itemid" = ItemDict.get_item("c0003"), "needed" = 20},
-		"3" = {"itemid" = ItemDict.get_item("c0004"), "needed" = 20}
+		"0" = {"itemid" = &"c0001", "needed" = 20},
+		"1" = {"itemid" = &"c0002", "needed" = 20},
+		"2" = {"itemid" = &"c0003", "needed" = 20},
+		"3" = {"itemid" = &"c0004", "needed" = 20}
 		},
 	#Illusionist
 	"6" = {
-		"0" = {"itemid" = ItemDict.get_item("c0001"), "needed" = 20},
-		"1" = {"itemid" = ItemDict.get_item("c0002"), "needed" = 20},
-		"2" = {"itemid" = ItemDict.get_item("c0003"), "needed" = 20},
-		"3" = {"itemid" = ItemDict.get_item("c0004"), "needed" = 20}
+		"0" = {"itemid" = &"c0001", "needed" = 20},
+		"1" = {"itemid" = &"c0002", "needed" = 20},
+		"2" = {"itemid" = &"c0003", "needed" = 20},
+		"3" = {"itemid" = &"c0004", "needed" = 20}
 		},
 	#Samurai
 	"7" = {
-		"0" = {"itemid" = ItemDict.get_item("c0001"), "needed" = 20},
-		"1" = {"itemid" = ItemDict.get_item("c0002"), "needed" = 20},
-		"2" = {"itemid" = ItemDict.get_item("c0003"), "needed" = 20},
-		"3" = {"itemid" = ItemDict.get_item("c0004"), "needed" = 20}
+		"0" = {"itemid" = &"c0001", "needed" = 20},
+		"1" = {"itemid" = &"c0002", "needed" = 20},
+		"2" = {"itemid" = &"c0003", "needed" = 20},
+		"3" = {"itemid" = &"c0004", "needed" = 20}
 		},
 	#War Mage
 	"8" = {
-		"0" = {"itemid" = ItemDict.get_item("c0001"), "needed" = 20},
-		"1" = {"itemid" = ItemDict.get_item("c0002"), "needed" = 20},
-		"2" = {"itemid" = ItemDict.get_item("c0003"), "needed" = 20},
-		"3" = {"itemid" = ItemDict.get_item("c0004"), "needed" = 20}
+		"0" = {"itemid" = &"c0001", "needed" = 20},
+		"1" = {"itemid" = &"c0002", "needed" = 20},
+		"2" = {"itemid" = &"c0003", "needed" = 20},
+		"3" = {"itemid" = &"c0004", "needed" = 20}
 		}
 }
+
 
 
 

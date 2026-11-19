@@ -4,11 +4,11 @@ func _ready():
 	#SaveandLoad.load_file()
 	
 	#DEBUG SECTION:
-	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0000"), 15)
-	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0001"), 15)
-	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0002"), 15)
-	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0003"), 15)
-	CharacterChanges.AddtoInventory(ItemDict.get_item(&"c0004"), 15)
+	CharacterChanges.AddtoInventory(&"c0000", 15)
+	CharacterChanges.AddtoInventory(&"c0001", 15)
+	CharacterChanges.AddtoInventory(&"c0002", 15)
+	CharacterChanges.AddtoInventory(&"c0003", 15)
+	CharacterChanges.AddtoInventory(&"c0004", 15)
 	%Dungeon.grab_focus()
 
 func _on_StartButton_pressed():

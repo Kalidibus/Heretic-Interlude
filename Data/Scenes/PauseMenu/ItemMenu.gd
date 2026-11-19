@@ -22,11 +22,12 @@ func FillItems(type):
 	var itemblock = load("res://Scenes/PauseMenu/ItemBlock.tscn")
 	var count = 0
 	
-	for n in PlayerData.inventory:
+	for item in PlayerData.inventory:
+		var n = ItemDict.get_item(item)
 		if n.item_subtype == type:
 			%Items.add_child(itemblock.instantiate())
 			%Items.get_child(count).get_node("%Name").text = n.item_name
-			%Items.get_child(count).get_node("%Qty").text = str(PlayerData.GetInvItemQty(n))
+			%Items.get_child(count).get_node("%Qty").text = str(PlayerData.GetInvItemQty(item))
 			%Items.get_child(count).get_node("%Description").text = n.description
 			count += 1
 	if count == 0:

@@ -13,14 +13,15 @@ func set_unlock_gui(jobid):
 	%PVTexture.texture = load(JobDict.JobProfile(jobid))
 	
 	#resource 1
-	var resource1 = ItemDict.items_by_id.get(&"c0001")
-	var resource2 = ItemDict.items_by_id.get(&"c0002")
-	var resource3 = ItemDict.items_by_id.get(&"c0003")
-	var resource4 = ItemDict.items_by_id.get(&"c0004")
+	var resource1 = &"c0001"
+	var resource2 = &"c0002"
+	var resource3 = &"c0003"
+	var resource4 = &"c0004"
+	
 	itemid = dict["0"]["itemid"]
 	needed = dict["0"]["needed"]
 	#%res1icon = ItemDict.GetIcon(itemid)
-	%res1name.text = resource1.item_name
+	%res1name.text = ItemDict.items_by_id.get(resource1).item_name
 	%res1current.text = str(PlayerData.GetInvItemQty(resource1))
 	%res1need.text = str(needed)
 
@@ -28,7 +29,7 @@ func set_unlock_gui(jobid):
 	itemid = dict["1"]["itemid"]
 	needed = dict["1"]["needed"]
 	#%res2icon = ItemDict.GetIcon(itemid)
-	%res2name.text = resource2.item_name
+	%res2name.text = ItemDict.items_by_id.get(resource2).item_name
 	%res2current.text = str(PlayerData.GetInvItemQty(resource2))
 	%res2need.text = str(needed)
 	
@@ -36,7 +37,7 @@ func set_unlock_gui(jobid):
 	itemid = dict["2"]["itemid"]
 	needed = dict["2"]["needed"]
 	#%res3icon = ItemDict.GetIcon(itemid)
-	%res3name.text = resource3.item_name
+	%res3name.text = ItemDict.items_by_id.get(resource3).item_name
 	%res3current.text = str(PlayerData.GetInvItemQty(resource3))
 	%res3need.text = str(needed)
 	
@@ -44,7 +45,7 @@ func set_unlock_gui(jobid):
 	itemid = dict["3"]["itemid"]
 	needed = dict["3"]["needed"]
 	#%res4icon = ItemDict.GetIcon(itemid)
-	%res4name.text = resource4.item_name
+	%res4name.text = ItemDict.items_by_id.get(resource4).item_name
 	%res4current.text = str(PlayerData.GetInvItemQty(resource4))
 	%res4need.text = str(needed)
 
@@ -70,10 +71,11 @@ func PaythePrice(jobid):
 	for n in costarray:
 		var cost = costarray[n]["needed"]
 		var item = costarray[n]["itemid"]
-
+		print(item)
 
 		if PlayerData.GetInvItemQty(item) >= cost:
 			count += 1
+			print(str(count))
 	if count == 4:
 		for n in costarray:
 			var item = costarray[n]["itemid"]
