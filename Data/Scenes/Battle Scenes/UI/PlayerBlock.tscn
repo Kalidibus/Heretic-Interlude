@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://rurfjmtlkk3"]
+[gd_scene format=3 uid="uid://rurfjmtlkk3"]
 
-[ext_resource type="Script" path="res://Scenes/Battle Scenes/PlayerBlock.gd" id="1_t78d7"]
+[ext_resource type="Script" uid="uid://63afgmbudvqj" path="res://Scenes/Battle Scenes/UI/PlayerBlock.gd" id="1_t78d7"]
 [ext_resource type="Texture2D" uid="uid://diwcq2vq3fbux" path="res://Assets/Classes/Fortress/Fortress-PartyLabel.png" id="2_s1gq7"]
 [ext_resource type="Texture2D" uid="uid://drac0yxtmd00b" path="res://Assets/UI/bar_under.png" id="3_88ycv"]
 [ext_resource type="Texture2D" uid="uid://cnvglr0j77jl6" path="res://Assets/UI/HP_bar_progress.png" id="4_ha8tl"]

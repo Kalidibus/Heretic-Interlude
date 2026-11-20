@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp85noyycq41e"]
+[gd_scene format=3 uid="uid://cp85noyycq41e"]
 
-[ext_resource type="Script" path="res://Scenes/Battle Scenes/StatusIcon.gd" id="2"]
+[ext_resource type="Script" uid="uid://66mtd2dj2c13" path="res://Scenes/Battle Scenes/UI/StatusIcon.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://4velul5v51li" path="res://Assets/StatusIcons/icon_small.png" id="3"]
 
 [node name="StatusIcon" type="Control"]

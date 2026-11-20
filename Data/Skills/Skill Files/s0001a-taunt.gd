@@ -2,7 +2,7 @@ extends SkillActions
 var skill: SkillClass = SkillDict.skills_by_id.get(&"s0001")
 
 
-func start(caster):
+func queue(caster):
 	if caster.MPCheck(skill) == false: return #change MPCheck to check the skill details for the amount of MP it needs, using a formula of skill base cost * level * scaling
 	else: CombatGUI.QueueAction(caster, self) #queue this script, or the skill resource file, whatever makes more sense. 
 

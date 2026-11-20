@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://crq4bw035ndpf"]
+[gd_scene format=3 uid="uid://crq4bw035ndpf"]
 
-[ext_resource type="Script" path="res://Scenes/Battle Scenes/SkillNode.gd" id="1"]
+[ext_resource type="Script" uid="uid://p5ohvi6rwuue" path="res://Scenes/Battle Scenes/UI/SkillNode.gd" id="1"]
 [ext_resource type="Theme" uid="uid://dny0ibmsfjqu5" path="res://Assets/UI/Heretic_Theme.tres" id="2_lbr83"]
 
 [node name="SkillNode" type="MarginContainer"]

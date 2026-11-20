@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d0fmeparersoj"]
+
+[ext_resource type="Script" uid="uid://bvwg0t8h08cci" path="res://Scenes/Battle Scenes/UI/TargetButton.gd" id="1"]
+
+[node name="TargetButton" type="Button"]
+offset_right = 70.0
+offset_bottom = 20.0
+script = ExtResource("1")

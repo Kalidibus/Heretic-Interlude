@@ -1,9 +1,9 @@
 extends MarginContainer
 
 # Get blocks ready to be generated for the UI
-@onready var enemylabels = preload("res://Scenes/Battle Scenes/EnemyLabel.tscn")
-@onready var partylabels = preload("res://Scenes/Battle Scenes/PlayerBlock.tscn")
-@onready var statusicon = preload("res://Scenes/Battle Scenes/StatusIcon.tscn")
+@onready var enemylabels = preload("res://Scenes/Battle Scenes/UI/EnemyLabel.tscn")
+@onready var partylabels = preload("res://Scenes/Battle Scenes/UI/PlayerBlock.tscn")
+@onready var statusicon = preload("res://Scenes/Battle Scenes/UI/StatusIcon.tscn")
 @onready var secondmenu = %SecondMenu
 @onready var Combat = $/root/Combat
 

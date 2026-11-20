@@ -1,8 +1,7 @@
 res://Classes/Classes.tscn
 res://Assets/UI/Heretic_Theme.tres
-res://Skills/Skill Files/s0001a-taunt.gd
 res://Shaders/Vignette.gdshader
 res://Shaders/Pulse.gdshader
-res://Skills/Skill Files/s0001-taunt.tres
-res://Skills/SkillDict.gd
-res://Skills/Skills.gd
+res://Skills/Skill Files/s0001a-taunt.gd
+res://Skills/SkillActions.gd
+res://Scenes/Battle Scenes/UI/CombatGUI.gd
