@@ -119,23 +119,19 @@ func BattleLog(string):
 		label.custom_minimum_size = Vector2(570, 0)
 		%BattleLog.add_child(label)
 
+#2026refactor
 func _on_Skills_pressed():
-	lastpushed = "Skills"
+	lastpushed = &"Skills"
 	ClearSecondMenu()
 	
-	
-	for i in Combat.active_character.current_skills:
-		if Combat.active_character.current_skills[i].has(Entity.skill.passive): pass
+	for skill in Combat.active_character.current_skills:
+		if skill.type.PASSIVE == true: pass
 		else:
-			var skillname =  Combat.active_character.current_skills[i][Entity.skill.name]
-			var skillfunc = skillname.replace(" ","")
-			var skilldesc = Combat.active_character.current_skills[i][Entity.skill.desc]
-			
 			var skillnode = load("res://Scenes/Battle Scenes/SkillNode.tscn").instantiate()
 			secondmenu.add_child(skillnode)
-			skillnode.SetSkill(skillname, skilldesc)
-			skillnode.get_child(0).tooltip_text = skilldesc
-			skillnode.get_child(0).connect("pressed",Callable(Combat.active_character,skillfunc))
+			skillnode.SetSkill(skill)
+			skillnode.get_child(0).tooltip_text = skill.skill_description
+			skillnode.get_child(0).connect("pressed",Callable(Combat.active_character,skill.skill_trigger)) #?
 	
 	var label = Label.new()
 	label.text = "SKILLS"

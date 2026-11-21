@@ -7,15 +7,13 @@ class_name Entity
 @onready var enemies = get_node("/root/Combat/Combatants/Enemies")
 @onready var SignalBus = get_node("/root/Combat/SignalBus")
 
-
-enum stat {HP, MAXHP, MP, MAXMP, STR, DEF, DEX, RES, INT, FTH, EVD, ACC, SPD, CRIT, CRITDMG, HATE}
-enum stat_scale {F, E, D, C, B, A, S}
-enum damage_type {PIERCE, IMPACT, SLASH, INFERNAL, LEVIN, DEEP, ERDE, VIRTUOS, FEL, TRUE}
-enum status_effects {POISON, BURN, BLIND, STUN, SEAL, MARKED, REGEN}
-enum row_line {FRONT, BACK}
-enum skill {name, desc, passive, max_level, current_level, parent_unlock_level}
-
-var hire_cost = 5
+#enums, to be referenced by anything that needs to see stats etc
+enum stat {HP = 0, MAXHP = 1, MP = 2, MAXMP = 3, STR = 4, DEF = 5, DEX = 6, RES = 7, INT = 8, FTH = 9, EVD = 10, ACC = 11, SPD = 12, CRIT = 13, CRITDMG = 14, HATE = 15}
+enum stat_scale {F = 0, E = 1, D = 2, C = 3, B = 4, A = 5, S = 6}
+enum damage_type {PIERCE = 0, IMPACT = 1, SLASH = 2, INFERNAL = 3, LEVIN = 4, DEEP = 5, ERDE = 6, VIRTUOS = 7, FEL = 8, TRUE = 9}
+enum status_effects {POISON = 0, BURN = 1, BLIND = 2, STUN = 3, SEAL = 4, MARKED = 5, REGEN = 6}
+enum row_line {FRONT = 0, BACK = 1}
+enum skill {name = 0, desc = 1, passive = 2, max_level = 3, current_level = 4, parent_unlock_level = 5}
 
 #Combat Variables
 var charid #ties a node to it's owner in the party
@@ -23,7 +21,7 @@ var charname #character name (party member or monster common field)
 var combatlabel #ties a node to it's label on the GUI
 var stats = {} #this is filled in during Combat initiation based on the party member or monster that owns the node
 var skill_list
-var current_skills = {}
+var current_skills: Dictionary[SkillClass, int] = {} #skill known, and level of skill known
 
 var row
 var enemy = false
@@ -49,7 +47,7 @@ var markedcount
 var regen
 var regencount
 
-#Variables relating to stats and resistances
+#Variables relating to stats and resistances including from gear
 var statmods =  {
 	stat.MAXHP: 1,
 	stat.HP: 1, 
@@ -67,23 +65,7 @@ var statmods =  {
 	stat.CRIT: 1,
 	stat.CRITDMG: 1
 	}
-var gear_statmods = {
-	stat.MAXHP: 0,
-	stat.HP: 0, 
-	stat.MAXMP: 0,
-	stat.MP: 0,
-	stat.STR: 0,
-	stat.DEF: 0,
-	stat.DEX: 0,
-	stat.INT: 0,
-	stat.FTH: 0,
-	stat.RES: 0,
-	stat.SPD: 0,
-	stat.ACC: 0,
-	stat.EVD: 0,
-	stat.CRIT: 0,
-	stat.CRITDMG: 0
-	}
+
 var statmodtimer = {}
 var statres = {
 	status_effects.POISON: 40,
@@ -212,8 +194,8 @@ func StatusEffects():
 		if regencount == 0:
 			status.erase(status_effects.REGEN)
 
-func Stat(stat):
-	return (stats[stat] + gear_statmods[stat]) * statmods[stat] 
+func Stat(stat_to_check: Entity.stat):
+	return (stats[stat_to_check] * statmods[stat_to_check])
 
 func Attack(target):
 	CombatGUI.emit_signal("menuhide")

@@ -54,8 +54,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ptqi"]
 _data = {
-"Effect": SubResource("Animation_tnsvd"),
-"RESET": SubResource("Animation_jagfj")
+&"Effect": SubResource("Animation_tnsvd"),
+&"RESET": SubResource("Animation_jagfj")
 }
 
 [sub_resource type="Animation" id="Animation_3bt07"]
@@ -90,8 +90,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xhcr2"]
 _data = {
-"Effect": SubResource("Animation_3bt07"),
-"RESET": SubResource("Animation_me8ux")
+&"Effect": SubResource("Animation_3bt07"),
+&"RESET": SubResource("Animation_me8ux")
 }
 
 [sub_resource type="Animation" id="Animation_srq2i"]
@@ -127,8 +127,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mtpra"]
 _data = {
-"Effect": SubResource("Animation_srq2i"),
-"RESET": SubResource("Animation_1i3dn")
+&"Effect": SubResource("Animation_srq2i"),
+&"RESET": SubResource("Animation_1i3dn")
 }
 
 [sub_resource type="Animation" id="Animation_h6n7c"]
@@ -164,8 +164,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fvwi8"]
 _data = {
-"Effect": SubResource("Animation_h6n7c"),
-"RESET": SubResource("Animation_m037w")
+&"Effect": SubResource("Animation_h6n7c"),
+&"RESET": SubResource("Animation_m037w")
 }
 
 [sub_resource type="Animation" id="Animation_o80f6"]
@@ -201,29 +201,29 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f0f6f"]
 _data = {
-"Effect": SubResource("Animation_o80f6"),
-"RESET": SubResource("Animation_wlrq0")
+&"Effect": SubResource("Animation_o80f6"),
+&"RESET": SubResource("Animation_wlrq0")
 }
 
-[node name="Combat" type="Node"]
+[node name="Combat" type="Node" unique_id=1341600770]
 script = ExtResource("5")
 
-[node name="ActionQueue" parent="." instance=ExtResource("1")]
+[node name="ActionQueue" parent="." unique_id=1808694840 instance=ExtResource("1")]
 unique_name_in_owner = true
 
-[node name="SignalBus" type="Node" parent="."]
+[node name="SignalBus" type="Node" parent="." unique_id=1962405349]
 unique_name_in_owner = true
 script = ExtResource("3_j1whk")
 
-[node name="Combatants" type="Node" parent="."]
+[node name="Combatants" type="Node" parent="." unique_id=778212329]
 
-[node name="Party" type="Node" parent="Combatants"]
+[node name="Party" type="Node" parent="Combatants" unique_id=508293534]
 unique_name_in_owner = true
 
-[node name="Enemies" type="Node" parent="Combatants"]
+[node name="Enemies" type="Node" parent="Combatants" unique_id=128457516]
 unique_name_in_owner = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1353468964]
 custom_minimum_size = Vector2(600, 0)
 offset_right = 600.0
 offset_bottom = 280.0
@@ -233,14 +233,14 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=1224206575]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="BattleLog_ScrollCont" type="ScrollContainer" parent="MarginContainer/MarginContainer"]
+[node name="BattleLog_ScrollCont" type="ScrollContainer" parent="MarginContainer/MarginContainer" unique_id=171967858]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
@@ -252,21 +252,21 @@ horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
 script = ExtResource("3_sdkss")
 
-[node name="BattleLog" type="VBoxContainer" parent="MarginContainer/MarginContainer/BattleLog_ScrollCont"]
+[node name="BattleLog" type="VBoxContainer" parent="MarginContainer/MarginContainer/BattleLog_ScrollCont" unique_id=2090027565]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Panel2" type="Panel" parent="MarginContainer"]
+[node name="Panel2" type="Panel" parent="MarginContainer" unique_id=2121664802]
 show_behind_parent = true
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1264743066]
 modulate = Color(0.332881, 0.332881, 0.332881, 1)
 show_behind_parent = true
 layout_mode = 2
 theme = ExtResource("6_jafx1")
 
-[node name="CombatGUI" type="MarginContainer" parent="."]
+[node name="CombatGUI" type="MarginContainer" parent="." unique_id=806338064]
 unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -282,80 +282,80 @@ damage_colour = Color(0.745191, 0.251363, 0.187616, 1)
 dead_colour = Color(0.288518, 0.288518, 0.288518, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CombatGUI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CombatGUI" unique_id=180755804]
 layout_mode = 2
 
-[node name="EnemyGUI" type="HBoxContainer" parent="CombatGUI/VBoxContainer"]
+[node name="EnemyGUI" type="HBoxContainer" parent="CombatGUI/VBoxContainer" unique_id=602022197]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 alignment = 1
 
-[node name="CenterContainer" type="MarginContainer" parent="CombatGUI/VBoxContainer"]
+[node name="CenterContainer" type="MarginContainer" parent="CombatGUI/VBoxContainer" unique_id=1018534256]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CombatGUI/VBoxContainer/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CombatGUI/VBoxContainer/CenterContainer" unique_id=1336774770]
 layout_mode = 2
 
-[node name="Menu" type="VBoxContainer" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Menu" type="VBoxContainer" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1771465152]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 alignment = 1
 
-[node name="Attack" type="Button" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu"]
+[node name="Attack" type="Button" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu" unique_id=1268628759]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("6_jafx1")
 text = "Attack"
 
-[node name="Skills" type="Button" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu"]
+[node name="Skills" type="Button" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu" unique_id=1444164004]
 layout_mode = 2
 theme = ExtResource("6_jafx1")
 text = "Skills"
 
-[node name="Defend" type="Button" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu"]
+[node name="Defend" type="Button" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu" unique_id=1778297946]
 layout_mode = 2
 theme = ExtResource("6_jafx1")
 text = "Defend"
 
-[node name="Items" type="Button" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu"]
+[node name="Items" type="Button" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu" unique_id=1239136798]
 layout_mode = 2
 theme = ExtResource("6_jafx1")
 text = "Items"
 
-[node name="Switch" type="Button" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu"]
+[node name="Switch" type="Button" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu" unique_id=1830295312]
 layout_mode = 2
 theme = ExtResource("6_jafx1")
 text = "Switch"
 
-[node name="Flee" type="Button" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu"]
+[node name="Flee" type="Button" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu" unique_id=1824355532]
 layout_mode = 2
 theme = ExtResource("6_jafx1")
 text = "Flee"
 
-[node name="MarginContainer" type="VBoxContainer" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="MarginContainer" type="VBoxContainer" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer" unique_id=199475359]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/MarginContainer" unique_id=635802488]
 custom_minimum_size = Vector2(400, 350)
 layout_mode = 2
 size_flags_vertical = 4
 follow_focus = true
 
-[node name="SecondMenu" type="VBoxContainer" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/MarginContainer/ScrollContainer"]
+[node name="SecondMenu" type="VBoxContainer" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/MarginContainer/ScrollContainer" unique_id=184131302]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
-[node name="Container" type="Container" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer"]
+[node name="Container" type="Container" parent="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1732624766]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PlayerGUI" type="HBoxContainer" parent="CombatGUI/VBoxContainer"]
+[node name="PlayerGUI" type="HBoxContainer" parent="CombatGUI/VBoxContainer" unique_id=1807665579]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
@@ -364,39 +364,39 @@ size_flags_vertical = 5
 theme_override_constants/separation = 260
 alignment = 1
 
-[node name="CharaSplash" type="Sprite2D" parent="CombatGUI"]
+[node name="CharaSplash" type="Sprite2D" parent="CombatGUI" unique_id=37113731]
 z_index = -1
 position = Vector2(3000, 511)
 
-[node name="Camera2D" parent="." instance=ExtResource("8")]
+[node name="Camera2D" parent="." unique_id=132847012 instance=ExtResource("8")]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=658979241]
 
-[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground" unique_id=1861945446]
 offset_left = -405.0
 offset_top = 163.0
 offset_right = 2268.0
 offset_bottom = 1150.0
 color = Color(0, 0, 0, 1)
 
-[node name="Rwyzis" type="Sprite2D" parent="ParallaxBackground"]
+[node name="Rwyzis" type="Sprite2D" parent="ParallaxBackground" unique_id=1589384071]
 z_as_relative = false
 position = Vector2(942, 386)
 scale = Vector2(1.39398, 1.39398)
 texture = ExtResource("6_hqre3")
 
-[node name="Selector" type="Sprite2D" parent="."]
+[node name="Selector" type="Sprite2D" parent="." unique_id=867714699]
 unique_name_in_owner = true
 modulate = Color(10.41, 0.01, 0.01, 0.8)
 texture = ExtResource("6")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=785952726]
 environment = SubResource("1")
 
-[node name="Animations" type="Node" parent="."]
+[node name="Animations" type="Node" parent="." unique_id=229594899]
 script = ExtResource("9_b46qv")
 
-[node name="Impact" type="Sprite2D" parent="Animations"]
+[node name="Impact" type="Sprite2D" parent="Animations" unique_id=1885930004]
 visible = false
 texture_filter = 1
 position = Vector2(975, 502)
@@ -406,13 +406,11 @@ hframes = 8
 vframes = 9
 frame = 33
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Impact"]
-libraries = {
-"": SubResource("AnimationLibrary_2ptqi")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Impact" unique_id=929679330]
+libraries/ = SubResource("AnimationLibrary_2ptqi")
 speed_scale = 1.2
 
-[node name="Slash" type="Sprite2D" parent="Animations"]
+[node name="Slash" type="Sprite2D" parent="Animations" unique_id=224413747]
 visible = false
 texture_filter = 1
 position = Vector2(975, 502)
@@ -422,13 +420,11 @@ hframes = 8
 vframes = 9
 frame = 33
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Slash"]
-libraries = {
-"": SubResource("AnimationLibrary_2ptqi")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Slash" unique_id=953253425]
+libraries/ = SubResource("AnimationLibrary_2ptqi")
 speed_scale = 1.2
 
-[node name="Pierce" type="Sprite2D" parent="Animations"]
+[node name="Pierce" type="Sprite2D" parent="Animations" unique_id=1298338599]
 visible = false
 texture_filter = 1
 position = Vector2(975, 502)
@@ -438,13 +434,11 @@ hframes = 8
 vframes = 9
 frame = 33
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Pierce"]
-libraries = {
-"": SubResource("AnimationLibrary_2ptqi")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Pierce" unique_id=1540313898]
+libraries/ = SubResource("AnimationLibrary_2ptqi")
 speed_scale = 1.2
 
-[node name="Levin" type="Sprite2D" parent="Animations"]
+[node name="Levin" type="Sprite2D" parent="Animations" unique_id=1039847337]
 visible = false
 texture_filter = 1
 scale = Vector2(3, 3)
@@ -453,12 +447,10 @@ hframes = 23
 vframes = 9
 frame = 23
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Levin"]
-libraries = {
-"": SubResource("AnimationLibrary_xhcr2")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Levin" unique_id=825744375]
+libraries/ = SubResource("AnimationLibrary_xhcr2")
 
-[node name="Infernal" type="Sprite2D" parent="Animations"]
+[node name="Infernal" type="Sprite2D" parent="Animations" unique_id=1235086745]
 texture_filter = 1
 scale = Vector2(3, 3)
 texture = ExtResource("12_tmp0h")
@@ -466,13 +458,11 @@ hframes = 12
 vframes = 9
 frame = 84
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Infernal"]
-libraries = {
-"": SubResource("AnimationLibrary_mtpra")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Infernal" unique_id=1564031318]
+libraries/ = SubResource("AnimationLibrary_mtpra")
 speed_scale = 0.5
 
-[node name="Erde" type="Sprite2D" parent="Animations"]
+[node name="Erde" type="Sprite2D" parent="Animations" unique_id=1102178927]
 visible = false
 texture_filter = 1
 scale = Vector2(3, 3)
@@ -481,12 +471,10 @@ hframes = 8
 vframes = 9
 frame = 24
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Erde"]
-libraries = {
-"": SubResource("AnimationLibrary_fvwi8")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Erde" unique_id=989651978]
+libraries/ = SubResource("AnimationLibrary_fvwi8")
 
-[node name="Deep" type="Sprite2D" parent="Animations"]
+[node name="Deep" type="Sprite2D" parent="Animations" unique_id=230886061]
 visible = false
 texture_filter = 1
 scale = Vector2(3, 3)
@@ -495,20 +483,18 @@ hframes = 13
 vframes = 9
 frame = 26
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Deep"]
-libraries = {
-"": SubResource("AnimationLibrary_f0f6f")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Deep" unique_id=260918155]
+libraries/ = SubResource("AnimationLibrary_f0f6f")
 
-[node name="Virtuos" type="Sprite2D" parent="Animations"]
+[node name="Virtuos" type="Sprite2D" parent="Animations" unique_id=1272554625]
 visible = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Virtuos"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Virtuos" unique_id=1087475065]
 
-[node name="Fel" type="Sprite2D" parent="Animations"]
+[node name="Fel" type="Sprite2D" parent="Animations" unique_id=455850797]
 visible = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Fel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Fel" unique_id=22427129]
 
 [connection signal="pressed" from="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu/Attack" to="CombatGUI" method="_on_Attack_pressed"]
 [connection signal="pressed" from="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu/Skills" to="CombatGUI" method="_on_Skills_pressed"]
