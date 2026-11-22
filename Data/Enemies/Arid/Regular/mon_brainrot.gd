@@ -54,7 +54,8 @@ func AttackList(target, rng):
 		mAttack(target)
 
 func mAttack(target):
-	if not CheckMiss(target): return
-	var dealt_damage = Damage(target, Stat(stat.DEX), damage_type.PIERCE) 
-	CloseTurn("The " + str(charname) + " pierces " + str(target.charname) + " with venomous needles for " + str(dealt_damage) + " damage!")
+	if not await CheckMiss(target): return
+	var dealt_damage = await Damage(target, Stat(stat.DEX), damage_type.PIERCE) 
+	#CloseTurn("The " + str(charname) + " pierces " + str(target.charname) + " with venomous needles for " + str(dealt_damage) + " damage!")
 	target.AttemptStatusAilment(status_effects.POISON, 10, 3, -30)
+	CloseTurn()

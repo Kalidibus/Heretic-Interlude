@@ -55,19 +55,21 @@ func AttackList(mtarget, rng):
 	elif rng <= 100: mDefend()
 
 func mAttack(mtarget):
-	if not CheckMiss(mtarget): return
-	var result = Damage(mtarget, 1.2 * Stat(stat.STR), damage_type.SLASH)
+	if not await CheckMiss(mtarget): return
+	var result = await Damage(mtarget, 1.2 * Stat(stat.STR), damage_type.SLASH)
 	%CombatGUI.BattleLog("The " + charname + " slashes at " + mtarget.charname + " for " + str(result.damage) + " damage!")
-	CloseTurn(result)
+	#CloseTurn(result)
+	CloseTurn()
 	
 func Bludgeon(mtarget):
-	if not CheckMiss(mtarget): return
-	var result = Damage(mtarget, 1.5 * Stat(stat.STR), damage_type.IMPACT)
+	if not await CheckMiss(mtarget): return
+	var result = await Damage(mtarget, 1.5 * Stat(stat.STR), damage_type.IMPACT)
 	%CombatGUI.BattleLog("The " + charname + " emits a bloodcurdling shriek and bludgeons " + mtarget.charname + " fiercly for " + str(result.damage) + " damage!!!")
-	target.AttemptStatusAilment(status_effects.STUN, 0, 0, 0)
-	CloseTurn(result)
-
+	#target.AttemptStatusAilment(status_effects.STUN, 0, 0, 0)
+	#CloseTurn(result)
+	CloseTurn()
 func mDefend():
 	StatMod(stat.DEF, 1.5, 0)
 	%CombatGUI.BattleLog("The " + str(charname) + " folds it's body up defensively...")
-	CloseTurn(ActionResult.new())
+	#CloseTurn(ActionResult.new())
+	CloseTurn()

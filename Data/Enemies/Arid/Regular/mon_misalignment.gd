@@ -55,21 +55,22 @@ func AttackList(mtarget, rng):
 	elif rng <= 100: Buff()
 
 func mAttack(mtarget):
-	if not CheckMiss(mtarget): return
-	var damage_dealt = Damage(mtarget, 1.2 * Stat(stat.STR), damage_type.SLASH)
-	CloseTurn("The " + charname + " attacks " + mtarget.charname + " for " + str(damage_dealt) + " damage!")
-
+	if not await CheckMiss(mtarget): return
+	var damage_dealt = await Damage(mtarget, 1.2 * Stat(stat.STR), damage_type.SLASH)
+	#CloseTurn("The " + charname + " attacks " + mtarget.charname + " for " + str(damage_dealt) + " damage!")
+	CloseTurn()
+	
 func Realign():
 	var total_leech = 0
 	CombatGUI.BattleLog(charname + " realigns the battlefield!")
 
 	#leeches health from party
 	for n in get_party_targets():
-		if not CheckMiss(n): 
+		if not await CheckMiss(n): 
 			CombatGUI.BattleLog(n.charname + " evades!")
 			await get_tree().create_timer(0.5).timeout
 		else: 
-			var damage_dealt = Damage(n, 0.8 * Stat(stat.FTH), damage_type.FEL)
+			var damage_dealt = await Damage(n, 0.8 * Stat(stat.FTH), damage_type.FEL)
 			CombatGUI.BattleLog(charname + " leeches " + damage_dealt + " health from " + n.charname + "!")
 			total_leech += int(damage_dealt)
 			await get_tree().create_timer(0.5).timeout
@@ -82,8 +83,8 @@ func Realign():
 		e.get_healed(amount_healed)
 		CombatGUI.BattleLog(charname + " transfers " + str(amount_healed) + " health to " + e.charname + "!")
 		await get_tree().create_timer(0.5).timeout
-	CloseTurn("")
-	
+	#CloseTurn("")
+	CloseTurn()
 
 func Buff():
 	CombatGUI.BattleLog(charname + " infuses the enemy party with vigor!")
@@ -96,4 +97,5 @@ func Buff():
 		StatMod(stat.DEF, 25, 3)
 		CombatGUI.BattleLog(charname + " invigorates " + e.charname + "! Physical damage and defenses bolstered!")
 		await get_tree().create_timer(0.5).timeout
-	CloseTurn("")
+	#CloseTurn("")
+	CloseTurn()

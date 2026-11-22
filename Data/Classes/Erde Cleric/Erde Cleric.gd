@@ -85,8 +85,9 @@ func Bounty2(target):
 	var heal = Stat(stat.FTH) * 4 * (1 + (0.1 * skill_list[skillid.Erde01][skill.current_level]))
 	target.get_healed(heal)
 	MPCost(10)
-	CloseTurn(str(charname) + " blesses " + str(target.charname) + " with the bounty of the forest, healing her for " + str(heal) + " HP!")
-
+	#CloseTurn(str(charname) + " blesses " + str(target.charname) + " with the bounty of the forest, healing her for " + str(heal) + " HP!")
+	CloseTurn()
+	
 func FullBlessing():
 	if MPCheck(50) == false: return
 	else: CombatGUI.QueueAction(self, "FullBlessing2")
@@ -96,28 +97,33 @@ func FullBlessing2():
 	for n in partylist:
 		if n.stats[stat.HP] != 0:
 			n.get_healed(Stat(stat.FTH))
-	CloseTurn(str(charname) + " Restores the parties health for " + str(Stat(stat.FTH)) + "!")
-
+	#CloseTurn(str(charname) + " Restores the parties health for " + str(Stat(stat.FTH)) + "!")
+	CloseTurn()
+	
 func DivineBolt():
 	if MPCheck(10) == false: return
 	CombatGUI.TargetList("DivineBolt2")
 func DivineBolt2(target):
-	var damage_dealt = Damage(target, Stat(stat.FTH), damage_type.VIRTUOS)
+	var damage_dealt = await Damage(target, Stat(stat.FTH), damage_type.VIRTUOS)
 	MPCost(10)
-	CloseTurn(str(charname) + " launches an divine bolt of cleansing magic at " + str(target.charname) + ", hitting it for " + str(damage_dealt) + " damage!")
+	#CloseTurn(str(charname) + " launches an divine bolt of cleansing magic at " + str(target.charname) + ", hitting it for " + str(damage_dealt) + " damage!")
+	CloseTurn()
 
 func Resurrect():
 	if MPCheck(50) == false: return
 	else: CombatGUI.AllyTargetList("Raise")
 func Raise(target): #any function that revives needs to be called Raise so it doesn't get canceled by the auto-queue
 	if target.stats[stat.HP] != 0:
-		CloseTurn(str(target.charname) + " is not dead!")
+		#CloseTurn(str(target.charname) + " is not dead!")
+		CloseTurn()
+		
 	else:
 		var heal =  Stat(stat.FTH) * 4 * (1 + (0.1 *skill_list[skillid.Erde04][skill.current_level]))
 		Revive(target, heal)
 		MPCost(50)
-		CloseTurn(str(charname) + " blesses " + str(target.charname) + " with the bounty of the forest, healing her for " + str(heal) + " HP!")
-
+		#CloseTurn(str(charname) + " blesses " + str(target.charname) + " with the bounty of the forest, healing her for " + str(heal) + " HP!")
+		CloseTurn()
+		
 func NaturalRevile():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "NaturalRevile2")
@@ -127,8 +133,10 @@ func NaturalRevile2():
 	CombatGUI.BattleLog(str(charname) + " unleashes a swarm of roots!")
 	for target in enemies:
 		if target.stats[stat.HP] != 0:
-			var adjusteddamage = Damage(target, stat.FTH / 2, damage_type.ERDE)
+			var adjusteddamage = await Damage(target, stat.FTH / 2, damage_type.ERDE)
 			CombatGUI.BattleLog(str(target.charname) + " is hit for " + str(adjusteddamage) + " damage!")
 			target.StatMod(stat.SPD, 0.6, 3)
 			await get_tree().create_timer(0.5).timeout
-	CloseTurn("")
+	#CloseTurn("")
+	CloseTurn()
+	

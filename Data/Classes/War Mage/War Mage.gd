@@ -57,8 +57,8 @@ func FelBolt2(target):
 	var damage = stats[stat.INT] * statmods[stat.INT]
 	var adjusteddamage = target.take_damage(damage, damage_type.FEL) 
 	MPCost(10)
-	CloseTurn(str(charname) + " launches an eldritch bolt of ink black Fel at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
-
+	#CloseTurn(str(charname) + " launches an eldritch bolt of ink black Fel at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
+	CloseTurn()
 func DeepBolt():
 	if MPCheck(10) == false: return
 	CombatGUI.TargetList("DeepBolt2")
@@ -66,8 +66,8 @@ func DeepBolt2(target):
 	var damage = stats[stat.INT] * statmods[stat.INT]
 	var adjusteddamage = target.take_damage(damage, damage_type.DEEP) 
 	MPCost(10)
-	CloseTurn(str(charname) + " launches a bolt of icey Deep at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
-
+	#CloseTurn(str(charname) + " launches a bolt of icey Deep at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
+	CloseTurn()
 func LevinBolt():
 	if MPCheck(10) == false: return
 	CombatGUI.TargetList("LevinBolt2")
@@ -75,8 +75,8 @@ func LevinBolt2(target):
 	var damage = stats[stat.INT] * statmods[stat.INT]
 	var adjusteddamage = target.take_damage(damage, damage_type.LEVIN) 
 	MPCost(10)
-	CloseTurn(str(charname) + " launches a bolt of electric Levin at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
-
+	#CloseTurn(str(charname) + " launches a bolt of electric Levin at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
+	CloseTurn()
 func InfernoBolt():
 	if MPCheck(10) == false: return
 	CombatGUI.TargetList("InfernoBolt2")
@@ -84,15 +84,16 @@ func InfernoBolt2(target):
 	var damage = stats[stat.INT] * statmods[stat.INT]
 	var adjusteddamage = target.take_damage(damage, damage_type.INFERNAL) 
 	MPCost(10)
-	CloseTurn(str(charname) + " launches a bolt of molten Inferno at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
-
+	#CloseTurn(str(charname) + " launches a bolt of molten Inferno at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
+	CloseTurn()
 func FelPact():
 	CombatGUI.QueueAction(self, "FelPact2")
 func FelPact2():
 	take_damage(20, damage_type.TRUE)
 	MPCost(-20)
 	%CombatGUI.BattleLog(str(charname) + " exchanges blood for power. MP restored!")
-	CloseTurn(ActionResult.new())
+	#CloseTurn(ActionResult.new())
+	CloseTurn()
 func FelStorm():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "FelStorm2")
@@ -107,8 +108,8 @@ func FelStorm2():
 			CombatGUI.BattleLog(str(target.charname) + " is hit for " + str(adjusteddamage) + " damage!")
 			await get_tree().create_timer(0.5).timeout
 	BattleLog("The storm abates...")
-	CloseTurn(ActionResult.new())
-
+	#CloseTurn(ActionResult.new())
+	CloseTurn()
 func DeepStorm():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "DeepStorm2")
@@ -122,8 +123,8 @@ func DeepStorm2():
 			var adjusteddamage = target.take_damage(damage, damage_type.DEEP)
 			CombatGUI.BattleLog(str(target.charname) + " is hit for " + str(adjusteddamage) + " damage!")
 			await get_tree().create_timer(0.5).timeout
-	CloseTurn("The storm abates...")
-
+	#CloseTurn("The storm abates...")
+	CloseTurn()
 func LevinStorm():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "LevinStorm2")
@@ -137,8 +138,8 @@ func LevinStorm2():
 			var adjusteddamage = target.take_damage(damage, damage_type.LEVIN)
 			CombatGUI.BattleLog(str(target.charname) + " is hit for " + str(adjusteddamage) + " damage!")
 			await get_tree().create_timer(0.5).timeout
-	CloseTurn("The storm abates...")
-
+	#CloseTurn("The storm abates...")
+	CloseTurn()
 func InfernoStorm():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "InfernoStorm2")
@@ -152,4 +153,5 @@ func InfernoStorm2():
 			var adjusteddamage = target.take_damage(damage, damage_type.INFERNAL)
 			CombatGUI.BattleLog(str(target.charname) + " is hit for " + str(adjusteddamage) + " damage!")
 			await get_tree().create_timer(0.5).timeout
-	CloseTurn("The storm abates...")
+	#CloseTurn("The storm abates...")
+	CloseTurn()

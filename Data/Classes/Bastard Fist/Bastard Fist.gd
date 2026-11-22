@@ -88,8 +88,9 @@ func CrimsonRush2(target):
 	for number in range(3):
 		result = target.take_damage(damage, damage_type.IMPACT)
 		if not result.missed: CombatGUI.BattleLog(str(charname) + " has attacked " + str(target.charname) + " for " + str(result.damage) + " damage!")
+		await AurasCheck(result)
 		await get_tree().create_timer(0.5).timeout
-	CloseTurn(result)
+	CloseTurn()
 
 func BastardSpirit():
 	if MPCheck(15) == false: return
@@ -97,8 +98,9 @@ func BastardSpirit():
 func BastardSpirit2():
 	MPCost(15)
 	StatMod(stat.STR, 1.25, 2)
-	CloseTurn(str(charname) + " draws upon her Bastard Spirit. STR Increased.")
-
+	BattleLog(str(charname) + " draws upon her Bastard Spirit. STR Increased.")
+	CloseTurn()
+	
 func LunaticSpirit():
 	if MPCheck(20) == false: return
 	else: CombatGUI.QueueAction(self, "LunaticSpirit2")
@@ -107,7 +109,8 @@ func LunaticSpirit2():
 	StatMod(stat.STR, 1.5, 2)
 	StatMod(stat.SPD, 1.5, 2)
 	StatMod(stat.DEF, 0.6, 2)
-	CloseTurn(str(charname) + " draws upon her Lunatic Spirit. STR and SPD Increased! DEF Decreased.")
+	BattleLog(str(charname) + " draws upon her Lunatic Spirit. STR and SPD Increased! DEF Decreased.")
+	CloseTurn()
 
 func ScarletSun():
 	if combo != "CrimsonRush":
@@ -120,7 +123,9 @@ func ScarletSun2(target):
 	var adjusteddamage = target.take_damage(damage, damage_type.IMPACT)
 	MPCost(20)
 	combo = "ScarletSun"
-	CloseTurn(str(charname) + " has attacked " + str(target.charname) + " for " + str(adjusteddamage) + " damage!")
+	BattleLog(str(charname) + " has attacked " + str(target.charname) + " for " + str(adjusteddamage) + " damage!")
+	AurasCheck(adjusteddamage)
+	CloseTurn()
 
 func VermillionDance():
 	if combo != "ScarletSun":
@@ -136,15 +141,18 @@ func VermillionDance2():
 	for target in enemies:
 		if target.stats[stat.HP] != 0:
 			var adjusteddamage = target.take_damage(damage, damage_type.IMPACT)
-			CombatGUI.BattleLog(str(target.charname) + " is hit for " + str(adjusteddamage) + " damage!")
+			BattleLog(str(target.charname) + " is hit for " + str(adjusteddamage) + " damage!")
+			AurasCheck(adjusteddamage)
 			await get_tree().create_timer(0.5).timeout
 	combo = ""
-	CloseTurn("The dance ends...")
-
+	BattleLog("The dance ends...")
+	CloseTurn()
+	
 func ShearGrit():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "ShearGrit2")
 func ShearGrit2():
 	get_healed(stats[stat.MAXHP] * 0.5)
 	MPCost(30)
-	CloseTurn(str(charname) + " grits her teeth through the pain. HP recovered!")
+	BattleLog(str(charname) + " grits her teeth through the pain. HP recovered!")
+	CloseTurn()

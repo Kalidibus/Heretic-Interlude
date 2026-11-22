@@ -100,93 +100,102 @@ func _ready():
 func FelBolt():
 	if MPCheck(10): CombatGUI.TargetList("FelBolt2")
 func FelBolt2(target):
-	var adjusteddamage = Damage(target, stat.INT * BOLT_MODIFIER, damage_type.FEL)
+	var adjusteddamage = await Damage(target, stat.INT * BOLT_MODIFIER, damage_type.FEL)
 	MPCost(10)
-	CloseTurn(str(charname) + " launches an eldritch bolt of ink black Fel at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
-
+#	CloseTurn(str(charname) + " launches an eldritch bolt of ink black Fel at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
+	CloseTurn()
+	
 func DeepBolt():
 	if MPCheck(10) == false: return
 	CombatGUI.TargetList("DeepBolt2")
 func DeepBolt2(target):
-	var adjusteddamage = Damage(target, stat.INT * BOLT_MODIFIER, damage_type.DEEP)
+	var adjusteddamage = await Damage(target, stat.INT * BOLT_MODIFIER, damage_type.DEEP)
 	MPCost(10)
-	CloseTurn(str(charname) + " launches a bolt of icey Deep at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
+	#CloseTurn(str(charname) + " launches a bolt of icey Deep at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
+	CloseTurn()
 
 func LevinBolt():
 	if MPCheck(10) == false: return
 	CombatGUI.TargetList("LevinBolt2")
 func LevinBolt2(target):
-	var adjusteddamage = Damage(target, stat.INT * BOLT_MODIFIER, damage_type.LEVIN)
+	var adjusteddamage = await Damage(target, stat.INT * BOLT_MODIFIER, damage_type.LEVIN)
 	MPCost(10)
-	CloseTurn(str(charname) + " launches a bolt of electric Levin at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
+	#CloseTurn(str(charname) + " launches a bolt of electric Levin at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
+	CloseTurn()
 
 func InfernoBolt():
 	if MPCheck(10) == false: return
 	CombatGUI.TargetList("InfernoBolt2")
 func InfernoBolt2(target):
-	var adjusteddamage = Damage(target, stat.INT * BOLT_MODIFIER, damage_type.INFERNAL)
+	var adjusteddamage = await Damage(target, stat.INT * BOLT_MODIFIER, damage_type.INFERNAL)
 	MPCost(10)
-	CloseTurn(str(charname) + " launches a bolt of molten Inferno at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
+	#CloseTurn(str(charname) + " launches a bolt of molten Inferno at " + str(target.charname) + ", hitting it for " + str(adjusteddamage) + " damage!")
+	CloseTurn()
 
 func FelPact():
 	CombatGUI.QueueAction(self, "FelPact2")
 func FelPact2():
 	take_damage(20, damage_type.TRUE)
 	MPCost(-20)
-	CloseTurn(str(charname) + " exchanges blood for power. MP restored!")
+	#CloseTurn(str(charname) + " exchanges blood for power. MP restored!")
+	CloseTurn()
 	
 func FelStorm():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "FelStorm2")
 func FelStorm2():
-	var enemies = get_enemy_targets()
+	var e = get_enemy_targets()
 	MPCost(30)
 	CombatGUI.BattleLog(str(charname) + " unleashes a Fel Storm!")
-	for target in enemies:
+	for target in e:
 		if target.stats[stat.HP] != 0:
-			var adjusteddamage = Damage(target, stat.INT * STORM_MODIFIER, damage_type.FEL)
+			var adjusteddamage = await Damage(target, stat.INT * STORM_MODIFIER, damage_type.FEL)
 			CombatGUI.BattleLog(str(target.charname) + " is hit for " + str(adjusteddamage) + " damage!")
 			await get_tree().create_timer(0.5).timeout
-	CloseTurn("The storm abates...")
-
+	#CloseTurn("The storm abates...")
+	CloseTurn()
+	
 func DeepStorm():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "DeepStorm2")
 func DeepStorm2():
-	var enemies = get_enemy_targets()
+	var e = get_enemy_targets()
 	MPCost(30)
 	CombatGUI.BattleLog(str(charname) + " unleashes a Deep Storm!")
-	for target in enemies:
+	for target in e:
 		if target.stats[stat.HP] != 0:
-			var adjusteddamage = Damage(target, stat.INT * STORM_MODIFIER, damage_type.DEEP)
+			var adjusteddamage = await Damage(target, stat.INT * STORM_MODIFIER, damage_type.DEEP)
 			CombatGUI.BattleLog(str(target.charname) + " is hit for " + str(adjusteddamage) + " damage!")
 			await get_tree().create_timer(0.5).timeout
-	CloseTurn("The storm abates...")
+	#CloseTurn("The storm abates...")
+	CloseTurn()
 
 func LevinStorm():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "LevinStorm2")
 func LevinStorm2():
-	var enemies = get_enemy_targets()
+	var e = get_enemy_targets()
 	MPCost(30)
 	CombatGUI.BattleLog(str(charname) + " unleashes a Levin Storm!")
-	for target in enemies:
+	for target in e:
 		if target.stats[stat.HP] != 0:
-			var adjusteddamage = Damage(target, stat.INT * STORM_MODIFIER, damage_type.LEVIN)
+			var adjusteddamage = await Damage(target, stat.INT * STORM_MODIFIER, damage_type.LEVIN)
 			CombatGUI.BattleLog(str(target.charname) + " is hit for " + str(adjusteddamage) + " damage!")
 			await get_tree().create_timer(0.5).timeout
-	CloseTurn("The storm abates...")
+	#CloseTurn("The storm abates...")
+	CloseTurn()
 
 func InfernoStorm():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "InfernoStorm2")
 func InfernoStorm2():
-	var enemies = get_enemy_targets()
+	var e = get_enemy_targets()
 	MPCost(30)
 	CombatGUI.BattleLog(str(charname) + " unleashes an Inferno Storm!")
-	for target in enemies:
+	for target in e:
 		if target.stats[stat.HP] != 0:
-			var adjusteddamage = Damage(target, stat.INT * STORM_MODIFIER, damage_type.INFERNAL)
+			var adjusteddamage = await Damage(target, stat.INT * STORM_MODIFIER, damage_type.INFERNAL)
 			CombatGUI.BattleLog(str(target.charname) + " is hit for " + str(adjusteddamage) + " damage!")
 			await get_tree().create_timer(0.5).timeout
-	CloseTurn("The storm abates...")
+	#CloseTurn("The storm abates...")
+	CloseTurn()

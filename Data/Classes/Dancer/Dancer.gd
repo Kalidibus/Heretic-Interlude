@@ -53,8 +53,9 @@ func RaptorSamba2():
 	MPCost(30)
 	for n in partylist:
 		if n.HP != 0: n.StatMod(stat.STR, 1.25, 2)
-	CloseTurn(str(charname) + "'s Raptor Samba emboldens the party. Strength increased!")
-  
+#	CloseTurn(str(charname) + "'s Raptor Samba emboldens the party. Strength increased!")
+	CloseTurn()
+	 
 func SoothingWaltz():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "SoothingWaltz2")
@@ -63,8 +64,9 @@ func SoothingWaltz2():
 	MPCost(30)
 	for n in partylist:
 		if n.HP != 0: n.AttemptStatusAilment(status_effects.REGEN, 30, 3, 0)
-	CloseTurn(str(charname) + "'s Soothing Waltz begins healing the party!")
-   
+	#CloseTurn(str(charname) + "'s Soothing Waltz begins healing the party!")
+	CloseTurn()   
+
 func InvigoratingGalliard():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "InvigoratingGalliard2")
@@ -73,19 +75,21 @@ func InvigoratingGalliard2():
 	MPCost(30)
 	for n in partylist:
 		if n.HP != 0: n.StatMod(stat.SPD, 1.25, 2)
-	CloseTurn(str(charname) + "'s Invigorating Galliad motivates the party. Speed increased!")
+	#CloseTurn(str(charname) + "'s Invigorating Galliad motivates the party. Speed increased!")
+	CloseTurn()
 
 func WhirlingBlades():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "WhirlingBlades2")
 func WhirlingBlades2():
 	var damage = (stats[stat.STR] * statmods[stat.STR])*0.6
-	var enemies = get_enemy_targets()
+	var e = get_enemy_targets()
 	MPCost(30)
 	CombatGUI.BattleLog(str(charname) + " performs a whirling dance of blades!")
-	for target in enemies:
+	for target in e:
 		if target.row == row_line.FRONT and target.stats[stat.HP] != 0:
 			var adjusteddamage = target.take_damage(damage, damage_type.SLASH)
 			CombatGUI.BattleLog(str(target.charname) + " is hit for " + str(adjusteddamage) + " damage!")
 			await get_tree().create_timer(0.5).timeout
-	CloseTurn("")
+	#CloseTurn("")
+	CloseTurn()

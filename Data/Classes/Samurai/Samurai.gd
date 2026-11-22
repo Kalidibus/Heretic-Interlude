@@ -53,4 +53,5 @@ func CrimsonRush2(target):
 		var adjusteddamage = target.take_damage(damage, damage_type.IMPACT)
 		CombatGUI.BattleLog(str(charname) + " has attacked " + str(target.charname) + " for " + str(adjusteddamage) + " damage!")
 		await get_tree().create_timer(0.5).timeout
-	CloseTurn("")
+	#CloseTurn("")
+	CloseTurn()

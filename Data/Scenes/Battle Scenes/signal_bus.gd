@@ -9,7 +9,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func ConnectSignals(node):
-	node.dodged.connect(_on_dodged)
+#	node.dodged.connect(_on_dodged)
 	node.attacked.connect(_on_attacked)
 	
 func _on_dodged(defender, attacker):

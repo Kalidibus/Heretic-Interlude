@@ -100,8 +100,8 @@ func _on_dodge(defender, attacker):
 		DECEIT += 1
 		CombatGUI.BattleLog(charname + " accumulates Deceit! Current Deceit is " + str(DECEIT))
 		if SHAPESINTHEFOG == true:
-			if CheckMiss(attacker) == true:
-				var damage = Damage(attacker, Stat(stat.INT), damage_type.DEEP)
+			if await CheckMiss(attacker) == true:
+				var damage = await Damage(attacker, Stat(stat.INT), damage_type.DEEP)
 				CombatGUI.BattleLog(charname + " counter-attacks " + attacker.charname + " for " + str(damage) + "!" )
 	else: pass #can add a check here to see if passive is enabled to allow countering for whole party.
 
@@ -113,8 +113,8 @@ func FalseForm2():
 	StatMod(stat.EVD, 1.5, 4)
 	MISTBORNE_active = true
 	MISTBORNE_active_count = 4
-	CloseTurn(str(charname) + " enters the Mistborne state! Evasion increased!")
-
+	#CloseTurn(str(charname) + " enters the Mistborne state! Evasion increased!")
+	CloseTurn()
 func ColdMist():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "ColdMist2")
@@ -123,8 +123,8 @@ func ColdMist2():
 	MPCost(30)
 	for n in partylist:
 		if n.stats[stat.HP] != 0: n.StatMod(stat.EVD, 1.6, 1)
-	CloseTurn(str(charname) + "'s Cold Mist billows across the battlefield. Party Evasion increased!")
-  
+	#CloseTurn(str(charname) + "'s Cold Mist billows across the battlefield. Party Evasion increased!")
+	CloseTurn()
 func UndineAura():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "UndineAura2")
@@ -134,19 +134,22 @@ func UndineAura2():
 	for n in enemylist:
 		n.StatMod(stat.CRIT, 0.4, 3)
 		if MISTBORNE_active == true: n.StatMod(stat.ACC, 0.7, 3)
-	if MISTBORNE_active == true: CloseTurn(str(charname) + "'s exudes an Undine Aura. Enemy Crit and Accuracy decreased!")
-	else: CloseTurn(str(charname) + "'s exudes an Undine Aura. Enemy Crit decreased!")
-
+	if MISTBORNE_active == true: 
+		#CloseTurn(str(charname) + "'s exudes an Undine Aura. Enemy Crit and Accuracy decreased!")
+		CloseTurn()	
+	else: 
+		#CloseTurn(str(charname) + "'s exudes an Undine Aura. Enemy Crit decreased!")
+		CloseTurn()
 func TreacherousStrike():
 	if MPCheck(20) == false or DECEIT == 0: return
 	else: CombatGUI.TargetList("TreacherousStrike2")
 func TreacherousStrike2(target):
 	StatMod(stat.CRIT, 1.5, 0)
-	var adjusteddamage = Damage(target, stats[stat.INT] * DECEIT, damage_type.DEEP)
+	var adjusteddamage = await Damage(target, stats[stat.INT] * DECEIT, damage_type.DEEP)
 	MPCost(20)
 	DECEIT = 0
-	CloseTurn(str(charname) + " has attacked " + str(target.charname) + " for " + str(adjusteddamage) + " damage!")
-
+	#CloseTurn(str(charname) + " has attacked " + str(target.charname) + " for " + str(adjusteddamage) + " damage!")
+	CloseTurn()
 func OcularFlash():
 	if MPCheck(10) == false: return
 	else: CombatGUI.TargetList("OcularFlash2")
@@ -154,8 +157,8 @@ func OcularFlash2(target):
 	MPCost(10)
 	CombatGUI.BattleLog(charname + " attempts to blind " + target.charname)
 	target.AttemptStatusAilment(status_effects.BLIND, 0, 3, 25)
-	CloseTurn("")
-
+	#CloseTurn("")
+	CloseTurn()
 func BroadFlash():
 	if MPCheck(20) == false: return
 	else: CombatGUI.QueueAction(self, "BroadFlash2")
@@ -164,4 +167,5 @@ func BroadFlash2():
 	CombatGUI.BattleLog(charname + " attempts to blind the enemy party!")
 	for n in get_enemy_targets():
 		n.AttemptStatusAilment(status_effects.BLIND, 0, 3, 10)
-	CloseTurn("")
+	#CloseTurn("")
+	CloseTurn()

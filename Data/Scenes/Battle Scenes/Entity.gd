@@ -32,7 +32,7 @@ var ref_hate
 var combo
 var weapontype
 var queueditem
-var target
+#var target
 var sealedskilllist
 
 #Variables related to status effects. These could probably be rolled up into an ENUM and making the ailments Dictionaries in the status array. 
@@ -116,7 +116,8 @@ func Turn():
 	#skip turn if stunned
 	if status.has(status_effects.STUN):
 		status.erase(status_effects.STUN)
-		CloseTurn(charname + " misses their turn...")
+		BattleLog(charname + " misses their turn...")
+		CloseTurn()
 
 func GetSkills():
 	var skill_array = PlayerData.KnownSkills(charid)
@@ -153,31 +154,31 @@ func StatModCountDown():
 
 func StatusEffects():
 	if status_effects.STUN in status: 
-		CombatGUI.BattleLog(charname + " is stunned!")
+		BattleLog(charname + " is stunned!")
 		statres[status_effects.STUN] = statres[status_effects.STUN] * 1.5
 	if status_effects.POISON in status:
-		CombatGUI.BattleLog(charname + " takes " + str(poison) + " damage from poison!")
+		BattleLog(charname + " takes " + str(poison) + " damage from poison!")
 		await take_damage(poison, damage_type.TRUE)
 		poisoncount -= 1
 		if poisoncount == 0:
 			status.erase(status_effects.POISON)
 			statres[status_effects.POISON] = statres[status_effects.POISON] * 1.5
 	if status_effects.BURN in status:
-		CombatGUI.BattleLog(charname + " takes " + str(burn) + " burn damage!")
+		BattleLog(charname + " takes " + str(burn) + " burn damage!")
 		await take_damage(burn, damage_type.INFERNAL)
 		burncount -= 1
 		if burncount == 0:
 			status.erase(status_effects.BURN)
 			statres[status_effects.BURN] = statres[status_effects.BURN] * 1.5
 	if status_effects.BLIND in status:
-		CombatGUI.BattleLog(charname + " is blinded!")
+		BattleLog(charname + " is blinded!")
 		blindcount -= 1
 		if blindcount == 0:
 			statmods[stat.ACC] = 1
 			status.erase(status_effects.BLIND)
 			statres[status_effects.BLIND] = statres[status_effects.BLIND] * 1.5
 	if status_effects.SEAL in status:
-		CombatGUI.BattleLog(charname + "'s Skills are sealed!")
+		BattleLog(charname + "'s Skills are sealed!")
 		sealedskilllist = skill_list
 		skill_list = {}
 		sealcount -= 1
@@ -186,13 +187,13 @@ func StatusEffects():
 			skill_list = sealedskilllist
 			statres[status_effects.SEAL] = statres[status_effects.SEAL] * 1.5
 	if status_effects.MARKED in status:
-		CombatGUI.BattleLog(charname + " has drawn the enemies ire!")
+		BattleLog(charname + " has drawn the enemies ire!")
 		markedcount -= 1
 		if markedcount == 0:
 			status.erase(status_effects.MARKED)
 	if status_effects.REGEN in status:
 		await get_healed(regen)
-		CombatGUI.BattleLog("Regen restores " + charname + "'s health!")
+		BattleLog("Regen restores " + charname + "'s health!")
 		regencount -= 1
 		if regencount == 0:
 			status.erase(status_effects.REGEN)
@@ -203,16 +204,17 @@ func Stat(stat_to_check: Entity.stat):
 func Attack(attack_target: Entity):
 	CombatGUI.emit_signal("menuhide")
 	#if not await CheckMiss(target): return
-	var action_result = Damage(attack_target, Stat(stat.STR), weapontype) 
+	var action_result = await Damage(attack_target, Stat(stat.STR), weapontype) 
 	#var damage_dealt = target.take_damage(Stat(stat.STR), weapontype)
 	if not action_result.missed:
-		CombatGUI.BattleLog(charname + " has attacked " + attack_target.charname + " for " + str(action_result.damage) + " damage!")
-		CloseTurn(action_result)
+		BattleLog(charname + " has attacked " + attack_target.charname + " for " + str(action_result.damage) + " damage!")
+		await AurasCheck(action_result)
+		CloseTurn()
 
 func Defend():
 	StatMod(stat.DEF, 1.5, 0)
-	%CombatGUI.BattleLog(str((charname) + " defends herself!"))
-	CloseTurn(ActionResult.new())
+	BattleLog(str((charname) + " defends herself!"))
+	CloseTurn()
 
 func CheckMiss(check_target):
 	var ratio : float = float(stats[stat.ACC]) / float(check_target.stats[stat.EVD])
@@ -221,7 +223,7 @@ func CheckMiss(check_target):
 	
 	if result >= Globals.BASE_MISS_CHANCE : return true
 	else: 
-		%CombatGUI.BattleLog(check_target.charname + " evades " + charname + "'s attack!")
+		BattleLog(check_target.charname + " evades " + charname + "'s attack!")
 		var action_result = ActionResult.new()
 		action_result.missed = true
 		action_result.defender = check_target
@@ -273,25 +275,25 @@ func AttemptStatusAilment(type, amount, time, bonus_to_inflict):
 		if type == status_effects.POISON:
 			poison = amount
 			poisoncount = time
-			CombatGUI.BattleLog(charname + " has been inflicted with poison!")
+			BattleLog(charname + " has been inflicted with poison!")
 		elif type == status_effects.BURN:
 			burn = amount
 			burncount = time
-			CombatGUI.BattleLog(charname + " has been blinded!")
+			BattleLog(charname + " has been blinded!")
 		elif type == status_effects.REGEN:
 			regen = amount
 			regencount = time
 		elif type == status_effects.MARKED:
 			markedamount = amount
 			markedcount = time
-			CombatGUI.BattleLog(charname + " has been marked!")
+			BattleLog(charname + " has been marked!")
 		elif type == status_effects.BLIND:
 			blindcount = time
 			StatMod(stat.ACC, 0.3, time)
-			CombatGUI.BattleLog(charname + " has been blinded!")
+			BattleLog(charname + " has been blinded!")
 		elif type == status_effects.SEAL:
 			sealcount = time
-			CombatGUI.BattleLog(charname + "'s Skills are sealed!")
+			BattleLog(charname + "'s Skills are sealed!")
 
 		CombatGUI.StatusLabels(self)
 
@@ -299,7 +301,7 @@ func AttemptStatusAilment(type, amount, time, bonus_to_inflict):
 func Damage(attack_target, damage_calc, dtype):
 	var action_result = ActionResult.new()
 	action_result.crit = CheckCrit()
-	action_result.missed = CheckMiss(target)
+	action_result.missed = await CheckMiss(attack_target)
 	
 	if not action_result.missed:
 		action_result.damage = attack_target.take_damage(damage_calc * action_result.crit, dtype)
@@ -316,7 +318,7 @@ func Revive(rev_target, heal):
 	result.revived = true
 	result.target = rev_target
 
-	AurasCheck(result)
+	await AurasCheck(result)
 
 func UseItem():
 	queueditem.call_func(self)
@@ -325,13 +327,13 @@ func get_party_targets():
 	return party.get_children()
 
 #used to apply stat modifiers (buffs or debuffs) for a set period of time
-func StatMod(stat, amount, timer):
-	statmods[stat] = amount
-	statmodtimer[stat] = timer
+func StatMod(this_stat, amount, timer):
+	statmods[this_stat] = amount
+	statmodtimer[this_stat] = timer
 
 func MPCheck(MPcost):
 	if stats[stat.MP] < MPcost: 
-		CombatGUI.BattleLog("Not enough MP!")
+		BattleLog("Not enough MP!")
 		return false
 	else: return true
 
@@ -358,7 +360,7 @@ func AurasCheck(result:ActionResult):
 
 func CloseTurn():
 	CombatGUI.ClearSecondMenu()
-	#CombatGUI.BattleLog(string)
+	#BattleLog(string)
 	await get_tree().create_timer(0.5).timeout
 	emit_signal("turn_complete")
 
@@ -374,4 +376,4 @@ func dies():
 					statmods[n] = 1
 					statmodtimer.erase(n)
 func BattleLog(string: String):
-	%CombatGUI.BattleLog(string)
+	CombatGUI.BattleLog(string)
