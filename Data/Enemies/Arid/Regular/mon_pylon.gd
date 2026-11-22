@@ -56,16 +56,18 @@ func AttackList(mtarget, rng):
 
 func mAttack(mtarget):
 	if not CheckMiss(mtarget): return
-	var damage_dealt = Damage(mtarget, 1.2 * Stat(stat.STR), damage_type.SLASH)
-	CloseTurn("The " + charname + " slashes at " + mtarget.charname + " for " + str(damage_dealt) + " damage!")
-
+	var result = Damage(mtarget, 1.2 * Stat(stat.STR), damage_type.SLASH)
+	%CombatGUI.BattleLog("The " + charname + " slashes at " + mtarget.charname + " for " + str(result.damage) + " damage!")
+	CloseTurn(result)
+	
 func Bludgeon(mtarget):
 	if not CheckMiss(mtarget): return
-	var damage_dealt = Damage(mtarget, 1.5 * Stat(stat.STR), damage_type.IMPACT)
-	CloseTurn("The " + charname + " emits a bloodcurdling shriek and bludgeons " + mtarget.charname + " fiercly for " + str(damage_dealt) + " damage!!!")
+	var result = Damage(mtarget, 1.5 * Stat(stat.STR), damage_type.IMPACT)
+	%CombatGUI.BattleLog("The " + charname + " emits a bloodcurdling shriek and bludgeons " + mtarget.charname + " fiercly for " + str(result.damage) + " damage!!!")
 	target.AttemptStatusAilment(status_effects.STUN, 0, 0, 0)
-	
+	CloseTurn(result)
 
 func mDefend():
 	StatMod(stat.DEF, 1.5, 0)
-	CloseTurn("The " + str(charname) + " folds it's body up defensively...")
+	%CombatGUI.BattleLog("The " + str(charname) + " folds it's body up defensively...")
+	CloseTurn(ActionResult.new())

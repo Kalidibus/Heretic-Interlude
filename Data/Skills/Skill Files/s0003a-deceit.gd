@@ -3,8 +3,11 @@ extends SkillActions
 func _ready() -> void:
 	skillfile =  SkillDict.skills_by_id.get(&"S0003")
 
-func on_miss(attacker: Node, defender: Node):
-	if defender == skillowner: 
+func combat_start():
+	%Combat.auras.append(self)
+
+func on_miss(action: ActionResult):
+	if action.defender == skillowner: 
 		skillowner.resources.get(&"DECEIT", 0) + 1
 		%CombatGUI.BattleLog(skillowner.charname + " accumulates Deceit! Current Deceit is " + str(skillowner.resources.get(&"DECEIT")))
 		#if skillowner.auras.has(&"SHAPESINTHEFOG") == true and CheckMiss(attacker) == true:

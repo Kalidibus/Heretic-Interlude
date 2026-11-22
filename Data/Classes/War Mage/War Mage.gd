@@ -91,8 +91,8 @@ func FelPact():
 func FelPact2():
 	take_damage(20, damage_type.TRUE)
 	MPCost(-20)
-	CloseTurn(str(charname) + " exchanges blood for power. MP restored!")
-	
+	%CombatGUI.BattleLog(str(charname) + " exchanges blood for power. MP restored!")
+	CloseTurn(ActionResult.new())
 func FelStorm():
 	if MPCheck(30) == false: return
 	else: CombatGUI.QueueAction(self, "FelStorm2")
@@ -106,7 +106,8 @@ func FelStorm2():
 			var adjusteddamage = target.take_damage(damage, damage_type.FEL)
 			CombatGUI.BattleLog(str(target.charname) + " is hit for " + str(adjusteddamage) + " damage!")
 			await get_tree().create_timer(0.5).timeout
-	CloseTurn("The storm abates...")
+	BattleLog("The storm abates...")
+	CloseTurn(ActionResult.new())
 
 func DeepStorm():
 	if MPCheck(30) == false: return

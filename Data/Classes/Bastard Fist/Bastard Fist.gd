@@ -84,11 +84,12 @@ func CrimsonRush2(target):
 	var damage = (stats[stat.STR] + stats[stat.SPD])/4
 	combo = "CrimsonRush"
 	MPCost(15)
+	var result: ActionResult
 	for number in range(3):
-		var adjusteddamage = target.take_damage(damage, damage_type.IMPACT)
-		CombatGUI.BattleLog(str(charname) + " has attacked " + str(target.charname) + " for " + str(adjusteddamage) + " damage!")
+		result = target.take_damage(damage, damage_type.IMPACT)
+		if not result.missed: CombatGUI.BattleLog(str(charname) + " has attacked " + str(target.charname) + " for " + str(result.damage) + " damage!")
 		await get_tree().create_timer(0.5).timeout
-	CloseTurn("")
+	CloseTurn(result)
 
 func BastardSpirit():
 	if MPCheck(15) == false: return

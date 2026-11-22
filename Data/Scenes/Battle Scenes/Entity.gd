@@ -112,7 +112,7 @@ func Turn():
 	CombatGUI.StatusLabels(self)
 	#this check is to stop the turn if the player dies from DoT damage, but doesn't seem to be working
 	if dead:
-		CloseTurn("")
+		CloseTurn()
 	#skip turn if stunned
 	if status.has(status_effects.STUN):
 		status.erase(status_effects.STUN)
@@ -200,26 +200,33 @@ func StatusEffects():
 func Stat(stat_to_check: Entity.stat):
 	return (stats[stat_to_check] * statmods[stat_to_check])
 
-func Attack(target: Entity):
+func Attack(attack_target: Entity):
 	CombatGUI.emit_signal("menuhide")
-	if not await CheckMiss(target): return
-	#var damage_dealt = Damage(target, Stat(stat.STR), weapontype) 
-	var damage_dealt = target.take_damage(Stat(stat.STR), weapontype)
-	CloseTurn(charname + " has attacked " + target.charname + " for " + str(damage_dealt) + " damage!")
+	#if not await CheckMiss(target): return
+	var action_result = Damage(attack_target, Stat(stat.STR), weapontype) 
+	#var damage_dealt = target.take_damage(Stat(stat.STR), weapontype)
+	if not action_result.missed:
+		CombatGUI.BattleLog(charname + " has attacked " + attack_target.charname + " for " + str(action_result.damage) + " damage!")
+		CloseTurn(action_result)
 
 func Defend():
 	StatMod(stat.DEF, 1.5, 0)
-	CloseTurn(str((charname) + " defends herself!"))
+	%CombatGUI.BattleLog(str((charname) + " defends herself!"))
+	CloseTurn(ActionResult.new())
 
-func CheckMiss(target):
-	var ratio : float = float(stats[stat.ACC]) / float(target.stats[stat.EVD])
+func CheckMiss(check_target):
+	var ratio : float = float(stats[stat.ACC]) / float(check_target.stats[stat.EVD])
 	var rng = Globals.RNG()
 	var result = ratio * rng
 	
 	if result >= Globals.BASE_MISS_CHANCE : return true
 	else: 
-		CloseTurn(target.charname + " evades " + charname + "'s attack!")
-		for n in %Combat.auras: await n.on_miss(self, target) #inform waiting skills of a miss
+		%CombatGUI.BattleLog(check_target.charname + " evades " + charname + "'s attack!")
+		var action_result = ActionResult.new()
+		action_result.missed = true
+		action_result.defender = check_target
+		await AurasCheck(action_result)
+		CloseTurn()
 		return false
 
 func CheckCrit(): #return modifier of crit damage (usually 1.5 but can be changed in stats) if crit, otherwise 1
@@ -250,7 +257,7 @@ func take_damage (damage, type):
 	
 	if stats[stat.HP] <= 0: 
 		dies()
-	return int(adjusteddamage,)
+	return int(adjusteddamage)
 
 func get_healed (heal_amount:int):
 	stats[stat.HP] += heal_amount
@@ -289,23 +296,27 @@ func AttemptStatusAilment(type, amount, time, bonus_to_inflict):
 		CombatGUI.StatusLabels(self)
 
 #returns the actual amount of damage that was dealt, and also triggers the damage on the target node.
-func Damage(target, damage_calc, damage_type):
-	var damage_dealt
-	var crit = CheckCrit()
+func Damage(attack_target, damage_calc, dtype):
+	var action_result = ActionResult.new()
+	action_result.crit = CheckCrit()
+	action_result.missed = CheckMiss(target)
+	
+	if not action_result.missed:
+		action_result.damage = attack_target.take_damage(damage_calc * action_result.crit, dtype)
+		emit_signal("attacked", attack_target, self, action_result.damage, dtype) # used for UI shake etc
+	
+	return action_result
 
-	damage_dealt = target.take_damage(damage_calc * crit, damage_type)
-	emit_signal("attacked", target, self, damage_dealt, damage_type) # used for UI shake etc
+func Revive(rev_target, heal):
+	rev_target.get_healed(heal)
+	rev_target.dead = false
+	CombatGUI.ReviveLabel(rev_target)
 
-	if crit > 1:
-		#self.resources[&"CRIT"] = 1 #How the fuck to queue a response to a crit after it's happened.
-		return str(damage_dealt) + "!!"
-	else: 
-		return str(damage_dealt)
+	var result = ActionResult.new()
+	result.revived = true
+	result.target = rev_target
 
-func Revive(target, heal):
-	target.get_healed(heal)
-	target.dead = false
-	CombatGUI.ReviveLabel(target)
+	AurasCheck(result)
 
 func UseItem():
 	queueditem.call_func(self)
@@ -330,9 +341,24 @@ func MPCost(MPcost):
 	stats[stat.MP] = min(stats[stat.MAXMP], stats[stat.MP])
 	CombatGUI.UpdateStats(self, stats[stat.HP], stats[stat.MP])
 
-func CloseTurn(string=""):
+func AurasCheck(result:ActionResult):
+		#Checks ActionResult for miss / crit etc and passes to auras for next action
+	if result.missed == true:
+		for n:SkillActions in %Combat.aura: 
+			await n.on_missed(result)
+	if result.damage > 0:
+		for n:SkillActions in %Combat.aura:
+			await n.on_damaged(result)
+	if result.crit == true:
+		for n:SkillActions in %Combat.aura: 
+			await n.on_crit(result)
+	if result.revived == true:
+		for n:SkillActions in %Combat.aura:
+			await n.on_revived(result)
+
+func CloseTurn():
 	CombatGUI.ClearSecondMenu()
-	CombatGUI.BattleLog(string)
+	#CombatGUI.BattleLog(string)
 	await get_tree().create_timer(0.5).timeout
 	emit_signal("turn_complete")
 
@@ -347,3 +373,5 @@ func dies():
 			if statmods[n] != 1:
 					statmods[n] = 1
 					statmodtimer.erase(n)
+func BattleLog(string: String):
+	%CombatGUI.BattleLog(string)
