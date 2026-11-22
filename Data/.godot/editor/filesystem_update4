@@ -2,4 +2,12 @@ res://Scenes/Battle Scenes/Combat.tscn
 res://Assets/UI/Heretic_Theme.tres
 res://Shaders/Vignette.gdshader
 res://Shaders/Pulse.gdshader
+res://Scenes/Battle Scenes/ActionQueue.gd
+res://Skills/Skills.gd
+res://Skills/Skill Files/s0001-taunt.tres
+res://Scenes/Battle Scenes/Combat.gd
 res://Scenes/Battle Scenes/Entity.gd
+res://Scenes/Battle Scenes/signal_bus.gd
+res://Skills/Skill Files/s0003-deceit.tres
+res://Skills/Skill Files/s0003a-deceit.gd
+res://Skills/SkillActions.gd

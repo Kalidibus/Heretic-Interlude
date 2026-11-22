@@ -2,11 +2,12 @@ class_name SkillActions
 extends Node
 
 var skillfile: Resource
+var skillowner: Entity
 
 #Scripts that are to be called during phases of routine combat
 func queue(owner: Node, target: Node): 
 	pass
-func on_beginning_of_round(owner: Node, target: Node):
+func on_beginning_of_round():
 	pass
 func on_caster_turn_start(owner: Node, target: Node):
 	pass

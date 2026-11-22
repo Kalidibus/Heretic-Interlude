@@ -22,6 +22,7 @@ var combatlabel #ties a node to it's label on the GUI
 var stats = {} #this is filled in during Combat initiation based on the party member or monster that owns the node
 var skill_list
 var current_skills: Dictionary[SkillClass, int] = {} #skill known, and level of skill known
+var resources: Dictionary[StringName, int] = {} #used for passive currencies like IRE, DECEIT etc
 
 var row
 var enemy = false
@@ -91,10 +92,12 @@ var damageres = {
 	}
 
 signal turn_complete
-signal dodged(defender, attacker)
+#signal dodged(defender, attacker)
 signal attacked(defender, attacker)
-signal crit(defender, attacker)
-signal defended(defender, attacker)
+#signal crit(defender, attacker)
+#signal defended(defender, attacker)
+
+var hire_cost = 5
 
 func _ready():
 	pass
@@ -197,10 +200,11 @@ func StatusEffects():
 func Stat(stat_to_check: Entity.stat):
 	return (stats[stat_to_check] * statmods[stat_to_check])
 
-func Attack(target):
+func Attack(target: Entity):
 	CombatGUI.emit_signal("menuhide")
-	if not CheckMiss(target): return
-	var damage_dealt = Damage(target, Stat(stat.STR), weapontype) 
+	if not await CheckMiss(target): return
+	#var damage_dealt = Damage(target, Stat(stat.STR), weapontype) 
+	var damage_dealt = target.take_damage(Stat(stat.STR), weapontype)
 	CloseTurn(charname + " has attacked " + target.charname + " for " + str(damage_dealt) + " damage!")
 
 func Defend():
@@ -215,15 +219,16 @@ func CheckMiss(target):
 	if result >= Globals.BASE_MISS_CHANCE : return true
 	else: 
 		CloseTurn(target.charname + " evades " + charname + "'s attack!")
-		emit_signal("dodged", target, self)
+		for n in %Combat.auras: await n.on_miss(self, target) #inform waiting skills of a miss
 		return false
 
-func CheckCrit():
-	if Stat(stat.CRIT) >= Globals.RNG(): return true
-	else: return false
+func CheckCrit(): #return modifier of crit damage (usually 1.5 but can be changed in stats) if crit, otherwise 1
+	if Stat(stat.CRIT) >= Globals.RNG(): return (float(stat.CRITDMG) / 100)
+	else: return 1
 
 func take_damage (damage, type):
 	var adjusteddamage
+	#var crit = CheckCrit()
 	
 	if stats[stat.HP] == 0: return #to prevent multi-attacks from triggering die() multiple times
 	if type == damage_type.IMPACT or type == damage_type.SLASH or type == damage_type.PIERCE:
@@ -238,12 +243,14 @@ func take_damage (damage, type):
 	stats[stat.HP] -= int(adjusteddamage)
 	stats[stat.HP] = max(0, stats[stat.HP])
 	
+	#emit_signal("attacked", target, self, adjusteddamage, type) # used for UI shake etc
+
 	CombatGUI.TakeDamageGUI(self)
 	CombatGUI.UpdateStats(self, stats[stat.HP], stats[stat.MP])
 	
 	if stats[stat.HP] <= 0: 
 		dies()
-	return int(adjusteddamage)
+	return int(adjusteddamage,)
 
 func get_healed (heal_amount:int):
 	stats[stat.HP] += heal_amount
@@ -284,14 +291,15 @@ func AttemptStatusAilment(type, amount, time, bonus_to_inflict):
 #returns the actual amount of damage that was dealt, and also triggers the damage on the target node.
 func Damage(target, damage_calc, damage_type):
 	var damage_dealt
+	var crit = CheckCrit()
 
-	if CheckCrit(): 
-		damage_dealt = target.take_damage(damage_calc * stats[stat.CRITDMG], damage_type)
-		emit_signal("attacked", target, self, damage_dealt, damage_type)
+	damage_dealt = target.take_damage(damage_calc * crit, damage_type)
+	emit_signal("attacked", target, self, damage_dealt, damage_type) # used for UI shake etc
+
+	if crit > 1:
+		#self.resources[&"CRIT"] = 1 #How the fuck to queue a response to a crit after it's happened.
 		return str(damage_dealt) + "!!"
 	else: 
-		damage_dealt = target.take_damage(damage_calc, damage_type)
-		emit_signal("attacked", target, self, damage_dealt, damage_type)
 		return str(damage_dealt)
 
 func Revive(target, heal):

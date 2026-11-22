@@ -15,20 +15,17 @@ func PlayRound():
 	queuedactions.sort_custom(Callable(self,"SortbySpeed"))
 	
 	for n in queuedactions: #read the queued action array of dictionaries, and call the function that it's tied to on the character the funcref was tied to.
-		active_character = n["name"]
-		action = n["action"]
-		target = n["target"]
-
+		
 		if Combat.CheckWin() == true:
 			combatover = true
 			break
-		elif active_character.dead == true: 
+		elif n.owner.dead == true: 
 			pass
-		elif active_character.status.has(Entity.status_effects.STUN):
-			active_character.status.erase(Entity.status_effects.STUN)
-			%CombatGUI.BattleLog(active_character.charname + " misses their turn...")
+		elif n.owner.status.has(Entity.status_effects.STUN):
+			n.owner.status.erase(Entity.status_effects.STUN)
+			%CombatGUI.BattleLog(n.owner.charname + " misses their turn...")
 			await get_tree().create_timer(0.5).timeout
-		elif target != null and target.dead == true and n["action_string"] != "Raise":
+		elif n.target != null and n.target.dead == true and n.skill.skill_tags.has(SkillClass.tags.RAISE) == false:
 			%CombatGUI.BattleLog("Nothing to target...")
 			await get_tree().create_timer(0.5).timeout
 		else: 
@@ -43,6 +40,8 @@ func SortbySpeed(a, b):
 
 func Execute():
 	active_character["combatlabel"].set_self_modulate("4bff0a")
+	for n in $Combat.auras:
+		n._on_turn_start(active_character)
 	if target != null: 
 		action.call(target)
 	else: 

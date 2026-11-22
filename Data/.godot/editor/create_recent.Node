@@ -1,10 +1,9 @@
+Node
 Control
-OnscreenKeyboard
 Label
 HBoxContainer
 MarginContainer
 VBoxContainer
-Node
 PanelContainer
 Container
 Panel

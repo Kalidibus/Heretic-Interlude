@@ -20,8 +20,13 @@ enum target {
 	RANDOM_FRONT_ALLY = 14, 
 	RANDOM_BACK_ENEMY = 15, 
 	RANDOM_BACK_ALLY = 16,
-	SINGLE_ANYONE = 17
+	SINGLE_ANYONE = 17,
+	SINGLE_DEAD_ALLY = 18, 
+	FRONT_DEAD_ALLIES = 19,
+	BACK_DEAD_ALLIES = 20,
+	ALL_DEAD_ALLIES = 21
 }
+enum tags {RAISE = 0}
 
 
 @export var skill_id: StringName
@@ -33,6 +38,7 @@ enum target {
 @export var skill_mp_cost: int = 10
 @export var skill_mp_level_scaling: float = 1.1
 @export var skill_book: SkillDict.books
+@export var skill_tags: Array [tags]  
 
 var skill_level: int
 

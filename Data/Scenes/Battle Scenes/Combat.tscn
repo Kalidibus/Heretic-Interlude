@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" path="res://Scenes/Battle Scenes/ActionQueue.tscn" id="1"]
 [ext_resource type="Script" uid="uid://bnjpqpi0cp6fd" path="res://Scenes/Battle Scenes/UI/CombatGUI.gd" id="2"]
-[ext_resource type="Script" uid="uid://f1itg3jndlnh" path="res://Scenes/Battle Scenes/signal_bus.gd" id="3_j1whk"]
+[ext_resource type="Script" uid="uid://cl51q20bhdv6r" path="res://Scenes/Battle Scenes/signal_bus.gd" id="3_j1whk"]
 [ext_resource type="Script" uid="uid://2fj57vwrhuih" path="res://Scenes/Battle Scenes/UI/battle_log_scroll_cont.gd" id="3_sdkss"]
 [ext_resource type="Script" uid="uid://7eoip5cc7xvr" path="res://Scenes/Battle Scenes/Combat.gd" id="5"]
 [ext_resource type="Texture2D" uid="uid://f8qvvoa8gywk" path="res://Assets/UI/Selector.png" id="6"]
@@ -210,10 +210,6 @@ script = ExtResource("5")
 
 [node name="ActionQueue" parent="." unique_id=1808694840 instance=ExtResource("1")]
 unique_name_in_owner = true
-
-[node name="SignalBus" type="Node" parent="." unique_id=1962405349]
-unique_name_in_owner = true
-script = ExtResource("3_j1whk")
 
 [node name="Combatants" type="Node" parent="." unique_id=778212329]
 
@@ -495,6 +491,10 @@ visible = false
 visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/Fel" unique_id=22427129]
+
+[node name="SignalBus" type="Node" parent="." unique_id=828227231]
+unique_name_in_owner = true
+script = ExtResource("3_j1whk")
 
 [connection signal="pressed" from="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu/Attack" to="CombatGUI" method="_on_Attack_pressed"]
 [connection signal="pressed" from="CombatGUI/VBoxContainer/CenterContainer/HBoxContainer/Menu/Skills" to="CombatGUI" method="_on_Skills_pressed"]

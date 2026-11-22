@@ -5,6 +5,8 @@ extends Node
 
 var active_character
 
+var auras: Array[SkillActions] = [] #Whenever a skill is initiated, whether as a passive or on usage, if it needs to perform further actions during a round - store it here.
+
 #var partylist = []
 #var battlers = []
 
@@ -57,6 +59,8 @@ func MainBattleLoop():
 func PartyTurnOrder(): #next to fix
 	var count = 0
 	var combatover = false
+	
+	for n in auras: await n.on_beginning_of_round()
 	
 	while count < %Party.get_children().size():
 		var active_char_label = %PlayerGUI.get_child(count)

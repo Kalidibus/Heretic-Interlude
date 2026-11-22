@@ -8,8 +8,6 @@ signal attacked(defender, attacker, damage_dealt, damage_type)
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-
 func ConnectSignals(node):
 	node.dodged.connect(_on_dodged)
 	node.attacked.connect(_on_attacked)
