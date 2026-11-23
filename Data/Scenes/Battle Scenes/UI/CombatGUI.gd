@@ -66,6 +66,7 @@ func CreateLabels(party, enemy_array):
 func TargetList(function):
 	var active_character = Combat.active_character
 	var enemies = %Enemies.get_children()
+
 	
 	ClearSecondMenu()
 	
@@ -75,7 +76,13 @@ func TargetList(function):
 			var button = TargetButton.new()
 			button.text = n.charname
 			button.target = n
+			
+			var actiontoqueue = ActionforQueue.new()
+			actiontoqueue.owner = active_character
+			actiontoqueue.target = n
+			actiontoqueue.action = function
 			button.connect("pressed",Callable(self,"QueueAction").bind(active_character, function, n))
+
 			secondmenu.add_child(button)
 			#secondmenu.move_child(button, 0)
 
@@ -161,7 +168,7 @@ func _on_Items_pressed():
 		secondmenu.add_child(itemnode)
 		itemnode.SetSkill(item)
 		item_skill_action.CombatGUI = %CombatGUI
-		itemnode.get_child(0).pressed.connect(item_skill_action.queue.bind(null, null)) #RESUME HERE WHEN BACK
+		itemnode.get_child(0).pressed.connect(item_skill_action.queue.bind()) #RESUME HERE WHEN BACK
 		emptycheck += 1
 	
 		var label = Label.new()
@@ -177,7 +184,10 @@ func _on_Items_pressed():
 func _on_Defend_pressed(): 
 	ClearSecondMenu()
 	emit_signal("menuhide")
-	QueueAction(Combat.active_character, "Defend")
+	var action: SkillActions = SkillDict.skill_actions_by_id.get(&"DEFEND")
+	action.Combat = Combat
+	action.CombatGUI = self
+	QueueAction(Combat.active_character, action)
 
 func ClearSecondMenu():
 	delete_children(secondmenu)
@@ -191,8 +201,12 @@ func delete_children(node):
 func _on_Attack_pressed():
 	lastpushed = "Attack"
 	ClearSecondMenu()
-	TargetList("Attack")
-
+	var attack = SkillDict.skill_actions_by_id.get(&"ATTACK")
+	attack.CombatGUI = self
+	attack.Combat = Combat
+	#attack.queue()
+	TargetList(attack)
+	
 func _on_Switch_pressed(): #needs to be fixed for new card style config
 	var active_character = Combat.active_character
 	active_character.SwitchRows()

@@ -3,6 +3,7 @@ extends RefCounted
 
 var damage: int = 0
 var crit: bool = false
+var crit_damage: float = 1
 var missed: bool = false
 var revived: bool = false
 var multiplier: float = 1

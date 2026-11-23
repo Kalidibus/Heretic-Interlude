@@ -88,7 +88,7 @@ func CrimsonRush2(target):
 	for number in range(3):
 		result = target.take_damage(damage, damage_type.IMPACT)
 		if not result.missed: CombatGUI.BattleLog(str(charname) + " has attacked " + str(target.charname) + " for " + str(result.damage) + " damage!")
-		await AurasCheck(result)
+		##await AurasCheck(result)
 		await get_tree().create_timer(0.5).timeout
 	CloseTurn()
 
@@ -124,7 +124,7 @@ func ScarletSun2(target):
 	MPCost(20)
 	combo = "ScarletSun"
 	BattleLog(str(charname) + " has attacked " + str(target.charname) + " for " + str(adjusteddamage) + " damage!")
-	AurasCheck(adjusteddamage)
+	#AurasCheck(adjusteddamage)
 	CloseTurn()
 
 func VermillionDance():
@@ -142,7 +142,7 @@ func VermillionDance2():
 		if target.stats[stat.HP] != 0:
 			var adjusteddamage = target.take_damage(damage, damage_type.IMPACT)
 			BattleLog(str(target.charname) + " is hit for " + str(adjusteddamage) + " damage!")
-			AurasCheck(adjusteddamage)
+			#AurasCheck(adjusteddamage)
 			await get_tree().create_timer(0.5).timeout
 	combo = ""
 	BattleLog("The dance ends...")

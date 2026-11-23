@@ -4,10 +4,11 @@ extends SkillActions
 var skill_action_id: StringName = &"s0001a"
 
 
-func queue(owner: Node, target: Node):
-	if owner.MPCheck(skillfile) == false: return #change MPCheck to check the skill details for the amount of MP it needs, using a formula of skill base cost * level * scaling
-	else: CombatGUI.QueueAction(owner, self) #queue this script, or the skill resource file, whatever makes more sense. 
-
+func queue():
+	#if skill_owner.MPCheck(skillfile) == false: return #change MPCheck to check the skill details for the amount of MP it needs, using a formula of skill base cost * level * scaling
+	#else: CombatGUI.QueueAction(owner, self) #queue this script, or the skill resource file, whatever makes more sense. 
+	pass
+	
 func execute(actionfromqueue):
 	var previousvalue = owner.statres[owner.status_effects.MARKED] #change this to adding the affect MARKED, although may be same as what you've done here. 
 	owner.statres[owner.status_effects.MARKED] = 0

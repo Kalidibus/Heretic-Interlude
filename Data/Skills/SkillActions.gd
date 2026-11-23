@@ -5,7 +5,7 @@ var skillowner: Entity
 
 
 #Scripts that are to be called during phases of routine combat
-func queue(owner: Node, target: Node): 
+func queue(): 
 	pass
 func combat_start():
 	pass

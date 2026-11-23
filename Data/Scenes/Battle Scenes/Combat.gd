@@ -163,3 +163,18 @@ func _on_flee_pressed() -> void:
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
 	get_tree().change_scene_to_file("res://Scenes/Dungeon/World.tscn")
+
+func AurasCheck(result:ActionResult):
+		#Checks ActionResult for miss / crit etc and passes to auras for next action
+	if result.missed == true:
+		for n:SkillActions in auras: 
+			await n.on_missed(result)
+	if result.damage > 0:
+		for n:SkillActions in auras:
+			await n.on_damaged(result)
+	if result.crit == true:
+		for n:SkillActions in auras: 
+			await n.on_crit(result)
+	if result.revived == true:
+		for n:SkillActions in auras:
+			await n.on_revived(result)

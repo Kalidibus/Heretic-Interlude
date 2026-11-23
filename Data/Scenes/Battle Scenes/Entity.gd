@@ -1,7 +1,7 @@
 extends Node
 class_name Entity
 
-@onready var EventHandler = get_node("/root/Combat")
+@onready var Combat = get_node("/root/Combat")
 @onready var CombatGUI = get_node("/root/Combat/CombatGUI")
 @onready var party = get_node("/root/Combat/Combatants/Party")
 @onready var enemies = get_node("/root/Combat/Combatants/Enemies")
@@ -201,15 +201,15 @@ func StatusEffects():
 func Stat(stat_to_check: Entity.stat):
 	return (stats[stat_to_check] * statmods[stat_to_check])
 
-func Attack(attack_target: Entity):
-	CombatGUI.emit_signal("menuhide")
-	#if not await CheckMiss(target): return
-	var action_result = await Damage(attack_target, Stat(stat.STR), weapontype) 
-	#var damage_dealt = target.take_damage(Stat(stat.STR), weapontype)
-	if not action_result.missed:
-		BattleLog(charname + " has attacked " + attack_target.charname + " for " + str(action_result.damage) + " damage!")
-		await AurasCheck(action_result)
-		CloseTurn()
+#func Attack(attack_target: Entity):
+#	CombatGUI.emit_signal("menuhide")
+#	#if not await CheckMiss(target): return
+#	var action_result = await Damage(attack_target, Stat(stat.STR), weapontype) 
+#	#var damage_dealt = target.take_damage(Stat(stat.STR), weapontype)
+#	if not action_result.missed:
+#		BattleLog(charname + " has attacked " + attack_target.charname + " for " + str(action_result.damage) + " damage!")
+#		await Combat.AurasCheck(action_result)
+#		CloseTurn()
 
 func Defend():
 	StatMod(stat.DEF, 1.5, 0)
@@ -221,17 +221,17 @@ func CheckMiss(check_target):
 	var rng = Globals.RNG()
 	var result = ratio * rng
 	
-	if result >= Globals.BASE_MISS_CHANCE : return true
+	if result >= Globals.BASE_MISS_CHANCE : return false
 	else: 
 		BattleLog(check_target.charname + " evades " + charname + "'s attack!")
 		var action_result = ActionResult.new()
 		action_result.missed = true
 		action_result.defender = check_target
-		await AurasCheck(action_result)
+		await Combat.AurasCheck(action_result)
 		CloseTurn()
-		return false
+		return true
 
-func CheckCrit(): #return modifier of crit damage (usually 1.5 but can be changed in stats) if crit, otherwise 1
+func CheckCrit() -> float: #return modifier of crit damage (usually 1.5 but can be changed in stats) if crit, otherwise 1
 	if Stat(stat.CRIT) >= Globals.RNG(): return (float(stat.CRITDMG) / 100)
 	else: return 1
 
@@ -300,11 +300,13 @@ func AttemptStatusAilment(type, amount, time, bonus_to_inflict):
 #returns the actual amount of damage that was dealt, and also triggers the damage on the target node.
 func Damage(attack_target, damage_calc, dtype):
 	var action_result = ActionResult.new()
-	action_result.crit = CheckCrit()
+	action_result.crit_damage = CheckCrit()
 	action_result.missed = await CheckMiss(attack_target)
 	
+	if action_result.crit_damage > 1: action_result.crit = true
+	
 	if not action_result.missed:
-		action_result.damage = attack_target.take_damage(damage_calc * action_result.crit, dtype)
+		action_result.damage = attack_target.take_damage(damage_calc * action_result.crit_damage, dtype)
 		emit_signal("attacked", attack_target, self, action_result.damage, dtype) # used for UI shake etc
 	
 	return action_result
@@ -318,7 +320,7 @@ func Revive(rev_target, heal):
 	result.revived = true
 	result.target = rev_target
 
-	await AurasCheck(result)
+	await Combat.AurasCheck(result)
 
 func UseItem():
 	queueditem.call_func(self)
@@ -343,20 +345,7 @@ func MPCost(MPcost):
 	stats[stat.MP] = min(stats[stat.MAXMP], stats[stat.MP])
 	CombatGUI.UpdateStats(self, stats[stat.HP], stats[stat.MP])
 
-func AurasCheck(result:ActionResult):
-		#Checks ActionResult for miss / crit etc and passes to auras for next action
-	if result.missed == true:
-		for n:SkillActions in %Combat.aura: 
-			await n.on_missed(result)
-	if result.damage > 0:
-		for n:SkillActions in %Combat.aura:
-			await n.on_damaged(result)
-	if result.crit == true:
-		for n:SkillActions in %Combat.aura: 
-			await n.on_crit(result)
-	if result.revived == true:
-		for n:SkillActions in %Combat.aura:
-			await n.on_revived(result)
+
 
 func CloseTurn():
 	CombatGUI.ClearSecondMenu()

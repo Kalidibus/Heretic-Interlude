@@ -5,7 +5,7 @@ var skill_action_id: StringName = &"s0002a"
 
 const HEALAMOUNT = 35
 
-func queue(owner: Node, target: Node):
+func queue():
 	CombatGUI.AllyTargetList(self)
 
 func execute(actionfromqueue :ActionforQueue):
