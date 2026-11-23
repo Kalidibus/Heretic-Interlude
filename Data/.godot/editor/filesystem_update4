@@ -1,10 +1,13 @@
-res://Scenes/Battle Scenes/UI/ItemNode.tscn
+res://Scenes/Guild/SkillVendor/SkillUpgradeButton.tscn
 res://Assets/UI/Heretic_Theme.tres
 res://Shaders/Vignette.gdshader
 res://Shaders/Pulse.gdshader
-res://Items/Item Files/r0001-gentlerepose.tres
-res://Scenes/Battle Scenes/Entity.gd
-res://Skills/Skill Actions/s0001a-taunt.gd
 res://Scenes/Battle Scenes/UI/CombatGUI.gd
-res://Scenes/Guild/SkillVendor/SkillUpgradeButton.tscn
+res://Skills/Skills.gd
+res://Skills/Skill Files/s0001-taunt.tres
+res://Skills/Skill Files/s0002-meagerpotion.tres
 res://Scenes/Battle Scenes/Combat.gd
+res://Classes/Fortress/SkillTree-Fortress.tscn
+res://Scenes/Guild/SkillVendor/SkillTreeMenu.gd
+res://Skills/SkillDict.gd
+res://Classes/Fortress/Fortress.gd

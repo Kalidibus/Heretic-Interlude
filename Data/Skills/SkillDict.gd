@@ -1,10 +1,10 @@
 extends Node
 
 const SKILLS_DIR := "res://Skills/Skill Files"
-var skills_by_id: Dictionary = {}
+var skills_by_id: Dictionary [StringName, SkillClass] = {}
 
 const SKILL_ACTIONS_DIR := "res://Skills/Skill Actions"
-var skill_actions_by_id: Dictionary = {}
+var skill_actions_by_id: Dictionary [StringName, SkillActions] = {}
 
 enum books {
 	ITEMS = 0,

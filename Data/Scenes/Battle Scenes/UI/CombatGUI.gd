@@ -131,11 +131,12 @@ func BattleLog(string):
 func _on_Skills_pressed():
 	lastpushed = &"Skills"
 	ClearSecondMenu()
-	print(Combat.active_character)
+#	print(Combat.active_character.known_skills)
 	
-	for skill in Combat.active_character.skill_list:
-		print(skill)
-		if skill.type.PASSIVE == true: pass
+	for n in PlayerData.KnownSkills(Combat.active_character.charid):
+		print(PlayerData.KnownSkills(Combat.active_character.charid))
+		var skill : SkillClass = SkillDict.skills_by_id.get(n)
+		if skill.skill_type == SkillClass.type.PASSIVE : pass
 		else:
 			var skillnode = load("res://Scenes/Battle Scenes/SkillNode.tscn").instantiate()
 			secondmenu.add_child(skillnode)

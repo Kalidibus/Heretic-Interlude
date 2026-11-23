@@ -7,6 +7,7 @@ script = ExtResource("1_2vju8")
 skill_id = &"s0002"
 skill_name = "Meager Potion"
 skill_description = "Triggered upon consuming a Meager Potion	"
+skill_type = 1
 skill_target = 17
 skill_action = &"s0002a"
 metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

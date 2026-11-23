@@ -2,6 +2,8 @@ extends Entity
 
 enum skillid {Fort00, Fort01, Fort02, Fort03, Fort04, Fort05, Fort06, Fort07, Fort08, Fort09, Fort10, Fort11, Fort12, Fort13, Fort14, Fort15, Fort16, Fort17, Fort18, Fort19, Fort20, Fort21, Fort22, Fort23, Fort24, Fort25}
 
+var skill_book: SkillDict.books = SkillDict.books.FORTRESS
+
 #PASSIVES
 var PASSIVE_accumulate_ire = true
 var ire = 0
