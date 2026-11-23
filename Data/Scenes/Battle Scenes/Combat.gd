@@ -38,7 +38,7 @@ func CreateNodes(party, enemy_array):
 		node.row = party[n]["row"]
 		%Party.add_child(node)
 		%SignalBus.ConnectSignals(node)
-		node.GetSkills()
+		#node.GetSkills()
 		party[n]["combatnode"] = node
 	for enemy in enemy_array:
 			var monid = enemy["id"]

@@ -119,11 +119,12 @@ func Turn():
 		BattleLog(charname + " misses their turn...")
 		CloseTurn()
 
-func GetSkills():
-	var skill_array = PlayerData.KnownSkills(charid)
-	for n in skill_array:
-		current_skills[n] = skill_list[n]
-		skill_list[n][skill.current_level] = PlayerData.party[charid]["skill_levels"][n]
+#func GetSkills():
+#	var skill_array = PlayerData.KnownSkills(charid)
+#	print(skill_array)
+#	for n in skill_array:
+#		current_skills[n] = skill_list[n]
+#		skill_list[n][skill.current_level] = PlayerData.party[charid]["skill_levels"][n]
 
 func get_enemy_targets():
 	var list = enemies.get_children()
@@ -333,8 +334,12 @@ func StatMod(this_stat, amount, timer):
 	statmods[this_stat] = amount
 	statmodtimer[this_stat] = timer
 
-func MPCheck(MPcost):
-	if stats[stat.MP] < MPcost: 
+#Change to this eventually - after all abilities moved over
+#func MPCheck(MPcost: SkillClass):
+func MPCheck(skillfile):
+	var cost = skillfile.skill_mp_cost * skillfile.skill_mp_level_scaling #after you've decided how to store skill levels, add that to the calculation here.
+		
+	if stats[stat.MP] < cost: 
 		BattleLog("Not enough MP!")
 		return false
 	else: return true

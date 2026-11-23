@@ -12,4 +12,5 @@ item_name = "Ring of Gentle Repose"
 description = "A small copper band. Lovingly hand wrought by a gemsmith of no renown. It's soft metal dents easily, but still holds a modest heat that is comforting to you. 
 
 Unique Passive: "
+granted_ability_ids = Array[StringName]([&""])
 metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

@@ -2,14 +2,9 @@ res://Scenes/Battle Scenes/UI/ItemNode.tscn
 res://Assets/UI/Heretic_Theme.tres
 res://Shaders/Vignette.gdshader
 res://Shaders/Pulse.gdshader
-res://Skills/Skill Files/ATTACK.gd
-res://Skills/Skill Actions/DEFEND.gd
-res://Skills/Skill Actions/ATTACK.gd
-res://Scenes/Battle Scenes/UI/CombatGUI.gd
-res://Skills/Skill Actions/s0001a-taunt.gd
-res://Skills/SkillActions.gd
-res://Skills/Skill Actions/s0002a-meagerpotion.gd
+res://Items/Item Files/r0001-gentlerepose.tres
 res://Scenes/Battle Scenes/Entity.gd
-res://Scenes/Battle Scenes/Resources/ActionResult.gd
+res://Skills/Skill Actions/s0001a-taunt.gd
+res://Scenes/Battle Scenes/UI/CombatGUI.gd
+res://Scenes/Guild/SkillVendor/SkillUpgradeButton.tscn
 res://Scenes/Battle Scenes/Combat.gd
-res://Classes/Bastard Fist/Bastard Fist.gd

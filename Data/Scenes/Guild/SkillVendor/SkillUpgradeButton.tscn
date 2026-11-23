@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://cq3c5quv71rap" path="res://Scenes/Guild/SkillVendor/SkillUpgradeButton.gd" id="1_n0tbf"]
 [ext_resource type="Theme" uid="uid://dny0ibmsfjqu5" path="res://Assets/UI/Heretic_Theme.tres" id="2_rkjyk"]
 
-[node name="SkillUpgradeButton" type="Button"]
+[node name="SkillUpgradeButton" type="Button" unique_id=362319652]
 custom_minimum_size = Vector2(250, 150)
 offset_right = 250.0
 offset_bottom = 150.0
 disabled = true
 script = ExtResource("1_n0tbf")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=965239715]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,10 +22,10 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=168744846]
 layout_mode = 2
 
-[node name="Cost" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="Cost" type="Label" parent="MarginContainer/HBoxContainer" unique_id=168762878]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -33,7 +33,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "Cost:"
 
-[node name="CostAmount" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="CostAmount" type="Label" parent="MarginContainer/HBoxContainer" unique_id=2008532758]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -42,7 +42,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "5"
 
-[node name="CostItem" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="CostItem" type="Label" parent="MarginContainer/HBoxContainer" unique_id=452858805]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -51,7 +51,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "Arcane Traces"
 
-[node name="SkillLevelLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="SkillLevelLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=485062736]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -61,14 +61,14 @@ theme_override_font_sizes/font_size = 12
 text = "0"
 horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1583368376]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "/"
 
-[node name="MaxLevelLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="MaxLevelLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1312856344]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
@@ -76,7 +76,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "3"
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=712370851]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,23 +88,23 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2" unique_id=20427678]
 layout_mode = 2
 
-[node name="SkillNameLabel" type="Label" parent="MarginContainer2/VBoxContainer"]
+[node name="SkillNameLabel" type="Label" parent="MarginContainer2/VBoxContainer" unique_id=1192521009]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 text = "SKILL NAME"
 
-[node name="SkillDescLabel" type="Label" parent="MarginContainer2/VBoxContainer"]
+[node name="SkillDescLabel" type="Label" parent="MarginContainer2/VBoxContainer" unique_id=2124982815]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "skill description"
 autowrap_mode = 2
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=2119786468]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,7 +114,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("2_rkjyk")
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Line2D" type="Line2D" parent="." unique_id=1485577554]
 z_index = -1
 position = Vector2(125, 75)
 width = 6.0

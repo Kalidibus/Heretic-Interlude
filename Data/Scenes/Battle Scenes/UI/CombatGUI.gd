@@ -131,8 +131,10 @@ func BattleLog(string):
 func _on_Skills_pressed():
 	lastpushed = &"Skills"
 	ClearSecondMenu()
+	print(Combat.active_character)
 	
-	for skill in Combat.active_character.current_skills:
+	for skill in Combat.active_character.skill_list:
+		print(skill)
 		if skill.type.PASSIVE == true: pass
 		else:
 			var skillnode = load("res://Scenes/Battle Scenes/SkillNode.tscn").instantiate()
@@ -267,7 +269,7 @@ func StatusLabels(target):
 		statuscontainer.get_child(count).SetStatus(n, statuscount)
 		count +=1
 
-func QueueAction(active_character, action_string, target = null):
+func QueueAction(active_character: Entity, action_string: SkillActions, target = null):
 	ClearSecondMenu()
 	
 	var action = ActionforQueue.new()
