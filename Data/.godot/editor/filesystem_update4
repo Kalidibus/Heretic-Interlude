@@ -1,15 +1,13 @@
-res://Scenes/Battle Scenes/Combat.tscn
+res://Scenes/Battle Scenes/UI/ItemNode.tscn
 res://Assets/UI/Heretic_Theme.tres
 res://Shaders/Vignette.gdshader
 res://Shaders/Pulse.gdshader
-res://Enemies/Arid/Regular/mon_cutter.gd
+res://Skills/Skill Actions/s0002a-meagerpotion.gd
 res://Scenes/Battle Scenes/UI/CombatGUI.gd
-res://Scenes/Guild/Unlocks.gd
-res://Scenes/Battle Scenes/UI/ItemNode.tscn
-res://Scenes/Battle Scenes/UI/ItemNode.gd
-res://Items/Items.gd
-res://Skills/Skills.gd
-res://Skills/Skill Files/s0002-meagerpotion.tres
-res://Skills/Skill Files/s0002a-meagerpotion.gd
+res://Scenes/Battle Scenes/Resources/ActionforQueue.gd
+res://Scenes/Battle Scenes/Combat.gd
+res://Scenes/Battle Scenes/ActionQueue.gd
 res://Skills/SkillActions.gd
-res://Items/Item Files/i0001-weakpotion.tres
+res://Skills/Skill Actions/s0001a-taunt.gd
+res://PlayerData/CharacterChanges.gd
+res://Scenes/Battle Scenes/UI/ItemNode.gd

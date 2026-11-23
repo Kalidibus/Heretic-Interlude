@@ -3,6 +3,7 @@ extends Node
 
 var skillowner: Entity
 
+
 #Scripts that are to be called during phases of routine combat
 func queue(owner: Node, target: Node): 
 	pass
@@ -14,7 +15,7 @@ func on_caster_turn_start(owner: Node, target: Node):
 	pass
 func on_caster_turn_end(owner: Node, target: Node):
 	pass
-func execute(owner: Node, target: Node):
+func execute(actionfromqueue):
 	pass
 func on_end_of_round(owner: Node, target: Node):
 	pass

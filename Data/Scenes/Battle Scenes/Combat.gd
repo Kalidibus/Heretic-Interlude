@@ -93,7 +93,8 @@ func PartyTurnOrder(): #next to fix
 func EnemyTurnOrder():
 	await self.player_turns_selected
 	for n in %Enemies.get_children():
-		%CombatGUI.QueueAction(n, "Turn")
+		pass
+		#%CombatGUI.QueueAction(n, "Turn")
 
 	emit_signal("all_turns_selected")
 

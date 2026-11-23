@@ -29,7 +29,7 @@ func PlayRound():
 			%CombatGUI.BattleLog("Nothing to target...")
 			await get_tree().create_timer(0.5).timeout
 		else: 
-			Execute()
+			Execute(n)
 			await self.turn_done
 	
 	queuedactions = [] #reset the queue
@@ -38,18 +38,16 @@ func PlayRound():
 func SortbySpeed(a, b):
 	return a["speed"] > b["speed"]
 
-func Execute():
-	active_character["combatlabel"].set_self_modulate("4bff0a")
-	for n in $Combat.auras:
-		n._on_turn_start(active_character)
-	if target != null: 
-		action.call(target)
-	else: 
-		action.call()
+func Execute(actionfromqueue: ActionforQueue):
+	print(active_character)
+	actionfromqueue.owner["combatlabel"].set_self_modulate("4bff0a")
+	for n in Combat.auras:
+		n._on_turn_start(actionfromqueue)
+	actionfromqueue.action.execute(actionfromqueue)
 	
-	if active_character.dead != true:
-		await active_character.turn_complete
+	if actionfromqueue.owner.dead != true:
+		await actionfromqueue.owner.turn_complete
 	else:
 		await get_tree().create_timer(0.5).timeout
-	active_character["combatlabel"].set_self_modulate("ffffff")
+	actionfromqueue.owner["combatlabel"].set_self_modulate("ffffff")
 	emit_signal("turn_done")

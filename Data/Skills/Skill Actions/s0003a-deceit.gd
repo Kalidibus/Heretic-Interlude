@@ -1,7 +1,7 @@
 extends SkillActions
-
-func _ready() -> void:
-	skillfile =  SkillDict.skills_by_id.get(&"S0003")
+@onready var skillfile: SkillClass = SkillDict.skills_by_id.get(&"S0003")
+@onready var CombatGUI: CGUI #will be populated with button setup in CombatGUI I guess
+var skill_action_id: StringName = &"s0003a"
 
 func combat_start():
 	%Combat.auras.append(self)

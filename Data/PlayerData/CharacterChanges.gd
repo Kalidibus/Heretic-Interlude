@@ -23,13 +23,10 @@ func AddtoInventory(item: StringName , qty: int) -> void:
 		PlayerData.inventory[item] += qty
 
 func RemovefromInventory(item: StringName , qty: int):
-	if not PlayerData.inventory.has(item):
-		return 0
-	if PlayerData.inventory[item] < qty:
-		return 0
-	else:
-		PlayerData.inventory[item] -= qty
-		return 1
+		if PlayerData.inventory.has(item):
+			PlayerData.inventory[item] = max(0, PlayerData.inventory[item] - qty)
+			if PlayerData.inventory[item] == 0:
+				PlayerData.inventory.erase(item)
 
 func GainXP(charid, xp):
 	charid = str(charid)

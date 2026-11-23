@@ -26,9 +26,9 @@ layout_mode = 2
 text = "Heal - "
 
 [node name="Label" type="Label" parent="Button/HBoxContainer" unique_id=464218420]
-visible = false
 layout_mode = 2
 text = ": "
+horizontal_alignment = 1
 
 [node name="SkillDesc" type="Label" parent="Button/HBoxContainer" unique_id=947673482]
 visible = false

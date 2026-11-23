@@ -6,6 +6,7 @@ class_name ItemNode
 func _ready():
 	pass
 
-func SetSkill(skill):
-	$Button/HBoxContainer/SkillName.text = skill.item_name
-	$Button/HBoxContainer/SkillDesc.text = skill.description
+func SetSkill(item):
+	$Button/HBoxContainer/SkillName.text = item.item_name
+	$Button/HBoxContainer/SkillDesc.text = item.description
+	$Button/HBoxContainer/Label.text = " - (" +  str(PlayerData.inventory[item.item_id])+ ")"

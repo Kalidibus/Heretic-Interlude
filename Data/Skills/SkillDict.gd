@@ -35,7 +35,8 @@ func _ready() -> void:
 		if file_name.get_extension() != "gd":
 			continue
 		var path := SKILL_ACTIONS_DIR.path_join(file_name)
-		var skill_action := load(path) as Script
+		var action_script := load(path) as GDScript
+		var skill_action := action_script.new() as SkillActions
 		skill_actions_by_id[skill_action.skill_action_id] = skill_action
 
 func get_skill(id: StringName) -> SkillClass:

@@ -1,4 +1,5 @@
 extends MarginContainer
+class_name CGUI
 
 # Get blocks ready to be generated for the UI
 @onready var enemylabels = preload("res://Scenes/Battle Scenes/UI/EnemyLabel.tscn")
@@ -158,11 +159,9 @@ func _on_Items_pressed():
 		var item_skill_action: SkillActions = SkillDict.skill_actions_by_id.get(item_skill.skill_action)
 		var itemnode = load("res://Scenes/Battle Scenes/UI/ItemNode.tscn").instantiate()
 		secondmenu.add_child(itemnode)
-		#skillnode.SetSkill(item.item_name + " - (" + str(PlayerData.inventory[item_id]) + ")" , item.description)
 		itemnode.SetSkill(item)
-		print(item_skill)
-		print(item_skill_action)
-		itemnode.get_child(0).connect("pressed",item_skill_action.queue(null, null)) #RESUME HERE WHEN BACK
+		item_skill_action.CombatGUI = %CombatGUI
+		itemnode.get_child(0).pressed.connect(item_skill_action.queue.bind(null, null)) #RESUME HERE WHEN BACK
 		emptycheck += 1
 	
 		var label = Label.new()
@@ -257,13 +256,12 @@ func StatusLabels(target):
 func QueueAction(active_character, action_string, target = null):
 	ClearSecondMenu()
 	
-	var function = Callable(active_character, action_string)
-	var action = {"name" : active_character, 
-		"action": function,
-		"target": target,
-		"speed" : active_character.stats[Entity.stat.SPD],
-		"action_string" : action_string
-		}
+	var action = ActionforQueue.new()
+	action.owner = active_character
+	action.action = action_string
+	action.target = target
+	action.speed = active_character.stats[Entity.stat.SPD]
+
 	%ActionQueue.queuedactions.append(action)
 	emit_signal("turn_selected")
 
