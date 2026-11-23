@@ -1,8 +1,7 @@
 [gd_resource type="Resource" script_class="ItemClass" format=3 uid="uid://cmhymp5bqn84i"]
 
 [ext_resource type="Script" uid="uid://cmthgiwuu1hpq" path="res://Items/Items.gd" id="1_gw6hh"]
-[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_k62v0"]
-[ext_resource type="Resource" uid="uid://igxlefqno2xw" path="res://Skills/Skill Files/s0001-taunt.tres" id="2_ycvu2"]
+[ext_resource type="Resource" uid="uid://cqpl51h4jm0r0" path="res://Skills/Skill Files/s0002-meagerpotion.tres" id="1_pk1mq"]
 
 [resource]
 script = ExtResource("1_gw6hh")
@@ -14,5 +13,5 @@ description = "The last remaining drops of what was once a potent curative.
 On Use: Heals a small amount of HP	"
 sell_value = 40
 can_be_used = 1
-effect_on_use = Array[ExtResource("1_k62v0")]([ExtResource("2_ycvu2")])
+effect_on_use = ExtResource("1_pk1mq")
 metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

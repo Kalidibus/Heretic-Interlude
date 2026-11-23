@@ -30,11 +30,11 @@ func _ready():
 func Turn():
 	super.Turn()
 	if dead: 
-		CloseTurn(ActionResult.new())
+		CloseTurn()
 	elif status.has(status_effects.STUN):
 		status.erase(status_effects.STUN)
 		%CombatGUI.BattleLog(charname + " misses their turn...")
-		CloseTurn(ActionResult.new())
+		CloseTurn()
 	else:
 		target = DecideTarget()
 		var rng = Globals.RNG()
@@ -50,4 +50,5 @@ func mAttack(target):
 	var result = target.take_damage(damage, damage_type.SLASH)
 	
 	%CombatGUI.BattleLog("The " + str(charname) + " slashes " + str(target.charname) + " with sharp blades for " + str(result.damage) + " damage!")
-	CloseTurn(result)
+	AurasCheck(result)
+	CloseTurn()

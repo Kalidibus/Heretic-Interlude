@@ -17,7 +17,7 @@ enum uses {none = 0, everywhere = 1, field_only = 2, combat_only = 3}
 @export var item_rarity: rarity
 @export var weapon_damage_modifiers: Dictionary[CG.damage_type, int] = {}
 @export var can_be_used: uses
-@export var effect_on_use: Array[SkillClass]
+@export var effect_on_use: SkillClass
 
 # Use stat names as keys, such as &"FTH" or &"STR".
 @export var stat_modifiers: Dictionary[CG.stat, int] = {}

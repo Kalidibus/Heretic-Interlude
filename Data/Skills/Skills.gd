@@ -33,7 +33,7 @@ enum tags {RAISE = 0}
 @export var skill_name: String
 @export_multiline var skill_description: String = "placeholder"
 @export var skill_target: target
-@export var skill_trigger: StringName
+@export var skill_action: StringName
 @export var skill_max_level: int = 1
 @export var skill_mp_cost: int = 10
 @export var skill_mp_level_scaling: float = 1.1

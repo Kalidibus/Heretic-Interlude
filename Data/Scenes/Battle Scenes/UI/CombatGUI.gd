@@ -142,15 +142,27 @@ func _on_Skills_pressed():
 func _on_Items_pressed():
 	lastpushed = "Items"
 	ClearSecondMenu()
-	var emptycheck: int
+	var emptycheck: int = 0
+	
+	if PlayerData.inventory.is_empty(): 
+		BattleLog("No Items")
+		return
+	for item_id :StringName in PlayerData.inventory:
+		var item : ItemClass = ItemDict.items_by_id.get(item_id)
 
-	for item in PlayerData.inventory:
-		if ItemDict.items_by_id.get(item).can_be_used != ItemClass.uses.everywhere and ItemDict.items_by_id.get(item).can_be_used != ItemClass.uses.combat_only:
+		#skip if non-combat item
+		if item.can_be_used != ItemClass.uses.everywhere and item.can_be_used != ItemClass.uses.combat_only:
 			continue
-		var skillnode = load("res://Scenes/Battle Scenes/SkillNode.tscn").instantiate()
-		secondmenu.add_child(skillnode)
-		skillnode.SetSkill(str(ItemDict.items_by_id.get(item).item_name + " - (" +str(PlayerData.inventory[item])+")") , ItemDict.items_by_id.get(item).description)
-		#skillnode.get_child(0).connect("pressed",Callable(Items,n).bind(active_character))
+		
+		var item_skill: SkillClass = item.effect_on_use
+		var item_skill_action: SkillActions = SkillDict.skill_actions_by_id.get(item_skill.skill_action)
+		var itemnode = load("res://Scenes/Battle Scenes/UI/ItemNode.tscn").instantiate()
+		secondmenu.add_child(itemnode)
+		#skillnode.SetSkill(item.item_name + " - (" + str(PlayerData.inventory[item_id]) + ")" , item.description)
+		itemnode.SetSkill(item)
+		print(item_skill)
+		print(item_skill_action)
+		itemnode.get_child(0).connect("pressed",item_skill_action.queue(null, null)) #RESUME HERE WHEN BACK
 		emptycheck += 1
 	
 		var label = Label.new()
