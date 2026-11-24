@@ -53,18 +53,18 @@ func _on_pressed() -> void:
 			UnlockNodes()
 
 
-func GetSkillInfo(skillid, skill):
-	skill_name_label.text = skill[Entity.skill.name]
-	skill_desc_label.text = skill[Entity.skill.desc]
-	skill_level_label.text = str(skill[Entity.skill.current_level])
-	max_level_label.text = str(skill[Entity.skill.max_level])
-	current_level = skill[Entity.skill.current_level]
-	max_level = skill[Entity.skill.max_level]
-	parent_required_level = skill[Entity.skill.parent_unlock_level]
+func GetSkillInfo(skill :SkillClass):
+	skill_name_label.text = skill.skill_name
+	skill_desc_label.text = skill.skill_description
+	#skill_level_label.text = str(skill[Entity.skill.current_level])
+	max_level_label.text = str(skill.skill_max_level)
+	current_level = 1 #need to get from playerdata
+	max_level = skill.skill_max_level
+	parent_required_level = 1 #you can make this dynamic later I don't care
 	
 	if current_level > 0: panel.show_behind_parent = true
 	
-	skill_id = skillid
+	skill_id = skill
 	char_id = skill_tree_menu.char_id
 
 func CheckParentLevel():

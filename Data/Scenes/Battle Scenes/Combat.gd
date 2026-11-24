@@ -23,6 +23,7 @@ func _ready():
 	enemies = EnemyDict.GetEncounter(currentzone)
 	$CombatGUI.CreateLabels(party, enemies)
 	CreateNodes(party, enemies)
+	CombatStartPassives()
 	MainBattleLoop()
 	
 
@@ -49,6 +50,19 @@ func CreateNodes(party, enemy_array):
 			%SignalBus.ConnectSignals(enode)
 			enemy["combatnode"] = enode
 
+func CombatStartPassives():
+	var p = %Party.get_children()
+	var e = %Enemies.get_children()
+	
+	
+	for passive_owner:Entity in %Party.get_children():
+		print(passive_owner)
+		for skill :SkillClass in PlayerData.KnownSkills(passive_owner.charid):
+			var skillaction = SkillDict.skill_actions_by_id.get(skill.skill_action)
+			skillaction.Combat = self
+			skillaction.CombatGUI = %CombatGUI
+			skillaction.combat_start(passive_owner, p, e)
+	
 func MainBattleLoop():
 	await get_tree().create_timer(0.1).timeout
 	PartyTurnOrder()
@@ -169,6 +183,9 @@ func AurasCheck(result:ActionResult):
 	if result.missed == true:
 		for n:SkillActions in auras: 
 			await n.on_missed(result)
+	if result.missed == false:
+		for n:SkillActions in auras: 
+			await n.on_hit(result)
 	if result.damage > 0:
 		for n:SkillActions in auras:
 			await n.on_damaged(result)

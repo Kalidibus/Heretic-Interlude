@@ -2,8 +2,6 @@ extends Node
 
 const SKILLS_DIR := "res://Skills/Skill Files"
 var skills_by_id: Dictionary [StringName, SkillClass] = {}
-
-const SKILL_ACTIONS_DIR := "res://Skills/Skill Actions"
 var skill_actions_by_id: Dictionary [StringName, SkillActions] = {}
 
 enum books {
@@ -22,22 +20,28 @@ enum books {
 	}
 
 func _ready() -> void:
-	#populate skills by ID variable
-	for file_name in DirAccess.get_files_at(SKILLS_DIR):
-		if file_name.get_extension() != "tres":
-			continue
-		var path := SKILLS_DIR.path_join(file_name)
-		var skill := load(path) as SkillClass
-		skills_by_id[skill.skill_id] = skill
+	for path in _get_files_recursive(SKILLS_DIR):
+		if path.get_extension() == "tres":
+			var skill := load(path) as SkillClass
+			skills_by_id[skill.skill_id] = skill
+		elif path.get_extension() == "gd":
+			var action_script := load(path) as GDScript
+			var skill_action := action_script.new() as SkillActions
+			skill_actions_by_id[skill_action.skill_action_id] = skill_action
 
-	#populate skill actions by ID variable
-	for file_name in DirAccess.get_files_at(SKILL_ACTIONS_DIR):
-		if file_name.get_extension() != "gd":
-			continue
-		var path := SKILL_ACTIONS_DIR.path_join(file_name)
-		var action_script := load(path) as GDScript
-		var skill_action := action_script.new() as SkillActions
-		skill_actions_by_id[skill_action.skill_action_id] = skill_action
+
+func _get_files_recursive(directory_path: String) -> Array[String]:
+	var paths: Array[String] = []
+	var directory := DirAccess.open(directory_path)
+
+	for file_name in directory.get_files():
+		paths.append(directory_path.path_join(file_name))
+	for subdirectory in directory.get_directories():
+		paths.append_array(
+			_get_files_recursive(directory_path.path_join(subdirectory))
+		)
+	return paths
+
 
 func get_skill(id: StringName) -> SkillClass:
 	return skills_by_id.get(id)

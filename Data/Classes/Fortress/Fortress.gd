@@ -122,13 +122,12 @@ func _ready():
 
 #SKILLS
 func Turn():
-	Passives()
 	super.Turn() #calls the parent Turn function. 
 	PASSIVE_accumulate_ire = false #reset ire accumulation
 
-func Defend():
-	super.Defend()
-	PASSIVE_accumulate_ire = true
+#func Defend():
+	#super.Defend()
+	#PASSIVE_accumulate_ire = true
 
 func take_damage(damage, type):
 	if PASSIVE_accumulate_ire == true: 
@@ -138,59 +137,14 @@ func take_damage(damage, type):
 	var adjusteddamage = super.take_damage(damage, type)
 	return int(adjusteddamage)
 
-func Passives():
-	if passive_check == false:
-		passive_check = true
-		if current_skills.has(skillid.Fort00):
-			PeerlessDefenses()
 
-func PeerlessDefenses():
-	stats[stat.DEF] = stats[stat.DEF] * (1 + 0.1 * skill_list[skillid.Fort01][skill.current_level])
-	stats[stat.HATE] = stats[stat.HATE] * (1 + 0.1 * skill_list[skillid.Fort01][skill.current_level])
 
-func Taunt():
-	if MPCheck(10) == false: return
-	else: CombatGUI.QueueAction(self, "Taunt2")
-func Taunt2():
-	var previousvalue = statres[status_effects.MARKED]
-	statres[status_effects.MARKED] = 0
-	if not status.has(status_effects.MARKED):
-		AttemptStatusAilment(status_effects.MARKED, 80, 2, 0)
-	statres[status_effects.MARKED] = previousvalue
-	HATE += (25 + (25 * skill_list[skillid.Fort01][skill.current_level]))
 
-	MPCost(10)
-	#CloseTurn(str(charname) + " Taunts the enemy!")
-	CloseTurn()
 
-func Vanguard():
-	if MPCheck(40) == false: return
-	else: CombatGUI.TargetList("Vanguard2")
-func Vanguard2(target):
-	var damage = stats[stat.DEF] * statmods[stat.DEF]
-	var adjusteddamage = target.take_damage(damage, damage_type.IMPACT)
-	MPCost(40)
-	#CloseTurn(str(charname) + " has attacked " + str(target.charname) + " for " + str(adjusteddamage) + " damage!")
-	CloseTurn()
-	
-func Bastion():
-	if MPCheck(40) == false: return
-	else: CombatGUI.AllyTargetList("Bastion2")
-func Bastion2(target):
-	var heal = 2 * stats[stat.DEF]
-	target.get_healed(heal)
-	MPCost(40)
-	#CloseTurn(str(charname) + " provides shelter behind her shields to " + str(target.charname) + ", healing her for " + str(heal) + " HP!")
-	CloseTurn()
-	
-func Embolden():
-	if MPCheck(20) == false: return
-	else: CombatGUI.QueueAction(self, "Embolden2")
-func Embolden2():
-	MPCost(20)
-	StatMod(stat.DEF, 1.25, 2)
-	#CloseTurn(str(charname) + " takes on a defensive stances! DEF Increased.")
-	CloseTurn()
+
+
+
+
 	
 func VanguardCrush():
 	if ire == 0:
@@ -234,20 +188,6 @@ func ShrapnelBurst2():
 	#CloseTurn("")
 	CloseTurn()
 
-func ShieldTremor():
-	if MPCheck(20) == false: return
-	else: CombatGUI.QueueAction(self, "ShieldTremor2")
-func ShieldTremor2():
-	var e = get_enemy_targets()
-	CombatGUI.BattleLog(str(charname) + " smashes her shields into the ground, destabilizing enemy lines!")
-	for target in e:
-		if target.stats[stat.HP] != 0:
-			var damage_dealt = await Damage(target, Stat(stat.DEF)/0.5, damage_type.IMPACT)
-			target.StatMod(stat.STR, 30, 1)
-			CombatGUI.BattleLog(str(target.charname) + " is hit for " + str(damage_dealt) + " damage! STR Decreased!")
-			await get_tree().create_timer(0.5).timeout
-	#CloseTurn("")
-	CloseTurn()
 
 func FortifyFront():
 	if MPCheck(20) == false: return
@@ -295,6 +235,6 @@ func PerfectShell2():
 		StatMod(stat.DEF, 999, 1)
 		StatMod(stat.RES, 999, 1)
 		CombatGUI.BattleLog(str(charname) + " uses Perfect Shell!")
-		super.Defend()
+#		super.Defend()
 		#CloseTurn("")
 		CloseTurn()

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemClass" format=3 uid="uid://cmhymp5bqn84i"]
 
 [ext_resource type="Script" uid="uid://cmthgiwuu1hpq" path="res://Items/Items.gd" id="1_gw6hh"]
-[ext_resource type="Resource" uid="uid://cqpl51h4jm0r0" path="res://Skills/Skill Files/s0002-meagerpotion.tres" id="1_pk1mq"]
+[ext_resource type="Resource" uid="uid://cqpl51h4jm0r0" path="res://Skills/Skill Files/Items/s0002-meagerpotion.tres" id="1_pk1mq"]
 
 [resource]
 script = ExtResource("1_gw6hh")

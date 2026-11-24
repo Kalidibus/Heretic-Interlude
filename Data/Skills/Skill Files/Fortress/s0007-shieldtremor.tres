@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://ugw5lpqjrxnb"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_li6kb"]
+
+[resource]
+script = ExtResource("1_li6kb")
+skill_id = &"s0007"
+skill_name = "Shield Tremor"
+skill_description = "Smashing shields into the ground destablizes the enemy, reducing STR."
+skill_type = 1
+skill_target = 3
+skill_action = &"s0007a"
+skill_max_level = 5
+skill_mp_cost = 20
+skill_mp_level_scaling = 1.0
+skill_book = 3
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

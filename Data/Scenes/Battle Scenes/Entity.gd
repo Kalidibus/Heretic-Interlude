@@ -14,6 +14,7 @@ enum damage_type {PIERCE = 0, IMPACT = 1, SLASH = 2, INFERNAL = 3, LEVIN = 4, DE
 enum status_effects {POISON = 0, BURN = 1, BLIND = 2, STUN = 3, SEAL = 4, MARKED = 5, REGEN = 6}
 enum row_line {FRONT = 0, BACK = 1}
 enum skill {name = 0, desc = 1, passive = 2, max_level = 3, current_level = 4, parent_unlock_level = 5}
+enum state {DEFENDING, ATTACKING, NONE}
 
 #Combat Variables
 var charid #ties a node to it's owner in the party
@@ -23,6 +24,7 @@ var stats = {} #this is filled in during Combat initiation based on the party me
 var skill_list
 var current_skills: Dictionary[SkillClass, int] = {} #skill known, and level of skill known
 var resources: Dictionary[StringName, int] = {} #used for passive currencies like IRE, DECEIT etc
+var current_state: state
 
 var row
 var enemy = false
@@ -106,6 +108,7 @@ func ConnectSignals():
 	pass
 
 func Turn():
+	current_state = state.NONE
 	ConnectSignals()
 	StatModCountDown()
 	await StatusEffects()
@@ -212,10 +215,10 @@ func Stat(stat_to_check: Entity.stat):
 #		await Combat.AurasCheck(action_result)
 #		CloseTurn()
 
-func Defend():
-	StatMod(stat.DEF, 1.5, 0)
-	BattleLog(str((charname) + " defends herself!"))
-	CloseTurn()
+#func Defend():
+#	StatMod(stat.DEF, 1.5, 0)
+#	BattleLog(str((charname) + " defends herself!"))
+#	CloseTurn()
 
 func CheckMiss(check_target):
 	var ratio : float = float(stats[stat.ACC]) / float(check_target.stats[stat.EVD])
@@ -250,6 +253,7 @@ func take_damage (damage, type):
 
 	if type == damage_type.TRUE:
 		adjusteddamage = damage
+	print(stats[stat.HP])
 	stats[stat.HP] -= int(adjusteddamage)
 	stats[stat.HP] = max(0, stats[stat.HP])
 	

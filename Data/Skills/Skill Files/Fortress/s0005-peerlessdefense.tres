@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://b3wkhqe1alxkx"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_kdama"]
+
+[resource]
+script = ExtResource("1_kdama")
+skill_id = &"s0005"
+skill_name = "Peerless Defense"
+skill_description = "Increases base HATE, and DEF. [Passive]"
+skill_action = &"s0005a"
+skill_max_level = 10
+skill_mp_cost = 0
+skill_mp_level_scaling = 0.0
+skill_book = 3
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

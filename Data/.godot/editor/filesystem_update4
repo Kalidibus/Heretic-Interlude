@@ -1,13 +1,41 @@
-res://Scenes/Guild/SkillVendor/SkillUpgradeButton.tscn
+res://Scenes/Guild/CharacterCreate.tscn
 res://Assets/UI/Heretic_Theme.tres
 res://Shaders/Vignette.gdshader
 res://Shaders/Pulse.gdshader
-res://Scenes/Battle Scenes/UI/CombatGUI.gd
-res://Skills/Skills.gd
-res://Skills/Skill Files/s0001-taunt.tres
-res://Skills/Skill Files/s0002-meagerpotion.tres
-res://Scenes/Battle Scenes/Combat.gd
-res://Classes/Fortress/SkillTree-Fortress.tscn
+res://PlayerData/PartyMember.gd
 res://Scenes/Guild/SkillVendor/SkillTreeMenu.gd
+res://Scenes/Guild/SkillVendor/SkillUpgradeButton.gd
+res://PlayerData/CharacterChanges.gd
+res://Scenes/Battle Scenes/UI/CombatGUI.gd
+res://Scenes/Battle Scenes/ActionQueue.gd
+res://Skills/Skill Actions/s0002a-meagerpotion.gd
+res://Scenes/Guild/UnlockGuiBox.gd
+res://Scenes/Guild/Unlocks.gd
+res://Skills/Skill Files/s0001-taunt.tres
+res://Skills/Skill Actions/ATTACK.gd
+res://Skills/SkillActions.gd
+res://Skills/Skill Actions/s0001a-taunt.gd
+res://Skills/Skill Actions/s0003a-deceit.gd
+res://Skills/Skill Actions/DEFEND.gd
+res://Scenes/PauseMenu/PartyMenu.gd
+res://Skills/Skill Actions/s0004a-vanguard.gd
+res://Skills/Skill Files/s0004-vanguard.tres
+res://Scenes/Battle Scenes/Entity.gd
+res://Skills/Skill Actions/s0005a-peerlessdefense.gd
+res://Skills/Skill Files/s0005-peerlessdefense.tres
+res://Scenes/Battle Scenes/Combat.gd
 res://Skills/SkillDict.gd
+res://Skills/Skill Files/Fortress/s0006a-bastion.gd
+res://Skills/Skill Files/Fortress/s0006-bastion.tres
 res://Classes/Fortress/Fortress.gd
+res://Skills/Skill Files/Fortress/s0007-shieldtremor.tres
+res://Skills/Skill Files/Fortress/s0007a-shieldtremor.gd
+res://Skills/Skill Files/Fortress/s0008-embolden.tres
+res://Skills/Skill Files/Fortress/s0008a-embolden.gd
+res://Skills/Skill Files/Fortress/s0009-ire.tres
+res://Skills/Skill Files/Fortress/s0003-deceit.tres
+res://Skills/Skill Files/Fortress/s0009a-ire.gd
+res://Skills/Skill Files/Illusionist/s0003-deceit.tres
+res://Skills/Skill Files/General/DEFEND.gd
+res://Scenes/PauseMenu/PartyMenu.tscn
+res://Skills/Skill Files/Fortress/s0004-vanguard.tres

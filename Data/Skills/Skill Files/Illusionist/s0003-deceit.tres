@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://bydttnyal28sq"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_ddi74"]
+
+[resource]
+script = ExtResource("1_ddi74")
+skill_id = &"s0003"
+skill_name = "Accumulate Deceit [Passive]"
+skill_description = "Accumulate stacks of DECEIT upon successfully dodging an attack [Passive["
+skill_book = 10
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

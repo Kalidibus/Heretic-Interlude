@@ -127,22 +127,25 @@ func BattleLog(string):
 		label.custom_minimum_size = Vector2(570, 0)
 		%BattleLog.add_child(label)
 
-#2026refactor
+
 func _on_Skills_pressed():
 	lastpushed = &"Skills"
 	ClearSecondMenu()
-#	print(Combat.active_character.known_skills)
 	
-	for n in PlayerData.KnownSkills(Combat.active_character.charid):
-		print(PlayerData.KnownSkills(Combat.active_character.charid))
-		var skill : SkillClass = SkillDict.skills_by_id.get(n)
+	for skill in PlayerData.KnownSkills(Combat.active_character.charid):
 		if skill.skill_type == SkillClass.type.PASSIVE : pass
 		else:
-			var skillnode = load("res://Scenes/Battle Scenes/SkillNode.tscn").instantiate()
+			var skillnode = load("res://Scenes/Battle Scenes/UI/SkillNode.tscn").instantiate()
 			secondmenu.add_child(skillnode)
 			skillnode.SetSkill(skill)
 			skillnode.get_child(0).tooltip_text = skill.skill_description
-			skillnode.get_child(0).connect("pressed",Callable(Combat.active_character,skill.skill_trigger)) #?
+						
+			var skill_action : SkillActions = SkillDict.skill_actions_by_id.get(skill.skill_action)
+			skill_action.skillowner = Combat.active_character
+			skill_action.CombatGUI = self
+			skill_action.Combat = %Combat
+			
+			skillnode.get_child(0).pressed.connect(skill_action.queue.bind())
 	
 	var label = Label.new()
 	label.text = "SKILLS"

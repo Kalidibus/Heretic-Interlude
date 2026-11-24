@@ -1,8 +1,6 @@
 extends SkillActions
 
 var skill_action_id: StringName = &"ATTACK"
-@onready var CombatGUI: CGUI 
-@onready var Combat: Node
 
 func execute(actionfromqueue :ActionforQueue):
 	CombatGUI.emit_signal("menuhide")

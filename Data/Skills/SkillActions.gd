@@ -2,16 +2,17 @@ class_name SkillActions
 extends Node
 
 var skillowner: Entity
-
+@onready var CombatGUI: CGUI 
+@onready var Combat: Node
 
 #Scripts that are to be called during phases of routine combat
 func queue(): 
 	pass
-func combat_start():
+func combat_start(passive_owner:Entity, party:Array, enemies:Array):
 	pass
 func on_beginning_of_round():
 	pass
-func on_caster_turn_start(owner: Node, target: Node):
+func on_turn_start(actionfromqueue: ActionforQueue):
 	pass
 func on_caster_turn_end(owner: Node, target: Node):
 	pass
@@ -26,7 +27,7 @@ func on_skill_used(owner: Node, target: Node):
 	pass
 func on_item_used(owner: Node, target: Node):
 	pass
-func on_hit(owner: Node, target: Node):
+func on_hit(action:ActionResult):
 	pass
 func on_crit(action:ActionResult):
 	pass

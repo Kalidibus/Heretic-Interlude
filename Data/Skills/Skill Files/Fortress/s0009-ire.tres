@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://us645jsty8c1"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_br3mq"]
+
+[resource]
+script = ExtResource("1_br3mq")
+skill_id = &"s0009"
+skill_name = "Accumulate Ire"
+skill_description = "Allows for the accumulation of the resource IRE upon being attacked while defending [Passive}"
+skill_action = &"s0009a"
+skill_max_level = 5
+skill_mp_cost = 0
+skill_mp_level_scaling = 0.0
+skill_book = 3
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

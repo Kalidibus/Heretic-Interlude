@@ -1,9 +1,8 @@
 extends SkillActions
 @onready var skillfile: SkillClass = SkillDict.skills_by_id.get(&"S0003")
-@onready var CombatGUI: CGUI #will be populated with button setup in CombatGUI I guess
 var skill_action_id: StringName = &"s0003a"
 
-func combat_start():
+func combat_start(passive_owner:Entity, party:Array, enemies:Array):
 	%Combat.auras.append(self)
 
 func on_miss(action: ActionResult):

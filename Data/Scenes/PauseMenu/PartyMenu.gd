@@ -69,16 +69,21 @@ func FillCharInfo_Skills(charid):
 	var skills_node = %Holder.get_node("SkillsMenu/VBoxContainer/Skills")
 	for i in skills_node.get_children(): i.queue_free()
 	
-	for n in PlayerData.KnownSkills(charid):
+	#move to Passives or regular
+	for n :SkillClass in PlayerData.KnownSkills(charid):
+		if n.skill_type == SkillClass.type.PASSIVE: 
+			skills_node = %Holder.get_node("SkillsMenu/VBoxContainer/Passives")
+		else: skills_node = %Holder.get_node("SkillsMenu/VBoxContainer/Skills")
+		
 		var jobid = PlayerData.party[charid]["job_id"]
 		var node = JobDict.JobNode(jobid)
 
 		var label = Label.new()
-		label.text = node.skill_list[n][Entity.skill.name]
+		label.text = n.skill_name
 
 		
 		var label2 = Label.new()
-		label2.text = node.skill_list[n][Entity.skill.desc]
+		label2.text = n.skill_description
 		skills_node.add_child(label)
 		skills_node.add_child(label2)
 

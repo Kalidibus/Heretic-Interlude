@@ -8,6 +8,7 @@ skill_id = &"s0001"
 skill_name = "Taunt"
 skill_description = "Marks self, increasing odds of enemies targetting Fortress. Also increases base aggro."
 skill_type = 1
+skill_action = &"s0001a"
 skill_max_level = 5
 skill_book = 3
 metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

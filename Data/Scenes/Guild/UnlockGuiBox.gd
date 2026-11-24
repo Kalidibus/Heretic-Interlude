@@ -71,11 +71,9 @@ func PaythePrice(jobid):
 	for n in costarray:
 		var cost = costarray[n]["needed"]
 		var item = costarray[n]["itemid"]
-		print(item)
 
 		if PlayerData.GetInvItemQty(item) >= cost:
 			count += 1
-			print(str(count))
 	if count == 4:
 		for n in costarray:
 			var item = costarray[n]["itemid"]

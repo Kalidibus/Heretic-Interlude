@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://dbicchs8c5hgr"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_vy53d"]
+
+[resource]
+script = ExtResource("1_vy53d")
+skill_id = &"s0006"
+skill_name = "Bastion"
+skill_description = "Restores HP to target party member. Amount healed scales with DEF"
+skill_type = 1
+skill_target = 2
+skill_action = &"s0006a"
+skill_max_level = 5
+skill_mp_cost = 40
+skill_mp_level_scaling = 1.0
+skill_book = 3
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"
