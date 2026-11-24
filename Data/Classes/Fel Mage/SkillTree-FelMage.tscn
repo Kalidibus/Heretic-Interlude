@@ -1,15 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpy1xi33yeaf8"]
+[gd_scene format=3 uid="uid://cpy1xi33yeaf8"]
 
 [ext_resource type="PackedScene" uid="uid://dpq5uswfsbu22" path="res://Scenes/Guild/SkillVendor/SkillUpgradeButton.tscn" id="2_5jhb6"]
 
-[node name="SkillTree" type="Control"]
+[node name="SkillTree" type="Control" unique_id=2074281444]
 custom_minimum_size = Vector2(0, 1600)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=642638646]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -18,7 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Skill1" parent="." instance=ExtResource("2_5jhb6")]
+[node name="Skill1" parent="." unique_id=48998446 instance=ExtResource("2_5jhb6")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 40.0
@@ -27,19 +27,19 @@ offset_right = 290.0
 offset_bottom = 182.0
 disabled = false
 
-[node name="Skill2" parent="Skill1" instance=ExtResource("2_5jhb6")]
+[node name="Skill2" parent="Skill1" unique_id=685217614 instance=ExtResource("2_5jhb6")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 350.0
 offset_right = 600.0
 
-[node name="Skill4" parent="Skill1/Skill2" instance=ExtResource("2_5jhb6")]
+[node name="Skill4" parent="Skill1/Skill2" unique_id=1390047081 instance=ExtResource("2_5jhb6")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 350.0
 offset_right = 600.0
 
-[node name="Skill3" parent="Skill1" instance=ExtResource("2_5jhb6")]
+[node name="Skill3" parent="Skill1" unique_id=1561829069 instance=ExtResource("2_5jhb6")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 350.0
@@ -47,55 +47,69 @@ offset_top = 200.0
 offset_right = 600.0
 offset_bottom = 350.0
 
-[node name="Skill5" parent="Skill1/Skill3" instance=ExtResource("2_5jhb6")]
+[node name="Skill5" parent="Skill1/Skill3" unique_id=85249932 instance=ExtResource("2_5jhb6")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 350.0
 offset_right = 600.0
 
-[node name="Skill6" parent="Skill1/Skill3/Skill5" instance=ExtResource("2_5jhb6")]
+[node name="Skill6" parent="Skill1/Skill3/Skill5" unique_id=1284422053 instance=ExtResource("2_5jhb6")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 350.0
 offset_right = 600.0
 
-[node name="Skill7" parent="Skill1/Skill3/Skill5" instance=ExtResource("2_5jhb6")]
-unique_name_in_owner = true
-layout_mode = 0
-offset_top = 200.0
-offset_bottom = 350.0
-
-[node name="Skill8" parent="Skill1/Skill3" instance=ExtResource("2_5jhb6")]
-unique_name_in_owner = true
-layout_mode = 0
-offset_top = 200.0
-offset_bottom = 350.0
-
-[node name="Skill9" parent="Skill1/Skill3/Skill8" instance=ExtResource("2_5jhb6")]
-unique_name_in_owner = true
-layout_mode = 0
-offset_top = 200.0
-offset_bottom = 350.0
-
-[node name="Skill12" parent="Skill1/Skill3/Skill8/Skill9" instance=ExtResource("2_5jhb6")]
+[node name="Skill13" parent="Skill1/Skill3/Skill5/Skill6" unique_id=362319652 instance=ExtResource("2_5jhb6")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 350.0
 offset_right = 600.0
 
-[node name="Skill10" parent="Skill1" instance=ExtResource("2_5jhb6")]
+[node name="Skill14" parent="Skill1/Skill3/Skill5/Skill6/Skill13" unique_id=1368880195 instance=ExtResource("2_5jhb6")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 5.0
+offset_top = 223.0
+offset_right = 255.0
+offset_bottom = 373.0
+
+[node name="Skill7" parent="Skill1/Skill3/Skill5" unique_id=1501073219 instance=ExtResource("2_5jhb6")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 200.0
+offset_bottom = 350.0
+
+[node name="Skill8" parent="Skill1/Skill3" unique_id=741406713 instance=ExtResource("2_5jhb6")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 200.0
+offset_bottom = 350.0
+
+[node name="Skill9" parent="Skill1/Skill3/Skill8" unique_id=258667554 instance=ExtResource("2_5jhb6")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 200.0
+offset_bottom = 350.0
+
+[node name="Skill12" parent="Skill1/Skill3/Skill8/Skill9" unique_id=2019072241 instance=ExtResource("2_5jhb6")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 350.0
+offset_right = 600.0
+
+[node name="Skill10" parent="Skill1" unique_id=1888354670 instance=ExtResource("2_5jhb6")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_top = 600.0
 offset_bottom = 750.0
 
-[node name="Skill11" parent="Skill1/Skill10" instance=ExtResource("2_5jhb6")]
+[node name="Skill11" parent="Skill1/Skill10" unique_id=78071552 instance=ExtResource("2_5jhb6")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_top = 200.0
 offset_bottom = 350.0
 
-[node name="Skill13" parent="Skill1/Skill10/Skill11" instance=ExtResource("2_5jhb6")]
+[node name="Skill13" parent="Skill1/Skill10/Skill11" unique_id=1452596325 instance=ExtResource("2_5jhb6")]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 244.0

@@ -210,7 +210,6 @@ func _on_Attack_pressed():
 	var attack = SkillDict.skill_actions_by_id.get(&"ATTACK")
 	attack.CombatGUI = self
 	attack.Combat = Combat
-	#attack.queue()
 	TargetList(attack)
 	
 func _on_Switch_pressed(): #needs to be fixed for new card style config
@@ -280,7 +279,13 @@ func QueueAction(active_character: Entity, action_string: SkillActions, target =
 	action.owner = active_character
 	action.action = action_string
 	action.target = target
-	action.speed = active_character.stats[Entity.stat.SPD]
+	
+	if action_string.defending == true:
+		action.speed = 9999
+	elif action_string.firststrike == true:
+		action.speed = 9998
+	else:
+		active_character.stats[Entity.stat.SPD]
 
 	%ActionQueue.queuedactions.append(action)
 	emit_signal("turn_selected")

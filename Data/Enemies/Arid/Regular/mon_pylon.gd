@@ -4,10 +4,10 @@ func _ready():
 	charname = "Pylon"
 	reward_xp = Globals.RNG_range(10, 20)
 	loot_table = {
-		ItemDict.get_item(&"c00001"): 55,
-		ItemDict.get_item(&"c00002"): 15,
-		ItemDict.get_item(&"c00003"): 15,
-		ItemDict.get_item(&"c00004"): 15}
+		&"c0001": 55,
+		&"c0002": 15,
+		&"c0003": 15,
+		&"c0004": 15}
 	roll_count = Globals.ROLL_COUNT
 	
 	enemy = true
@@ -48,28 +48,9 @@ func _ready():
 		damage_type.VIRTUOS: -25,
 		damage_type.TRUE: 0
 		}
+	weapontype = damage_type.IMPACT
 
-func AttackList(mtarget, rng):
-	if rng <= 75: mAttack(mtarget)
-	elif rng <= 90: Bludgeon(mtarget)
-	elif rng <= 100: mDefend()
-
-func mAttack(mtarget):
-	if not await CheckMiss(mtarget): return
-	var result = await Damage(mtarget, 1.2 * Stat(stat.STR), damage_type.SLASH)
-	%CombatGUI.BattleLog("The " + charname + " slashes at " + mtarget.charname + " for " + str(result.damage) + " damage!")
-	#CloseTurn(result)
-	CloseTurn()
-	
-func Bludgeon(mtarget):
-	if not await CheckMiss(mtarget): return
-	var result = await Damage(mtarget, 1.5 * Stat(stat.STR), damage_type.IMPACT)
-	%CombatGUI.BattleLog("The " + charname + " emits a bloodcurdling shriek and bludgeons " + mtarget.charname + " fiercly for " + str(result.damage) + " damage!!!")
-	#target.AttemptStatusAilment(status_effects.STUN, 0, 0, 0)
-	#CloseTurn(result)
-	CloseTurn()
-func mDefend():
-	StatMod(stat.DEF, 1.5, 0)
-	%CombatGUI.BattleLog("The " + str(charname) + " folds it's body up defensively...")
-	#CloseTurn(ActionResult.new())
-	CloseTurn()
+func AttackList(rng):
+	if rng <= 75: return SkillDict.get_skill_action(&"ATTACK")
+	elif rng <= 90: return SkillDict.get_skill_action(&"pylon-s01")
+	elif rng <= 100: return SkillDict.get_skill_action(&"pylon-s02")

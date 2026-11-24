@@ -106,9 +106,10 @@ func PartyTurnOrder(): #next to fix
 
 func EnemyTurnOrder():
 	await self.player_turns_selected
-	for n in %Enemies.get_children():
-		pass
-		#%CombatGUI.QueueAction(n, "Turn")
+	for n : Monster in %Enemies.get_children():
+		var mon_action = await n.DecideTurnandTarget()
+		#second var is a skillaction
+		%CombatGUI.QueueAction(n, mon_action.action, mon_action.target)
 
 	emit_signal("all_turns_selected")
 

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://d02vpdvvvd43f"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_g8pok"]
+
+[resource]
+script = ExtResource("1_g8pok")
+skill_id = &"s0011"
+skill_name = "Fortify Front"
+skill_description = "Increases Defense of the Front Line"
+skill_type = 1
+skill_target = 6
+skill_action = &"s0011a"
+skill_max_level = 5
+skill_mp_cost = 20
+skill_mp_level_scaling = 1.0
+skill_book = 3
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

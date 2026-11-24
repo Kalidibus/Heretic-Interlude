@@ -104,12 +104,12 @@ var hire_cost = 5
 func _ready():
 	pass
 
-func ConnectSignals():
-	pass
+#func ConnectSignals():
+#	pass
 
 func Turn():
 	current_state = state.NONE
-	ConnectSignals()
+#	ConnectSignals()
 	StatModCountDown()
 	await StatusEffects()
 	CombatGUI.StatusLabels(self)
@@ -121,13 +121,6 @@ func Turn():
 		status.erase(status_effects.STUN)
 		BattleLog(charname + " misses their turn...")
 		CloseTurn()
-
-#func GetSkills():
-#	var skill_array = PlayerData.KnownSkills(charid)
-#	print(skill_array)
-#	for n in skill_array:
-#		current_skills[n] = skill_list[n]
-#		skill_list[n][skill.current_level] = PlayerData.party[charid]["skill_levels"][n]
 
 func get_enemy_targets():
 	var list = enemies.get_children()
@@ -205,21 +198,6 @@ func StatusEffects():
 func Stat(stat_to_check: Entity.stat):
 	return (stats[stat_to_check] * statmods[stat_to_check])
 
-#func Attack(attack_target: Entity):
-#	CombatGUI.emit_signal("menuhide")
-#	#if not await CheckMiss(target): return
-#	var action_result = await Damage(attack_target, Stat(stat.STR), weapontype) 
-#	#var damage_dealt = target.take_damage(Stat(stat.STR), weapontype)
-#	if not action_result.missed:
-#		BattleLog(charname + " has attacked " + attack_target.charname + " for " + str(action_result.damage) + " damage!")
-#		await Combat.AurasCheck(action_result)
-#		CloseTurn()
-
-#func Defend():
-#	StatMod(stat.DEF, 1.5, 0)
-#	BattleLog(str((charname) + " defends herself!"))
-#	CloseTurn()
-
 func CheckMiss(check_target):
 	var ratio : float = float(stats[stat.ACC]) / float(check_target.stats[stat.EVD])
 	var rng = Globals.RNG()
@@ -246,14 +224,14 @@ func take_damage (damage, type):
 	if stats[stat.HP] == 0: return #to prevent multi-attacks from triggering die() multiple times
 	if type == damage_type.IMPACT or type == damage_type.SLASH or type == damage_type.PIERCE:
 		adjusteddamage = max(1, damage * (100 / (100+(float(Stat(stat.DEF))))))
-		adjusteddamage = max(0, adjusteddamage * (1 - (float(damageres[type]) / 100.00)))
+		adjusteddamage = max(1, adjusteddamage * (1 - (float(damageres[type]) / 100.00)))
 	if type == damage_type.FEL or type == damage_type.VIRTUOS or type == damage_type.INFERNAL or type == damage_type.LEVIN or type == damage_type.ERDE or type == damage_type.DEEP:
 		adjusteddamage = max(1, damage * (100 / (100+(float(Stat(stat.RES))))))
-		adjusteddamage = max(0, adjusteddamage * (1 - (float(damageres[type]) / 100.00)))
+		adjusteddamage = max(1, adjusteddamage * (1 - (float(damageres[type]) / 100.00)))
 
 	if type == damage_type.TRUE:
 		adjusteddamage = damage
-	print(stats[stat.HP])
+
 	stats[stat.HP] -= int(adjusteddamage)
 	stats[stat.HP] = max(0, stats[stat.HP])
 	
@@ -327,15 +305,15 @@ func Revive(rev_target, heal):
 
 	await Combat.AurasCheck(result)
 
-func UseItem():
-	queueditem.call_func(self)
+#func UseItem():
+#	queueditem.call_func(self)
 
 func get_party_targets():
 	return party.get_children()
 
 #used to apply stat modifiers (buffs or debuffs) for a set period of time
 func StatMod(this_stat, amount, timer):
-	statmods[this_stat] = amount
+	statmods[this_stat] = amount * statmods[this_stat]
 	statmodtimer[this_stat] = timer
 
 #Change to this eventually - after all abilities moved over
@@ -358,7 +336,6 @@ func MPCost(MPcost):
 
 func CloseTurn():
 	CombatGUI.ClearSecondMenu()
-	#BattleLog(string)
 	await get_tree().create_timer(0.5).timeout
 	emit_signal("turn_complete")
 

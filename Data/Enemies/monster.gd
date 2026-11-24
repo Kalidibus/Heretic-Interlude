@@ -7,24 +7,21 @@ var roll_count
 var target
 
 func _ready():
-	pass
+	enemy = true
+	weapontype = damage_type.IMPACT
 
-func Turn():
-	super.Turn()
-	if dead: 
-		#CloseTurn("")
-		CloseTurn()
+func DecideTurnandTarget():
+	var mon_action = ActionforQueue.new()
+	mon_action.owner = self
 	
-	elif status.has(status_effects.STUN):
-		status.erase(status_effects.STUN)
-		#CloseTurn("The " + charname + " misses their turn...")
-		CloseTurn()
-	else:
-		target = DecideTarget()
-		var rng = Globals.RNG()
-		AttackList(target, rng)
+	if enemy == true: 
+		mon_action.target = DecideTarget()
+	var rng = Globals.RNG()
+	mon_action.action = AttackList(rng)
+	
+	return mon_action
 
-func AttackList(target,rng):
+func AttackList(rng):
 	pass #handled on individual monster files.
 
 #loot_table and roll_count are defined on individual monster scripts

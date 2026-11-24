@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://cgp787qe1g16e"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_cj57h"]
+
+[resource]
+script = ExtResource("1_cj57h")
+skill_id = &"s0012"
+skill_name = "Fortify Back"
+skill_description = "Increases Defense of the Back Line"
+skill_type = 1
+skill_target = 8
+skill_action = &"s0012a"
+skill_max_level = 5
+skill_mp_cost = 20
+skill_mp_level_scaling = 1.0
+skill_book = 3
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

@@ -4,10 +4,10 @@ func _ready():
 	charname = "Brain Rot"
 	reward_xp = Globals.RNG_range(20, 35)
 	loot_table = {
-		ItemDict.get_item(&"c0001"): 15,
-		ItemDict.get_item(&"c0002"): 15,
-		ItemDict.get_item(&"c0003"): 15,
-		ItemDict.get_item(&"c0004"): 15}
+		&"c0001": 15,
+		&"c0002": 15,
+		&"c0003": 15,
+		&"c0004": 15}
 	roll_count = Globals.ROLL_COUNT
 	
 	enemy = true
@@ -49,13 +49,5 @@ func _ready():
 		damage_type.TRUE: 0
 		}
 
-func AttackList(target, rng):
-	if rng <= 100:
-		mAttack(target)
-
-func mAttack(target):
-	if not await CheckMiss(target): return
-	var dealt_damage = await Damage(target, Stat(stat.DEX), damage_type.PIERCE) 
-	#CloseTurn("The " + str(charname) + " pierces " + str(target.charname) + " with venomous needles for " + str(dealt_damage) + " damage!")
-	target.AttemptStatusAilment(status_effects.POISON, 10, 3, -30)
-	CloseTurn()
+func AttackList(rng):
+	if rng <= 100: return SkillDict.get_skill_action(&"brainrot-s01")

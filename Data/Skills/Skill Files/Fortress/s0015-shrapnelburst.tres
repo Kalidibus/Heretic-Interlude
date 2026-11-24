@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://bix3qm1riwmwv"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_p24rm"]
+
+[resource]
+script = ExtResource("1_p24rm")
+skill_id = &"s0015"
+skill_name = "Shrapnel Burst"
+skill_description = "An explosive blast of rubble that damages the entire enemy front line. [Cost - 2 'IRE']"
+skill_type = 1
+skill_target = 5
+skill_action = &"s0015a"
+skill_max_level = 5
+skill_mp_cost = 0
+skill_mp_level_scaling = 0.0
+skill_book = 3
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

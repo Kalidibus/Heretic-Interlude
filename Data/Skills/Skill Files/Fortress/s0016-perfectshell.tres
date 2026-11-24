@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://c4cwjf4b8i07s"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_d4a78"]
+
+[resource]
+script = ExtResource("1_d4a78")
+skill_id = &"s0016"
+skill_name = "Perfect Shell"
+skill_description = "Defend and massively increase damage resistance this turn."
+skill_type = 1
+skill_action = &"s0016a"
+skill_max_level = 5
+skill_mp_cost = 50
+skill_mp_level_scaling = 1.0
+skill_book = 3
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

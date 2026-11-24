@@ -1,3 +1,6 @@
+TextureRect
+Panel
+SkillUpgradeButton
 Node
 Control
 Label
@@ -6,8 +9,6 @@ MarginContainer
 VBoxContainer
 PanelContainer
 Container
-Panel
 Sprite2D
 CanvasLayer
 ColorRect
-TextureRect

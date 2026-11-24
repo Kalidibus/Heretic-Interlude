@@ -101,6 +101,14 @@ offset_top = 244.0
 offset_right = 252.0
 offset_bottom = 394.0
 
+[node name="Skill14" parent="Skill1/Skill9/Skill11/Skill12" unique_id=701545034 instance=ExtResource("1_ks815")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 339.0
+offset_top = -4.0
+offset_right = 589.0
+offset_bottom = 146.0
+
 [node name="Skill10" parent="Skill1/Skill9" unique_id=2112737043 instance=ExtResource("1_ks815")]
 unique_name_in_owner = true
 layout_mode = 0

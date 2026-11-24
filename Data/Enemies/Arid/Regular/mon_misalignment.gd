@@ -4,10 +4,10 @@ func _ready():
 	charname = "Misalignment"
 	reward_xp = Globals.RNG_range(10, 20)
 	loot_table = {
-		ItemDict.get_item(&"c0001"): 55,
-		ItemDict.get_item(&"c0002"): 15,
-		ItemDict.get_item(&"c0003"): 15,
-		ItemDict.get_item(&"c0004"): 15}
+		&"c0001": 55,
+		&"c0002": 15,
+		&"c0003": 15,
+		&"c0004": 15}
 	roll_count = Globals.ROLL_COUNT
 	
 	enemy = true
@@ -48,54 +48,9 @@ func _ready():
 		damage_type.VIRTUOS: -25,
 		damage_type.TRUE: 0
 		}
+	weapontype = damage_type.SLASH
 
-func AttackList(mtarget, rng):
-	if rng <= 50: mAttack(mtarget)
-	elif rng <= 90: Realign()
-	elif rng <= 100: Buff()
-
-func mAttack(mtarget):
-	if not await CheckMiss(mtarget): return
-	var damage_dealt = await Damage(mtarget, 1.2 * Stat(stat.STR), damage_type.SLASH)
-	#CloseTurn("The " + charname + " attacks " + mtarget.charname + " for " + str(damage_dealt) + " damage!")
-	CloseTurn()
-	
-func Realign():
-	var total_leech = 0
-	CombatGUI.BattleLog(charname + " realigns the battlefield!")
-
-	#leeches health from party
-	for n in get_party_targets():
-		if not await CheckMiss(n): 
-			CombatGUI.BattleLog(n.charname + " evades!")
-			await get_tree().create_timer(0.5).timeout
-		else: 
-			var damage_dealt = await Damage(n, 0.8 * Stat(stat.FTH), damage_type.FEL)
-			CombatGUI.BattleLog(charname + " leeches " + damage_dealt + " health from " + n.charname + "!")
-			total_leech += int(damage_dealt)
-			await get_tree().create_timer(0.5).timeout
-	#calculates the total amount leeched, and how much to give back to enemies
-	var enemy_array = get_enemy_targets()
-	var amount_healed: int = int(total_leech / float(enemy_array.size()))
-
-	#gives it back to enemies
-	for e in enemy_array:
-		e.get_healed(amount_healed)
-		CombatGUI.BattleLog(charname + " transfers " + str(amount_healed) + " health to " + e.charname + "!")
-		await get_tree().create_timer(0.5).timeout
-	#CloseTurn("")
-	CloseTurn()
-
-func Buff():
-	CombatGUI.BattleLog(charname + " infuses the enemy party with vigor!")
-
-	#gives it back to enemies
-	for e in get_enemy_targets():
-		if e == self: pass
-		StatMod(stat.STR, 25, 3)
-		StatMod(stat.DEX, 25, 3)
-		StatMod(stat.DEF, 25, 3)
-		CombatGUI.BattleLog(charname + " invigorates " + e.charname + "! Physical damage and defenses bolstered!")
-		await get_tree().create_timer(0.5).timeout
-	#CloseTurn("")
-	CloseTurn()
+func AttackList(rng):
+	if rng <= 50: return SkillDict.get_skill_action(&"ATTACK")
+	if rng <= 90: return SkillDict.get_skill_action(&"misalign-s01")
+	if rng <= 100: return SkillDict.get_skill_action(&"misalign-s02")

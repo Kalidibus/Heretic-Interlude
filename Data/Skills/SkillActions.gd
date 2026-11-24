@@ -5,6 +5,9 @@ var skillowner: Entity
 @onready var CombatGUI: CGUI 
 @onready var Combat: Node
 
+var defending: bool = false
+var firststrike: bool = false
+
 #Scripts that are to be called during phases of routine combat
 func queue(): 
 	pass

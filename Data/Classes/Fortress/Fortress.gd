@@ -52,64 +52,8 @@ func _ready():
 	weapontype = damage_type.IMPACT
 	
 	skill_list = {
-		skillid.Fort00: {skill.name: "Peerless Defenses",
-			skill.desc: "PASSIVE - Increases base HATE, and DEF.",
-			skill.passive: true,
-			skill.max_level: 10,
-			skill.parent_unlock_level: 0,
-			skill.current_level: 0},
-		skillid.Fort01: {skill.name: "Taunt",
-			skill.desc: "Marks self, increasing odds of enemies targetting Fortress. Also increases base aggro.",
-			skill.max_level: 3,
-			skill.parent_unlock_level: 1,
-			skill.current_level: 0},
-		skillid.Fort02: {skill.name: "Embolden",
-			skill.desc: "Boosts the DEF stat for 3 turns.",
-			skill.max_level: 5,
-			skill.parent_unlock_level: 1,
-			skill.current_level: 0},
-		skillid.Fort03: {skill.name: "Vanguard",
-			skill.desc: "A savage blow with both shields. Deals high impact damage scaling with DEF.",
-			skill.max_level: 5,
-			skill.parent_unlock_level: 1,
-			skill.current_level: 0},
-		skillid.Fort04: {skill.name: "Bastion",
-			skill.desc: "Restores HP to target party member. Amount healed scales with DEF.",
-			skill.max_level: 5,
-			skill.parent_unlock_level: 1,
-			skill.current_level: 0},
-		skillid.Fort05: {skill.name: "Shield Tremor",
-			skill.desc: "Smashing shields into the ground destablizes the enemy, reducing STR.",
-			skill.max_level: 5,
-			skill.parent_unlock_level: 1,
-			skill.current_level: 0},
-		skillid.Fort06: {skill.name: "Fortify Front",
-			skill.desc: "Increases Defense of the Front Line",
-			skill.max_level: 5,
-			skill.parent_unlock_level: 1,
-			skill.current_level: 0},
-		skillid.Fort07: {skill.name: "Fortify Rear",
-			skill.desc: "Increases Defense of the Back Line",
-			skill.max_level: 5,
-			skill.parent_unlock_level: 1,
-			skill.current_level: 0},
-		skillid.Fort08: {skill.name: "Skull Splitter",
-			skill.desc: "COST '1 Ire' - An overhead strike. Has a chance to stun an enemy.",
-			skill.max_level: 5,
-			skill.parent_unlock_level: 1,
-			skill.current_level: 0},
-		skillid.Fort09: {skill.name: "Vanguard Crush",
-			skill.desc: "COST '1 Ire' - A crushing blow from dual shields. Deals heavy damage scaling off of DEF.",
-			skill.max_level: 5,
-			skill.parent_unlock_level: 1,
-			skill.current_level: 0},
 		skillid.Fort10: {skill.name: "Shrapnel Burst",
 			skill.desc: "COST '2 Ire' - An explosive blast of rubble that damages the entire enemy front line.",
-			skill.max_level: 5,
-			skill.parent_unlock_level: 1,
-			skill.current_level: 0},
-		skillid.Fort11: {skill.name: "Debilatio",
-			skill.desc: "COST '3 Ire' - The destructive ultimate potential of the Fortress. Massive Impact damage to the entire enemy party. Scales off of DEF.",
 			skill.max_level: 5,
 			skill.parent_unlock_level: 1,
 			skill.current_level: 0},
@@ -121,55 +65,10 @@ func _ready():
 		}
 
 #SKILLS
-func Turn():
-	super.Turn() #calls the parent Turn function. 
-	PASSIVE_accumulate_ire = false #reset ire accumulation
-
-#func Defend():
-	#super.Defend()
-	#PASSIVE_accumulate_ire = true
-
-func take_damage(damage, type):
-	if PASSIVE_accumulate_ire == true: 
-		ire += 1
-		CombatGUI.BattleLog(charname + "'s Ire rises... Current Ire is " + str(ire))
-	
-	var adjusteddamage = super.take_damage(damage, type)
-	return int(adjusteddamage)
 
 
 
 
-
-
-
-
-
-	
-func VanguardCrush():
-	if ire == 0:
-		CombatGUI.BattleLog("Not enough Ire to perform this action!")
-		return
-	else: CombatGUI.TargetList("VanguardCrush2")
-func VanguardCrush2(target):
-	var damage_dealt = await Damage(target, Stat(stat.DEF) * 1.5, damage_type.IMPACT)
-	MPCost(40)
-	#CloseTurn(str(charname) + " has attacked " + str(target.charname) + " for " + str(damage_dealt) + " damage!")
-	CloseTurn()
-	
-func SkullSplitter():
-	if ire == 0:
-		CombatGUI.BattleLog("Not enough Ire to perform this action!")
-		return
-	else: CombatGUI.TargetList("SkullSplitter2")
-func SkullSplitter2(target):
-	var damage = stats[stat.DEF] * statmods[stat.DEF] + stats[stat.STR] * statmods[stat.STR]
-	var adjusteddamage = target.take_damage(damage, damage_type.IMPACT)
-	ire -= 1
-	#CloseTurn(str(charname) + " uses Ire to perform a crushing overhead blow! to " + str(target.charname) + ", dealing" + str(adjusteddamage) + " damage!")
-	target.AttemptStatusAilment(status_effects.STUN, 0, 0, 20)
-	CloseTurn()
-	
 func ShrapnelBurst():
 	if ire < 2:
 		CombatGUI.BattleLog("Not enough Ire to perform this action!")
@@ -189,44 +88,8 @@ func ShrapnelBurst2():
 	CloseTurn()
 
 
-func FortifyFront():
-	if MPCheck(20) == false: return
-	else: CombatGUI.QueueAction(self, "FortifyFront2")
-func FortifyFront2():
-	var p = get_party_targets()
-	for n in p:
-		if n.row ==row_line.FRONT: StatMod(stat.DEF, 1.6, 1)
-	#CloseTurn(str(charname) + " guards the front row!")
-	CloseTurn()
-	
-	
-func FortifyRear():
-	if MPCheck(20) == false: return
-	else: CombatGUI.QueueAction(self, "FortifyRear2")
-func FortifyRear2():
-	var p = get_party_targets()
-	for n in p:
-		if n.row ==row_line.BACK: StatMod(stat.DEF, 1.6, 1)
-	#CloseTurn(str(charname) + " guards the back row!")
-	CloseTurn()
 
-func Debilatio():
-	if ire < 3:
-		CombatGUI.BattleLog("Not enough Ire to perform this action!")
-		return
-	else: CombatGUI.QueueAction(self, "Debilatio2")
-func Debilatio2():
-	var e = get_enemy_targets()
-	ire -= 3
-	CombatGUI.BattleLog(str(charname) + " unleashes Debilatio!")
-	
-	for target in e:
-		if target.stats[stat.HP] != 0:
-			var damage_dealt = await Damage(target, Stat(stat.DEF) * 1.8, damage_type.IMPACT)
-			CombatGUI.BattleLog(str(target.charname) + " is hit for " + str(damage_dealt) + " damage!")
-			await get_tree().create_timer(0.5).timeout
-	#CloseTurn("")
-	CloseTurn()
+
 	
 func PerfectShell():
 	if MPCheck(50) == false: return

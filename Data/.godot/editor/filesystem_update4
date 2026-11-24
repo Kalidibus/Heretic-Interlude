@@ -1,41 +1,47 @@
-res://Scenes/Guild/CharacterCreate.tscn
+res://Scenes/PauseMenu/PartyMenu.tscn
 res://Assets/UI/Heretic_Theme.tres
 res://Shaders/Vignette.gdshader
 res://Shaders/Pulse.gdshader
-res://PlayerData/PartyMember.gd
-res://Scenes/Guild/SkillVendor/SkillTreeMenu.gd
-res://Scenes/Guild/SkillVendor/SkillUpgradeButton.gd
-res://PlayerData/CharacterChanges.gd
-res://Scenes/Battle Scenes/UI/CombatGUI.gd
-res://Scenes/Battle Scenes/ActionQueue.gd
-res://Skills/Skill Actions/s0002a-meagerpotion.gd
-res://Scenes/Guild/UnlockGuiBox.gd
-res://Scenes/Guild/Unlocks.gd
-res://Skills/Skill Files/s0001-taunt.tres
-res://Skills/Skill Actions/ATTACK.gd
-res://Skills/SkillActions.gd
-res://Skills/Skill Actions/s0001a-taunt.gd
-res://Skills/Skill Actions/s0003a-deceit.gd
-res://Skills/Skill Actions/DEFEND.gd
-res://Scenes/PauseMenu/PartyMenu.gd
-res://Skills/Skill Actions/s0004a-vanguard.gd
-res://Skills/Skill Files/s0004-vanguard.tres
-res://Scenes/Battle Scenes/Entity.gd
-res://Skills/Skill Actions/s0005a-peerlessdefense.gd
-res://Skills/Skill Files/s0005-peerlessdefense.tres
-res://Scenes/Battle Scenes/Combat.gd
-res://Skills/SkillDict.gd
-res://Skills/Skill Files/Fortress/s0006a-bastion.gd
-res://Skills/Skill Files/Fortress/s0006-bastion.tres
+res://Skills/Skill Files/Fortress/s0010-vanguardcrush.tres
 res://Classes/Fortress/Fortress.gd
-res://Skills/Skill Files/Fortress/s0007-shieldtremor.tres
-res://Skills/Skill Files/Fortress/s0007a-shieldtremor.gd
-res://Skills/Skill Files/Fortress/s0008-embolden.tres
-res://Skills/Skill Files/Fortress/s0008a-embolden.gd
-res://Skills/Skill Files/Fortress/s0009-ire.tres
-res://Skills/Skill Files/Fortress/s0003-deceit.tres
+res://Skills/Skill Files/Fortress/s0010a-vanguardcrush.gd
 res://Skills/Skill Files/Fortress/s0009a-ire.gd
-res://Skills/Skill Files/Illusionist/s0003-deceit.tres
+res://Skills/Skill Files/Fortress/s0011a-fortifyfront.tres
+res://Skills/Skill Files/Fortress/s0011a-fortifyfront.gd
+res://Skills/Skill Files/Fortress/s0012a-fortifyback.tres
+res://Skills/Skill Files/Fortress/s0012-fortifyback.gd
+res://Skills/Skill Files/Fortress/s0013-skullsplitter.tres
+res://Skills/Skill Files/Fortress/s0013a-skullsplitter.gd
+res://Skills/Skill Files/Fortress/s0014-debilatio.tres
+res://Skills/Skill Files/Fortress/s0014a-debilatio.gd
+res://Skills/Skill Files/Fortress/s0015-shrapnelburst.tres
+res://Skills/Skill Files/Fortress/s0016-perfectshell.tres
+res://Skills/Skill Files/Fortress/s0016a-perfectshell.gd
 res://Skills/Skill Files/General/DEFEND.gd
-res://Scenes/PauseMenu/PartyMenu.tscn
-res://Skills/Skill Files/Fortress/s0004-vanguard.tres
+res://Skills/Skill Files/Fortress/s0015a-shrapnelburst.gd
+res://Classes/Fortress/SkillTree-Fortress.tscn
+res://Scenes/Guild/SkillVendor/SkillTreeMenu.gd
+res://Classes/Fel Mage/SkillTree-FelMage.tscn
+res://Scenes/Global System/SystemNotification.tscn
+res://Scenes/Global System/SystemChoice.tscn
+res://Skills/Skill Files/zGeneral/DEFEND.gd
+res://Scenes/Battle Scenes/Entity.gd
+res://Scenes/Battle Scenes/Combat.gd
+res://Classes/Illusionist/Illusionist.gd
+res://Enemies/monster.gd
+res://Enemies/Arid/Regular/mon_pylon.gd
+res://Enemies/Arid/Regular/mon_brainrot.gd
+res://Enemies/Arid/Regular/mon_misalignment.gd
+res://Scenes/Battle Scenes/ActionQueue.gd
+res://Skills/Skill Files/Monster/pylon/pylon-1.gd
+res://Skills/Skill Files/Monster/pylon/pylon-s01.gd
+res://Scenes/Battle Scenes/UI/CombatGUI.gd
+res://Enemies/Arid/Regular/mon_cutter.gd
+res://Skills/Skill Files/zGeneral/ATTACK.gd
+res://Skills/Skill Files/Monster/pylon/pylon-s02.gd
+res://Skills/Skill Files/Monster/brainrot-s01.gd
+res://Skills/Skill Files/Monster/misalign-s01.gd
+res://Skills/Skill Files/Monster/misalign-s02.gd
+res://Scenes/Battle Scenes/Resources/ActionforQueue.gd
+res://Skills/SkillActions.gd
+res://Skills/Skill Files/Monster/pylon-s02.gd

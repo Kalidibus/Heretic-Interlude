@@ -22,6 +22,7 @@ func GetTree():
 	job_id = PlayerData.party[char_id]["job_id"]
 
 	skill_tree = load(JobDict.JobSkillTree(job_id)) 
+	print(skill_tree)
 	%ScrollContainer.add_child(skill_tree.instantiate())
 	FillTree()
 	
@@ -41,7 +42,8 @@ func FillTree():
 		var skill = SkillDict.skills_by_id.get(skill_id)
 		
 		if skill.skill_book != SkillDict.books.FORTRESS: continue #skip if it doesn't fit this skill book.
-		
+		print(count)
+		print(skill)
 		var node = skill_tree_node.get_node("%Skill" + str(count))
 		node.GetSkillInfo(skill)
 		for known in PlayerData.party[char_id]["known_skills"]:

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://qtney1rkh526"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_e1fnu"]
+
+[resource]
+script = ExtResource("1_e1fnu")
+skill_id = &"s0010"
+skill_name = "Vanguard Crush"
+skill_description = "A crushing blow from dual shields. Deals heavy damage scaling off of DEF. [COST - '1 IRE']"
+skill_type = 1
+skill_target = 1
+skill_action = &"s0010a"
+skill_max_level = 5
+skill_mp_cost = 40
+skill_mp_level_scaling = 1.0
+skill_book = 3
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

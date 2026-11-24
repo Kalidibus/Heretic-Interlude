@@ -84,8 +84,8 @@ func _ready():
 			skill.current_level: 0}
 			}
 
-func ConnectSignals():
-	SignalBus.dodged.connect(_on_dodge)
+#func ConnectSignals():
+#	SignalBus.dodged.connect(_on_dodge)
 func Turn():
 	#Check Mistborne status and decriment if needed
 	if MISTBORNE_active == true: 

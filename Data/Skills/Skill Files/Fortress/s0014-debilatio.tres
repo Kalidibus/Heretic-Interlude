@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://vwu6wu6k0ufb"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_sxkfa"]
+
+[resource]
+script = ExtResource("1_sxkfa")
+skill_id = &"s0014"
+skill_name = "Debilatio"
+skill_description = "The destructive ultimate potential of the Fortress. Massive Impact damage to the entire enemy party. Scales off of DEF. [Cost - 3 'IRE']"
+skill_type = 1
+skill_target = 3
+skill_action = &"s0014a"
+skill_max_level = 5
+skill_mp_cost = 0
+skill_mp_level_scaling = 0.0
+skill_book = 3
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"
