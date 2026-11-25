@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://bkdv667nsciuc"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_igocy"]
+
+[resource]
+script = ExtResource("1_igocy")
+skill_id = &"felmage-s11"
+skill_name = "Repressed Malice"
+skill_description = "Internal malignments cause an increase in INT and MP."
+skill_action = &"felmage-s11"
+skill_max_level = 5
+skill_mp_cost = 0
+skill_mp_level_scaling = 0.0
+skill_general_modifier = 100.0
+skill_book = 4
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

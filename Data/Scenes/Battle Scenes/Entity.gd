@@ -209,7 +209,7 @@ func CheckMiss(check_target):
 		var action_result = ActionResult.new()
 		action_result.missed = true
 		action_result.defender = check_target
-		await Combat.AurasCheck(action_result)
+		#await Combat.AurasCheck(action_result)  #duplicated in Damage
 		CloseTurn()
 		return true
 
@@ -284,7 +284,7 @@ func AttemptStatusAilment(type, amount, time, bonus_to_inflict):
 func Damage(attack_target, damage_calc, dtype):
 	var action_result = ActionResult.new()
 	action_result.crit_damage = CheckCrit()
-	action_result.missed = await CheckMiss(attack_target)
+	action_result.missed = CheckMiss(attack_target)
 	action_result.damage_type = dtype
 	action_result.attacker = self
 	action_result.defender = attack_target
@@ -295,6 +295,7 @@ func Damage(attack_target, damage_calc, dtype):
 		action_result.damage = attack_target.take_damage(damage_calc * action_result.crit_damage, dtype)
 		emit_signal("attacked", attack_target, self, action_result.damage, dtype) # used for UI shake etc
 	
+	await Combat.AurasCheck(action_result)
 	return action_result
 
 func Revive(rev_target, heal):

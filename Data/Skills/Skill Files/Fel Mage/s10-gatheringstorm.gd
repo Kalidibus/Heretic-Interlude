@@ -4,6 +4,7 @@ var skill_action_id: StringName = &"felmage-s10"
 var mpcost:int = 0
 
 var round_count = 0
+var one_strike_per_round:Array[Entity] = []
 
 func queue():
 	var skillfile: SkillClass = SkillDict.skills_by_id.get(skill_action_id)
@@ -33,19 +34,22 @@ func on_beginning_of_round():
 		skillowner.Combat.auras.erase(self)
 		print(skillowner.Combat.auras)
 
-#check damage type and allegiance, and throw a thunderbolt if everything matches
+#check damage type and allegiance, and throw a thunderbolt if everything matches. It's almost working, it just strikes before the damage does currently.
 func on_damaged(action: ActionResult):
-	print("made it")
 	var actionowner :Entity = action.attacker
 	var target :Entity = action.defender
 	
-	#if on the same side, then skip
-	if actionowner.enemy == skillowner.enemy: 
-		print("skipping")
+	#update this later on if you want this ability to be used by enemies. 
+	if not target.enemy: 
 		return
-	
-	if action.damage_type == Entity.damage_type.INFERNAL or action.damage_type == Entity.damage_type.LEVIN:
-			var adjusteddamage = await skillowner.Damage(target, skillowner.Stat(Entity.stat.INT) * MODIFIER, Entity.damage_type.LEVIN)
-			actionowner.CombatGUI.BattleLog("A bolt from the thunderhead hits "+target.charname + " for " + str(adjusteddamage.damage) + " damage!")
-			await actionowner.get_tree().create_timer(0.5).timeout
-	else: print("mismatch")
+	elif one_strike_per_round.has(target):
+		return
+	elif action.damage_type == Entity.damage_type.INFERNAL or action.damage_type == Entity.damage_type.LEVIN:
+
+		one_strike_per_round.append(target)
+		var adjusteddamage = await skillowner.Damage(target, skillowner.Stat(Entity.stat.INT) * MODIFIER, Entity.damage_type.LEVIN)
+		actionowner.CombatGUI.BattleLog("A bolt from the thunderhead hits "+target.charname + " for " + str(adjusteddamage.damage) + " damage!")
+		await actionowner.get_tree().create_timer(0.5).timeout
+
+func on_turn_end(actionfromqueue: ActionforQueue):
+	one_strike_per_round = []

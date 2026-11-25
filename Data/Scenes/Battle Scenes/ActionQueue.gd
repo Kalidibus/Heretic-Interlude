@@ -43,7 +43,8 @@ func Execute(actionfromqueue: ActionforQueue):
 	for n in Combat.auras:
 		n.on_turn_start(actionfromqueue)
 	actionfromqueue.action.execute(actionfromqueue)
-
+	for n in Combat.auras:
+		n.on_turn_end(actionfromqueue)
 	
 	if actionfromqueue.owner.dead != true:
 		await actionfromqueue.owner.turn_complete

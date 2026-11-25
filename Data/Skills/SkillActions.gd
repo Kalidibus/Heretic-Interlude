@@ -18,7 +18,7 @@ func on_beginning_of_round():
 	pass
 func on_turn_start(actionfromqueue: ActionforQueue):
 	pass
-func on_caster_turn_end(owner: Node, target: Node):
+func on_turn_end(actionfromqueue: ActionforQueue):
 	pass
 func execute(actionfromqueue):
 	pass
