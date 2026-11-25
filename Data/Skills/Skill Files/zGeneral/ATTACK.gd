@@ -11,5 +11,5 @@ func execute(actionfromqueue :ActionforQueue):
 
 	if not action_result.missed:
 		char.CombatGUI.BattleLog(char.charname + " has attacked " + target.charname + " for " + str(action_result.damage) + " damage!")
-		await Combat.AurasCheck(action_result)
+		await char.Combat.AurasCheck(action_result)
 		char.CloseTurn()

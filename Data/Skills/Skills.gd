@@ -38,6 +38,7 @@ enum tags {RAISE = 0}
 @export var skill_max_level: int = 1
 @export var skill_mp_cost: int = 10
 @export var skill_mp_level_scaling: float = 1.1
+@export var skill_general_modifier: float = 1
 @export var skill_book: SkillDict.books
 @export var skill_tags: Array [tags]  
 

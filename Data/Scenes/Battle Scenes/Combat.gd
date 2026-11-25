@@ -56,7 +56,6 @@ func CombatStartPassives():
 	
 	
 	for passive_owner:Entity in %Party.get_children():
-		print(passive_owner)
 		for skill :SkillClass in PlayerData.KnownSkills(passive_owner.charid):
 			var skillaction = SkillDict.skill_actions_by_id.get(skill.skill_action)
 			skillaction.Combat = self
@@ -65,9 +64,13 @@ func CombatStartPassives():
 	
 func MainBattleLoop():
 	await get_tree().create_timer(0.1).timeout
+	
+	print("new round")
 	PartyTurnOrder()
 	EnemyTurnOrder()
+
 	await self.all_turns_selected
+
 	%ActionQueue.PlayRound()
 
 func PartyTurnOrder(): #next to fix
@@ -183,7 +186,7 @@ func AurasCheck(result:ActionResult):
 		#Checks ActionResult for miss / crit etc and passes to auras for next action
 	if result.missed == true:
 		for n:SkillActions in auras: 
-			await n.on_missed(result)
+			await n.on_miss(result)
 	if result.missed == false:
 		for n:SkillActions in auras: 
 			await n.on_hit(result)

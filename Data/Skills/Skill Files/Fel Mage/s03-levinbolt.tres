@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://b2ryfcmp2c0xu"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_nnl1r"]
+
+[resource]
+script = ExtResource("1_nnl1r")
+skill_id = &"felmage-s03"
+skill_name = "Levin Bolt"
+skill_description = "A Levin aspected attack, dealing moderate damage."
+skill_type = 1
+skill_target = 1
+skill_action = &"felmage-s03"
+skill_max_level = 5
+skill_mp_level_scaling = 1.0
+skill_general_modifier = 1.4
+skill_book = 4
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

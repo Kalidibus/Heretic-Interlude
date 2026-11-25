@@ -11,5 +11,4 @@ func execute(actionfromqueue :ActionforQueue):
 	
 	char.StatMod(char.stat.DEF, 1.5, 0)
 	char.CombatGUI.BattleLog(str((char.charname) + " defends herself!"))
-	print(char.statmods)
 	char.CloseTurn()

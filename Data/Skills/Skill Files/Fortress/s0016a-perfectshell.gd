@@ -12,11 +12,11 @@ func queue():
 	
 func execute(actionfromqueue :ActionforQueue):
 	var actionowner :Entity = actionfromqueue.owner
-	print(actionowner.statmods)
+	
 	actionowner.StatMod(Entity.stat.DEF, 999, 1)
 	actionowner.StatMod(Entity.stat.RES, 999, 1)
-	print(actionowner.statmods)
 	actionowner.MPCost(mpcost) 
+	
 	CombatGUI.BattleLog(actionowner.charname + " uses Perfect Shell!")
 	
 	#passes to the DEFEND action to close the turn.

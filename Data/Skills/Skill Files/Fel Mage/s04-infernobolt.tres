@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://dmb0smsh0qtwv"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_dkrs3"]
+
+[resource]
+script = ExtResource("1_dkrs3")
+skill_id = &"felmage-s04"
+skill_name = "Inferno Bolt"
+skill_description = "An Inferno aspected attack, dealing moderate damage."
+skill_type = 1
+skill_target = 1
+skill_action = &"felmage-s04"
+skill_max_level = 5
+skill_mp_level_scaling = 1.0
+skill_general_modifier = 1.4
+skill_book = 4
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

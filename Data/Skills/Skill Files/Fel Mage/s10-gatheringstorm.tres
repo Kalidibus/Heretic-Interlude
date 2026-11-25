@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://cvh1bil33xhgg"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_o0v8e"]
+
+[resource]
+script = ExtResource("1_o0v8e")
+skill_id = &"felmage-s10"
+skill_name = "Pyrocumulonimbus"
+skill_description = "Creates a monstrous dark thunderhead, roiling with cinder and smoke. 
+Follows up Levin and Infernal damage with additional strikes from the thundercloud."
+skill_type = 1
+skill_action = &"felmage-s10"
+skill_max_level = 5
+skill_mp_cost = 30
+skill_mp_level_scaling = 1.0
+skill_general_modifier = 0.5
+skill_book = 4
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

@@ -1,6 +1,6 @@
 extends Node
 
-var player_file_path = "user://saves/playersaves/player_save.json"
+var player_file_path = "user://saves/playersaves/player_save.save"
 
 
 func ask_save():
@@ -19,7 +19,7 @@ func save_file():
 
 func autosave():
 	CreateSaveDirectories()
-	var autosave_file_path = "user://saves/autosaves/autosave-" + Time.get_datetime_string_from_system(false, false) + "json"
+	var autosave_file_path = "user://saves/autosaves/autosave-" + Time.get_datetime_string_from_system(false, false) + "save"
 	var file = FileAccess.open(autosave_file_path, FileAccess.WRITE)
 
 	file.store_var(PlayerData.inventory)

@@ -39,7 +39,6 @@ func SortbySpeed(a, b):
 	return a["speed"] > b["speed"]
 
 func Execute(actionfromqueue: ActionforQueue):
-	print(actionfromqueue.owner)
 	actionfromqueue.owner["combatlabel"].set_self_modulate("4bff0a")
 	for n in Combat.auras:
 		n.on_turn_start(actionfromqueue)

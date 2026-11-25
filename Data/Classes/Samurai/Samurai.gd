@@ -38,20 +38,3 @@ func _ready():
 	enemy = false
 	weapontype = damage_type.SLASH
 	
-	skill_list = {
-		"DEV hit": "Strikes an opponent with a flurry of blows. Scales with SPD and STR"
-	}
-
-func DEVhit():
-	if MPCheck(15) == false: return
-	else: CombatGUI.TargetList("CrimsonRush2")
-func CrimsonRush2(target):
-	var damage = (stats[stat.STR] + stats[stat.SPD])/4
-	combo = "CrimsonRush"
-	MPCost(15)
-	for number in range(3):
-		var adjusteddamage = target.take_damage(damage, damage_type.IMPACT)
-		CombatGUI.BattleLog(str(charname) + " has attacked " + str(target.charname) + " for " + str(adjusteddamage) + " damage!")
-		await get_tree().create_timer(0.5).timeout
-	#CloseTurn("")
-	CloseTurn()

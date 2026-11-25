@@ -285,6 +285,9 @@ func Damage(attack_target, damage_calc, dtype):
 	var action_result = ActionResult.new()
 	action_result.crit_damage = CheckCrit()
 	action_result.missed = await CheckMiss(attack_target)
+	action_result.damage_type = dtype
+	action_result.attacker = self
+	action_result.defender = attack_target
 	
 	if action_result.crit_damage > 1: action_result.crit = true
 	
@@ -312,7 +315,7 @@ func get_party_targets():
 	return party.get_children()
 
 #used to apply stat modifiers (buffs or debuffs) for a set period of time
-func StatMod(this_stat, amount, timer):
+func StatMod(this_stat :stat, amount :float, timer :int):
 	statmods[this_stat] = amount * statmods[this_stat]
 	statmodtimer[this_stat] = timer
 

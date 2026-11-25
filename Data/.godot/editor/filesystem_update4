@@ -1,47 +1,6 @@
-res://Scenes/PauseMenu/PartyMenu.tscn
+res://Scenes/Battle Scenes/Combat.gd
+res://Scenes/Global System/SystemChoice.tscn
 res://Assets/UI/Heretic_Theme.tres
 res://Shaders/Vignette.gdshader
 res://Shaders/Pulse.gdshader
-res://Skills/Skill Files/Fortress/s0010-vanguardcrush.tres
-res://Classes/Fortress/Fortress.gd
-res://Skills/Skill Files/Fortress/s0010a-vanguardcrush.gd
-res://Skills/Skill Files/Fortress/s0009a-ire.gd
-res://Skills/Skill Files/Fortress/s0011a-fortifyfront.tres
-res://Skills/Skill Files/Fortress/s0011a-fortifyfront.gd
-res://Skills/Skill Files/Fortress/s0012a-fortifyback.tres
-res://Skills/Skill Files/Fortress/s0012-fortifyback.gd
-res://Skills/Skill Files/Fortress/s0013-skullsplitter.tres
-res://Skills/Skill Files/Fortress/s0013a-skullsplitter.gd
-res://Skills/Skill Files/Fortress/s0014-debilatio.tres
-res://Skills/Skill Files/Fortress/s0014a-debilatio.gd
-res://Skills/Skill Files/Fortress/s0015-shrapnelburst.tres
-res://Skills/Skill Files/Fortress/s0016-perfectshell.tres
-res://Skills/Skill Files/Fortress/s0016a-perfectshell.gd
-res://Skills/Skill Files/General/DEFEND.gd
-res://Skills/Skill Files/Fortress/s0015a-shrapnelburst.gd
-res://Classes/Fortress/SkillTree-Fortress.tscn
-res://Scenes/Guild/SkillVendor/SkillTreeMenu.gd
-res://Classes/Fel Mage/SkillTree-FelMage.tscn
-res://Scenes/Global System/SystemNotification.tscn
-res://Scenes/Global System/SystemChoice.tscn
-res://Skills/Skill Files/zGeneral/DEFEND.gd
-res://Scenes/Battle Scenes/Entity.gd
-res://Scenes/Battle Scenes/Combat.gd
-res://Classes/Illusionist/Illusionist.gd
-res://Enemies/monster.gd
-res://Enemies/Arid/Regular/mon_pylon.gd
-res://Enemies/Arid/Regular/mon_brainrot.gd
-res://Enemies/Arid/Regular/mon_misalignment.gd
-res://Scenes/Battle Scenes/ActionQueue.gd
-res://Skills/Skill Files/Monster/pylon/pylon-1.gd
-res://Skills/Skill Files/Monster/pylon/pylon-s01.gd
-res://Scenes/Battle Scenes/UI/CombatGUI.gd
-res://Enemies/Arid/Regular/mon_cutter.gd
-res://Skills/Skill Files/zGeneral/ATTACK.gd
-res://Skills/Skill Files/Monster/pylon/pylon-s02.gd
-res://Skills/Skill Files/Monster/brainrot-s01.gd
-res://Skills/Skill Files/Monster/misalign-s01.gd
-res://Skills/Skill Files/Monster/misalign-s02.gd
-res://Scenes/Battle Scenes/Resources/ActionforQueue.gd
-res://Skills/SkillActions.gd
-res://Skills/Skill Files/Monster/pylon-s02.gd
+res://Skills/Skill Files/Fel Mage/s10-gatheringstorm.gd

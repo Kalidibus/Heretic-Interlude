@@ -4,6 +4,7 @@ extends Node
 var skillowner: Entity
 @onready var CombatGUI: CGUI 
 @onready var Combat: Node
+var MODIFIER: float = 1 #use this as a general modifier value for tweaking damage
 
 var defending: bool = false
 var firststrike: bool = false
