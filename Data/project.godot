@@ -23,7 +23,7 @@ config/icon="res://Assets/Classes/Fortress/Fortress-profile.png"
 
 [autoload]
 
-PartyStats="*res://Scenes/Battle Scenes/Party.tscn"
+PartyStats="res://Scenes/Battle Scenes/Party.tscn"
 Items="*res://Scenes/Battle Scenes/Items.tscn"
 Globals="*res://Scenes/Global System/Globals.gd"
 SaveandLoad="*res://PlayerData/SaveandLoad.gd"

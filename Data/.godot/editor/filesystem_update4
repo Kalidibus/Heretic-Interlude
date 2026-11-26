@@ -1,11 +1,13 @@
-res://Scenes/Battle Scenes/Combat.gd
 res://Scenes/Global System/SystemChoice.tscn
 res://Assets/UI/Heretic_Theme.tres
 res://Shaders/Vignette.gdshader
 res://Shaders/Pulse.gdshader
-res://Skills/Skill Files/Fel Mage/s10-gatheringstorm.gd
-res://Scenes/Battle Scenes/Entity.gd
-res://Scenes/Battle Scenes/ActionQueue.gd
-res://Skills/SkillActions.gd
-res://Skills/Skill Files/Fel Mage/s11-repressedmalice.tres
-res://Skills/Skill Files/Fel Mage/s11-repressedmalice.gd
+res://Scenes/PauseMenu/PartyMenu.gd
+res://Scenes/PauseMenu/EquipmentBlock.tscn
+res://Scenes/PauseMenu/EquipMenu.tscn
+res://Scenes/PauseMenu/PartyMenu.tscn
+res://PlayerData/PlayerData.gd
+res://Scenes/PauseMenu/EquipmentBlock.gd
+res://Scenes/PauseMenu/party_block.gd
+res://Items/Item Files/b0001-corrodedarmour.tres
+res://Items/Item Files/w0001-corrodedwep.tres

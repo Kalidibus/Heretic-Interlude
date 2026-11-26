@@ -17,7 +17,7 @@ func _on_position_button_pressed() -> void:
 		PlayerData.party[charid]["row"] = Entity.row_line.FRONT
 	
 func _on_up_button_pressed() -> void:
-	var partymenu = get_node("/root/PauseMenu/VBoxContainer/MenuContainer/PartyMenu")
+	#var partymenu = get_node("/root/PauseMenu/VBoxContainer/MenuContainer/PartyMenu")
 	PlayerData.MovePartyMember(charid, "up")
 	await partymenu.AddBlocks()
 	partymenu.GetLastPushed(charid, "up")

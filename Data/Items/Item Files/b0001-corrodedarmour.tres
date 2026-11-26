@@ -9,6 +9,5 @@ item_type = 2
 item_subtype = 9
 item_slot = 2
 item_name = "Corroded Armour"
-description = "placeholder"
 sell_value = 5
 metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

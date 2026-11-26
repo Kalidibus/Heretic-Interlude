@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://d1ohbecagacbk"]
+
+[ext_resource type="Script" uid="uid://cdxrs3dkaw80g" path="res://Scenes/PauseMenu/EquipmentBlock.gd" id="1_kaarn"]
+
+[node name="EquipmentBlock" type="MarginContainer" unique_id=96437628]
+offset_right = 575.0
+offset_bottom = 77.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_kaarn")
+
+[node name="MarginContainer4" type="HBoxContainer" parent="." unique_id=486571471]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer4" unique_id=55627339]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer4/MarginContainer" unique_id=2102411572]
+modulate = Color(0.49354547, 0.49354553, 0.49354553, 1)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer4/MarginContainer" unique_id=1941725235]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
+
+[node name="item_slot" type="Label" parent="MarginContainer4/MarginContainer/MarginContainer" unique_id=1087977529]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Head - "
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer4" unique_id=1467727656]
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="MarginContainer4/MarginContainer2" unique_id=881084166]
+modulate = Color(0.49354547, 0.49354553, 0.49354553, 1)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer4/MarginContainer2" unique_id=1838373548]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer4/MarginContainer2/MarginContainer" unique_id=680612247]
+layout_mode = 2
+
+[node name="item_name" type="Label" parent="MarginContainer4/MarginContainer2/MarginContainer/VBoxContainer" unique_id=726710161]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Rusted Helm"
+
+[node name="item_stats" type="Label" parent="MarginContainer4/MarginContainer2/MarginContainer/VBoxContainer" unique_id=589976929]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+5 DEF  / + 5 HP /  +5 STR"
+
+[node name="item_rarity" type="Label" parent="MarginContainer4/MarginContainer2/MarginContainer/VBoxContainer" unique_id=1326099738]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Common"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer4" unique_id=278511123]
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="MarginContainer4/MarginContainer3" unique_id=733356460]
+modulate = Color(0.49354547, 0.49354553, 0.49354553, 1)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer4/MarginContainer3" unique_id=952897417]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
+
+[node name="item_description" type="Label" parent="MarginContainer4/MarginContainer3/MarginContainer" unique_id=940088509]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(300, 0)
+layout_mode = 2
+text = "A rusted helm which is total shit fuck you"

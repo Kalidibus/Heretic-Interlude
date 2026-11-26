@@ -34,6 +34,9 @@ func GetStat(charid, stat):
 func KnownSkills(charid):
 	return party[charid]["known_skills"]
 
+func GetEquipment(charid):
+	return party[charid]["equipment"]
+
 func MovePartyMember(charid, direction):
 	var index = party_order.find(charid)
 	

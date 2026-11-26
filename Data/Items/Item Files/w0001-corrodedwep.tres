@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_qmbnp")
 item_id = &"w0001"
-item_slot = 2
+item_slot = 3
 item_name = "Corroded Stick"
 description = "A corroded chunk of metal that provides little to no use in combat, and will surely fail the user at the most critical moment."
 sell_value = 2
