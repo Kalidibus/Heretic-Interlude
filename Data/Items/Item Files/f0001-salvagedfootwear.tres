@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemClass" format=3 uid="uid://mlfeyc34rdki"]
+
+[ext_resource type="Script" uid="uid://cmthgiwuu1hpq" path="res://Items/Items.gd" id="1_qttry"]
+
+[resource]
+script = ExtResource("1_qttry")
+item_id = &"f0001"
+item_type = 2
+item_subtype = 11
+item_slot = 6
+item_name = "Salvaged Footwear"
+description = "Footwear recovered amidst the detritus of the shattered 13th Wall. In poor shape, but it's initial construction was sturdy, and it will hold for a time."
+sell_value = 10
+stat_modifiers = Dictionary[int, int]({
+5: 1,
+12: 3
+})
+metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

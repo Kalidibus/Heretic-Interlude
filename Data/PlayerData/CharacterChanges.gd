@@ -5,16 +5,30 @@ func _ready() -> void:
 
 #Function receives the ID of character who's equipping an item, the slot, and the item ID.
 #Equips it and moves anything already in the slot to inventory space.
-func add_equipment(charid, add_eqp, location) -> void:
+func add_equipment(charid, add_eqp :StringName, location) -> void:
 	var character = PlayerData.get(location)[str(charid)]
 	
 	if character["equipment"].get(ItemDict.items_by_id.get(add_eqp).item_slot) != null:
 		remove_equipment(charid, add_eqp, location)
 	character["equipment"][ItemDict.items_by_id.get(add_eqp).item_slot] = add_eqp
+	
+	#apply stat bonuses from gear to character in the party. 
+	var gear_stats : Dictionary = ItemDict.items_by_id.get(add_eqp).stat_modifiers
+	for n in gear_stats:
+		print("before" + str(character["stats"][n]))
+		character["stats"][n] += gear_stats[n]
+		print("after" + str(character["stats"][n]))
 
 func remove_equipment(charid, remove_eqp, location) -> void:
 	var character = PlayerData.get(location)[str(charid)]
 	character["equipment"].erase(ItemDict.items_by_id.get(remove_eqp).item_slot)
+
+	#remove stat bonuses from gear to character in the party. 
+	var gear_stats : Dictionary = ItemDict.items_by_id.get(remove_eqp).stat_modifiers
+	for n in gear_stats:
+		print("before" + str(character["stats"][n]))
+		character["stats"][n] -= gear_stats[n]
+		print("after" + str(character["stats"][n]))
 
 func AddtoInventory(item: StringName , qty: int) -> void:
 	if not PlayerData.inventory.has(item):

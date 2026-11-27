@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemClass" format=3 uid="uid://dl00ih1pn8md1"]
+
+[ext_resource type="Script" uid="uid://cmthgiwuu1hpq" path="res://Items/Items.gd" id="1_p7e7n"]
+
+[resource]
+script = ExtResource("1_p7e7n")
+item_id = &"h0002"
+item_type = 2
+item_subtype = 8
+item_slot = 1
+item_name = "Salvaged Helm"
+description = "A helm recovered amidst the detritus of the shattered 13th Wall. In poor shape, but it's initial construction was sturdy, and it will hold for a time."
+sell_value = 10
+stat_modifiers = Dictionary[int, int]({
+5: 2,
+7: 2
+})
+metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

@@ -29,11 +29,11 @@ var current_state: state
 var row
 var enemy = false
 var dead = false
-var HATE #could eventually move this to the stats dictionary if you wanted, but not much value.
+var HATE: int = 80 #could eventually move this to the stats dictionary if you wanted, but not much value.
 var ref_hate
 var combo
-var weapontype
-var queueditem
+var weapontype :damage_type = damage_type.IMPACT #this needs to come from the characters equipment
+#var queueditem
 #var target
 var sealedskilllist
 

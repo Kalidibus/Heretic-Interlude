@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemClass" format=3 uid="uid://iaqnl1hyy6dj"]
+
+[ext_resource type="Script" uid="uid://cmthgiwuu1hpq" path="res://Items/Items.gd" id="1_rwhpv"]
+
+[resource]
+script = ExtResource("1_rwhpv")
+item_id = &"b0002"
+item_type = 2
+item_subtype = 9
+item_slot = 2
+item_name = "Corroded Armour"
+description = "A chestplate recovered amidst the detritus of the shattered 13th Wall. In poor shape, but it's initial construction was sturdy, and it will hold for a time."
+sell_value = 10
+stat_modifiers = Dictionary[int, int]({
+5: 3,
+7: 3
+})
+metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

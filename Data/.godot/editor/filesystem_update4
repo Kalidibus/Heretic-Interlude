@@ -1,17 +1,16 @@
-res://Scenes/PauseMenu/PartyBlock.tscn
-res://Assets/UI/Heretic_Theme.tres
-res://Shaders/Vignette.gdshader
-res://Shaders/Pulse.gdshader
-res://Scenes/PauseMenu/PartyMenu.gd
-res://Scenes/PauseMenu/party_block.gd
-res://Scenes/PauseMenu/EquipmentBlock.tscn
-res://Scenes/PauseMenu/EquipMenu.tscn
-res://Items/Item Files/b0001-corrodedarmour.tres
-res://Items/Items.gd
-res://Items/Item Files/h0001-corrodedhelm.tres
-res://Scenes/PauseMenu/EquipmentBlock.gd
-res://Scenes/Battle Scenes/Combat.gd
-res://Skills/Skill Files/Fel Mage/s10-gatheringstorm.gd
-res://Skills/Skill Files/Fel Mage/s11-repressedmalice.gd
 res://Scenes/Start.tscn
+res://Assets/UI/Heretic_Theme.tres
+res://Shaders/Pulse.gdshader
+res://Shaders/Vignette.gdshader
+res://Scenes/Battle Scenes/Combat.gd
+res://Classes/Fortress/Fortress.tscn
+res://Classes/Fortress/Fortress.gd
+res://Scenes/Battle Scenes/Entity.gd
+res://Classes/Fortress/j0001-fortress.tres
+res://PlayerData/CharacterChanges.gd
 res://Scenes/Start.gd
+res://Items/Item Files/h0002-salvagedhelm.tres
+res://Items/Item Files/b0002-salvagedarmour.tres
+res://Items/Item Files/f0001-salvagedfootwear.tres
+res://Scenes/Guild/CharacterCreate.tscn
+res://Scenes/Guild/CharacterCreate.gd

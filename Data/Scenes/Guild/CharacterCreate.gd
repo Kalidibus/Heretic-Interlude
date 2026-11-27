@@ -91,26 +91,27 @@ func _on_option_button_item_selected(index: int) -> void:
 func _on_char_unlock_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes//Guild/Unlocks.tscn")
 
-func CharaDetails(index: int) -> void:
+func CharaDetails(user_selected_job: int) -> void:
 	#the value of "index" is the same as the job IDs defined in the job dictionary. This function compares against that for what it needs.
 	
 	#Set the splash image.
-	%CharaSplash.set_texture(load(JobDict.JobSplash(index)))
+	%CharaSplash.set_texture(load(JobDict.JobSplash(user_selected_job)))
 	
-	#Very clunky way to grab individual stats and update them. could use a "for n in Stats.get_children() but whatever this works.
-	%HP_stat.text = str(JobDict.Stats(index)[Entity.stat.HP])
-	%MP_stat.text = str(JobDict.Stats(index)[Entity.stat.MP])
-	%STR_stat.text = str(JobDict.Stats(index)[Entity.stat.STR])
-	%DEF_stat.text = str(JobDict.Stats(index)[Entity.stat.DEF])
-	%INT_stat.text = str(JobDict.Stats(index)[Entity.stat.INT])
-	%FTH_stat.text = str(JobDict.Stats(index)[Entity.stat.FTH])
-	%RES_stat.text = str(JobDict.Stats(index)[Entity.stat.RES])
-	%EVD_stat.text = str(JobDict.Stats(index)[Entity.stat.EVD])
-	%SPD_stat.text = str(JobDict.Stats(index)[Entity.stat.SPD])
+	# Get the starting stats once and use them for the display.
+	var stats = JobDict.Starting_Stats(user_selected_job)
+	%HP_stat.text = str(stats[Entity.stat.HP])
+	%MP_stat.text = str(stats[Entity.stat.MP])
+	%STR_stat.text = str(stats[Entity.stat.STR])
+	%DEF_stat.text = str(stats[Entity.stat.DEF])
+	%INT_stat.text = str(stats[Entity.stat.INT])
+	%FTH_stat.text = str(stats[Entity.stat.FTH])
+	%RES_stat.text = str(stats[Entity.stat.RES])
+	%EVD_stat.text = str(stats[Entity.stat.EVD])
+	%SPD_stat.text = str(stats[Entity.stat.SPD])
 	
 	#Set the name
-	%job_name_display.text = JobDict.JobName(index)
-	%job_description_display.text = JobDict.JobDesc(index)
+	%job_name_display.text = JobDict.JobName(user_selected_job)
+	%job_description_display.text = JobDict.JobDesc(user_selected_job)
 
 func _on_back_button_pressed() -> void:
 	var index = %OptionButton.get_selected_id()

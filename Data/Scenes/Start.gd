@@ -59,4 +59,4 @@ func _on_debug_pressed() -> void:
 
 
 func _on_button_pressed() -> void:
-	pass
+	CharacterChanges.remove_equipment("0", &"h0001", "head")

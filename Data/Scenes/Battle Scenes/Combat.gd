@@ -21,15 +21,15 @@ var currentzone = "arid"
 
 func _ready():
 	enemies = EnemyDict.GetEncounter(currentzone)
-	$CombatGUI.CreateLabels(party, enemies)
-	CreateNodes(party, enemies)
-	CombatStartPassives()
+	await $CombatGUI.CreateLabels(party, enemies)
+	await CreateNodes(party, enemies)
+	await CombatStartPassives()
 	MainBattleLoop()
 	
 
 func CreateNodes(party, enemy_array):
 	for n in party:
-		var node = JobDict.JobNode(party[n]["job_id"]).duplicate()
+		var node = Entity.new() #JobDict.JobNode(party[n]["job_id"]).duplicate()
 		node.charid = n
 		node.stats = party[n]["stats"]
 		for gear_stat in party[n]["gear_statmods"]:
@@ -39,7 +39,6 @@ func CreateNodes(party, enemy_array):
 		node.row = party[n]["row"]
 		%Party.add_child(node)
 		%SignalBus.ConnectSignals(node)
-		#node.GetSkills()
 		party[n]["combatnode"] = node
 	for enemy in enemy_array:
 			var monid = enemy["id"]
@@ -60,7 +59,7 @@ func CombatStartPassives():
 			var skillaction = SkillDict.skill_actions_by_id.get(skill.skill_action)
 			skillaction.Combat = self
 			skillaction.CombatGUI = %CombatGUI
-			skillaction.combat_start(passive_owner, p, e)
+			await skillaction.combat_start(passive_owner, p, e)
 	
 func MainBattleLoop():
 	await get_tree().create_timer(0.1).timeout
