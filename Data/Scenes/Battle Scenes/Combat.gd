@@ -65,7 +65,6 @@ func CombatStartPassives():
 func MainBattleLoop():
 	await get_tree().create_timer(0.1).timeout
 	
-	print("new round")
 	PartyTurnOrder()
 	EnemyTurnOrder()
 

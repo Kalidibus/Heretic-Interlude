@@ -1,44 +1,43 @@
 [gd_scene format=3 uid="uid://c5shof6fxiw76"]
 
 [node name="EquipMenu" type="Control" unique_id=1182946062]
-propagate_maximum_size = true
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 
-[node name="V" type="VBoxContainer" parent="." unique_id=2139331143]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1753963003]
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_right = 122.0
+offset_bottom = 119.0
 
-[node name="EquipmentLabel" type="Label" parent="V" unique_id=2059241282]
+[node name="V" type="VBoxContainer" parent="MarginContainer" unique_id=2139331143]
+layout_mode = 2
+
+[node name="EquipmentLabel" type="Label" parent="MarginContainer/V" unique_id=2059241282]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Equipment:"
 
-[node name="HSeparator" type="HSeparator" parent="V" unique_id=886981178]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/V" unique_id=886981178]
 layout_mode = 2
 
-[node name="Weaponry" type="Label" parent="V" unique_id=564568144]
+[node name="Weaponry" type="Label" parent="MarginContainer/V" unique_id=564568144]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Weaponry:"
 
-[node name="Weaponholder" type="VBoxContainer" parent="V" unique_id=1579427160]
+[node name="Weaponholder" type="VBoxContainer" parent="MarginContainer/V" unique_id=1579427160]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="HSeparator2" type="HSeparator" parent="V" unique_id=1759979623]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/V" unique_id=1759979623]
 layout_mode = 2
 
-[node name="Armour" type="Label" parent="V" unique_id=1830032545]
+[node name="Armour" type="Label" parent="MarginContainer/V" unique_id=1830032545]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Armour:"
 
-[node name="Armourholder" type="VBoxContainer" parent="V" unique_id=1167475721]
+[node name="Armourholder" type="VBoxContainer" parent="MarginContainer/V" unique_id=1167475721]
 unique_name_in_owner = true
 layout_mode = 2

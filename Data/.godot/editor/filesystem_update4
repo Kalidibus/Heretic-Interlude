@@ -1,13 +1,17 @@
-res://Scenes/Global System/SystemChoice.tscn
+res://Scenes/PauseMenu/PartyBlock.tscn
 res://Assets/UI/Heretic_Theme.tres
 res://Shaders/Vignette.gdshader
 res://Shaders/Pulse.gdshader
 res://Scenes/PauseMenu/PartyMenu.gd
+res://Scenes/PauseMenu/party_block.gd
 res://Scenes/PauseMenu/EquipmentBlock.tscn
 res://Scenes/PauseMenu/EquipMenu.tscn
-res://Scenes/PauseMenu/PartyMenu.tscn
-res://PlayerData/PlayerData.gd
-res://Scenes/PauseMenu/EquipmentBlock.gd
-res://Scenes/PauseMenu/party_block.gd
 res://Items/Item Files/b0001-corrodedarmour.tres
-res://Items/Item Files/w0001-corrodedwep.tres
+res://Items/Items.gd
+res://Items/Item Files/h0001-corrodedhelm.tres
+res://Scenes/PauseMenu/EquipmentBlock.gd
+res://Scenes/Battle Scenes/Combat.gd
+res://Skills/Skill Files/Fel Mage/s10-gatheringstorm.gd
+res://Skills/Skill Files/Fel Mage/s11-repressedmalice.gd
+res://Scenes/Start.tscn
+res://Scenes/Start.gd

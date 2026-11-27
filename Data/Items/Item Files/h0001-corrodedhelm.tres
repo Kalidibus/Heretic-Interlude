@@ -9,6 +9,10 @@ item_type = 2
 item_subtype = 8
 item_slot = 1
 item_name = "Corroded Helm"
-description = "placeholder"
+description = "A corroded helm, barely a scrap of metal to cover the face. Will surely fail the user at a critical moment."
 sell_value = 5
+stat_modifiers = Dictionary[int, int]({
+5: 1,
+7: 1
+})
 metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

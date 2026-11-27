@@ -20,7 +20,7 @@ enum uses {none = 0, everywhere = 1, field_only = 2, combat_only = 3}
 @export var effect_on_use: SkillClass
 
 # Use stat names as keys, such as &"FTH" or &"STR".
-@export var stat_modifiers: Dictionary[CG.stat, int] = {}
+@export var stat_modifiers: Dictionary[Entity.stat, int] = {}
 
 # These are IDs for abilities/traits that your game code will resolve.
 @export var granted_ability_ids: Array[StringName] = []

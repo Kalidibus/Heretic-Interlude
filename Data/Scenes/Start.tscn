@@ -23,9 +23,9 @@ shader_parameter/inner_radius = 0.3
 shader_parameter/outer_radius = 1.0
 shader_parameter/vignette_strength = 3.0
 shader_parameter/dither_strength = 0.03
-shader_parameter/vignette_color = null
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
 
-[node name="Start" type="MarginContainer"]
+[node name="Start" type="MarginContainer" unique_id=1712661582]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -39,22 +39,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=512191671]
 visible = false
 layout_mode = 2
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=835506155]
 layout_mode = 2
 
-[node name="StartButton" type="Button" parent="Control"]
-layout_mode = 2
+[node name="StartButton" type="Button" parent="Control" unique_id=578371607]
+layout_mode = 0
 offset_left = 467.0
 offset_top = 316.0
 offset_right = 675.0
 offset_bottom = 347.0
 text = "[Dev] Go direct to Combat"
 
-[node name="Button" type="Button" parent="Control"]
+[node name="Button" type="Button" parent="Control" unique_id=184384251]
 layout_mode = 0
 offset_left = 474.0
 offset_top = 354.0
@@ -62,61 +62,61 @@ offset_right = 627.0
 offset_bottom = 385.0
 text = "DEBUG [learn skill]"
 
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=1751402634]
 visible = false
 position = Vector2(6, 618)
 scale = Vector2(0.16483, 0.16483)
 texture = ExtResource("2_w7kvi")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Control"]
+[node name="Sprite2D2" type="Sprite2D" parent="Control" unique_id=86023142]
 visible = false
 position = Vector2(405, 603)
 scale = Vector2(0.16483, 0.16483)
 texture = ExtResource("3_tehd8")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Control"]
+[node name="Sprite2D3" type="Sprite2D" parent="Control" unique_id=814188226]
 visible = false
 position = Vector2(301, 683)
 scale = Vector2(0.16483, 0.16483)
 texture = ExtResource("4_5lx84")
 
-[node name="Sprite2D4" type="Sprite2D" parent="Control"]
+[node name="Sprite2D4" type="Sprite2D" parent="Control" unique_id=1723154160]
 visible = false
 position = Vector2(143, 682)
 scale = Vector2(0.16483, 0.16483)
 texture = ExtResource("5_kx5lb")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=195400426]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=29877133]
 material = SubResource("ShaderMaterial_u0o5c")
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("2_mlm8r")
 stretch_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1727372775]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1933257627]
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=22773307]
 layout_mode = 2
 
-[node name="Dungeon" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Dungeon" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2108049059]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_4ibb0")
 text = "Enter the Dungeon"
 
-[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/Dungeon"]
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/Dungeon" unique_id=454393839]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -137,44 +137,44 @@ patch_margin_top = 20
 patch_margin_right = 20
 patch_margin_bottom = 20
 
-[node name="HireButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HireButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1275060388]
 layout_mode = 2
 theme = ExtResource("3_4ibb0")
 text = "Go to Guild"
 
-[node name="SaveButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="SaveButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=224357115]
 layout_mode = 2
 theme = ExtResource("3_4ibb0")
 text = "Save"
 
-[node name="LoadButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="LoadButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2048622388]
 layout_mode = 2
 theme = ExtResource("3_4ibb0")
 text = "Load"
 
-[node name="PauseButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="PauseButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2099549986]
 visible = false
 layout_mode = 2
 theme = ExtResource("3_4ibb0")
 text = "[DEBUG] PauseMenu"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2063258075]
 layout_mode = 2
 theme = ExtResource("3_4ibb0")
 text = "Exit"
 
-[node name="debug" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="debug" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1131401652]
 visible = false
 layout_mode = 2
 theme = ExtResource("3_4ibb0")
 text = "DEBUG"
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1425088943]
 layout_mode = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=196322013]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1357784760]
 material = SubResource("ShaderMaterial_3hbya")
 anchors_preset = 15
 anchor_right = 1.0
@@ -190,6 +190,6 @@ mouse_filter = 2
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/PauseButton" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/debug" to="." method="_on_debug_pressed"]

@@ -9,5 +9,10 @@ item_type = 2
 item_subtype = 9
 item_slot = 2
 item_name = "Corroded Armour"
+description = "A corroded plate, barely held on by rotten leather. Will surely fail the user at the critical moment."
 sell_value = 5
+stat_modifiers = Dictionary[int, int]({
+5: 2,
+7: 2
+})
 metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

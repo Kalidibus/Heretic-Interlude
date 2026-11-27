@@ -28,11 +28,9 @@ func execute(actionfromqueue :ActionforQueue):
 #count down each round then remove.
 func on_beginning_of_round():
 	round_count -= 1
-	print(round_count)
 	if round_count == 0: 
 		skillowner.CombatGUI.BattleLog("The thundercloud from " + skillowner.charname + " dissapates...")
 		skillowner.Combat.auras.erase(self)
-		print(skillowner.Combat.auras)
 
 #check damage type and allegiance, and throw a thunderbolt if everything matches. It's almost working, it just strikes before the damage does currently.
 func on_damaged(action: ActionResult):

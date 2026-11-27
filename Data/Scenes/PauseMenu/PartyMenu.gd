@@ -5,7 +5,7 @@ extends MarginContainer
 @onready var equip_menu = preload("res://Scenes/PauseMenu/EquipMenu.tscn")
 @onready var equip_node = preload("res://Scenes/PauseMenu/EquipmentBlock.tscn")
 var skills_or_equip = "skills"
-
+var first_check: bool = true
 var current_char: String 
 
 # Called when the node enters the scene tree for the first time.
@@ -58,6 +58,11 @@ func AddBlocks():
 		if char.row == Entity.row_line.FRONT: button.text = "FRONT"
 		if char.row == Entity.row_line.BACK: button.text = "BACK"
 		
+		if first_check == true:
+			block.get_node("%CharSelectButton").visible = false
+			first_check = false
+			
+		
 		%PartyBlockHolder.add_child(block)
 	return
 
@@ -104,20 +109,22 @@ func FillCharInfo_Skills(current_char):
 
 func FillCharInfo_Equip(current_char):
 
-	#var node = %Holder.get_node_or_null("")
-	#if not node.get_children().is_empty(): 
-		#for i in node.get_children(): 
-			#i.queue_free()
+	var node = %Holder.get_node_or_null("EquipMenu").get_node_or_null("%Weaponholder")
+	if not node.get_children().is_empty(): 
+		for i in node.get_children(): 
+			i.queue_free()
+	var node2 = %Holder.get_node_or_null("EquipMenu").get_node_or_null("%Armourholder")
+	if not node2.get_children().is_empty(): 
+		for i in node2.get_children(): 
+			i.queue_free()
 
 	var equipment = PlayerData.GetEquipment(current_char)
 	
 	for n in equipment:
-		print(n)
-		print(equipment[n]) 
 		var item :ItemClass = ItemDict.get_item(equipment[n])
 		
-		var equip_menu_wep = %Holder.get_node_or_null("EquipMenu/V/Weaponholder")
-		var equip_menu_arm = %Holder.get_node_or_null("EquipMenu/V/Armourholder")
+		var equip_menu_wep = %Holder.get_node_or_null("EquipMenu/MarginContainer/V/Weaponholder")
+		var equip_menu_arm = %Holder.get_node_or_null("EquipMenu/MarginContainer/V/Armourholder")
 		var equipnode = equip_node.instantiate()
 		equipnode.SetSkill(item)
 		
@@ -146,3 +153,9 @@ func _on_equipment_button_pressed() -> void:
 	skills_or_equip = "equip"
 	
 	FillCharInfo(current_char)
+
+func disable_clicked_character(node:Node) -> void:
+	for n in %PartyBlockHolder.get_children():
+		var other_node = n.get_node("%CharSelectButton")
+		other_node.visible = true
+	node.get_node("%CharSelectButton").visible = false

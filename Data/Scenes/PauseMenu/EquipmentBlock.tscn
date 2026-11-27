@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cdxrs3dkaw80g" path="res://Scenes/PauseMenu/EquipmentBlock.gd" id="1_kaarn"]
 
 [node name="EquipmentBlock" type="MarginContainer" unique_id=96437628]
-offset_right = 575.0
-offset_bottom = 77.0
+offset_right = 759.0
+offset_bottom = 137.0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -72,15 +72,16 @@ layout_mode = 2
 modulate = Color(0.49354547, 0.49354553, 0.49354553, 1)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer4/MarginContainer3" unique_id=952897417]
+[node name="width" type="MarginContainer" parent="MarginContainer4/MarginContainer3" unique_id=952897417]
 layout_mode = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 10
 
-[node name="item_description" type="Label" parent="MarginContainer4/MarginContainer3/MarginContainer" unique_id=940088509]
+[node name="item_description" type="Label" parent="MarginContainer4/MarginContainer3/width" unique_id=940088509]
 unique_name_in_owner = true
-custom_maximum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 text = "A rusted helm which is total shit fuck you"
+autowrap_mode = 3

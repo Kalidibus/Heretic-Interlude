@@ -4,7 +4,6 @@ var skill_action_id: StringName = &"felmage-s11"
 var mpcost:int = 0
 
 func combat_start(passive_owner:Entity, party:Array, enemies:Array):
-	print("triggered")
 	var skillfile: SkillClass = SkillDict.skills_by_id.get(skill_action_id)
 	MODIFIER = skillfile.skill_general_modifier
 

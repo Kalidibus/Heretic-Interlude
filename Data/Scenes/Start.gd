@@ -59,7 +59,4 @@ func _on_debug_pressed() -> void:
 
 
 func _on_button_pressed() -> void:
-	for n in PlayerData.party:
-		var jobid = PlayerData.party[n]["job_id"]
-		for skill in JobDict.GetSkills(jobid):
-			CharacterChanges.LearnSkill(n, skill)
+	pass

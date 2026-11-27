@@ -29,3 +29,6 @@ func _on_down_button_pressed() -> void:
 
 func _on_char_select_button_pressed() -> void:
 	partymenu.FillCharInfo(charid)
+	partymenu.disable_clicked_character(self)
+	
+	
