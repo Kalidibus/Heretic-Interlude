@@ -2,6 +2,8 @@ extends Entity
 #PASSIVES
 enum skillid {Shad00, Shad01, Shad02, Shad03, Shad04, Shad05, Shad06, Shad07, Shad08, Shad09, Shad10, Shad11, Shad12, Shad13, Shad14, Shad15, Shad16, Shad17, Shad18, Shad19, Shad20 }
 
+var skill_book: SkillDict.books = SkillDict.books.SHADE_HUNTER
+
 #STATS
 var starting_stats = {
 		stat.HP: 60,

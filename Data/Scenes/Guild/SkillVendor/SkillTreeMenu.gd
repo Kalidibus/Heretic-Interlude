@@ -20,6 +20,14 @@ func _ready() -> void:
 func GetTree():
 	char_id = PlayerData.party_order[party_sequence]
 	job_id = PlayerData.party[char_id]["job_id"]
+	
+	%CharName.text = "NAME: " + PlayerData.party[char_id]["name"]
+	%CurrentClass.text = "CLASS: " + PlayerData.party[char_id]["job_name"]
+	
+	%OptionButton.select(int(job_id))
+
+	for i in range(%OptionButton.item_count):
+		%OptionButton.set_item_disabled(i, i != int(job_id))
 
 	skill_tree = load(JobDict.JobSkillTree(job_id)) 
 	%ScrollContainer.add_child(skill_tree.instantiate())
@@ -40,7 +48,7 @@ func FillTree():
 	for skill_id: StringName in SkillDict.skills_by_id:
 		var skill = SkillDict.skills_by_id.get(skill_id)
 		
-		if skill.skill_book != SkillDict.books.FEL_MAGE: continue #skip if it doesn't fit this skill book.
+		if skill.skill_book != JobDict.GetSkillBook(job_id): continue #skip if it doesn't fit this skill book.
 		var node = skill_tree_node.get_node("%Skill" + str(count))
 		node.GetSkillInfo(skill)
 		for known in PlayerData.party[char_id]["known_skills"]:

@@ -1,6 +1,8 @@
 extends Entity
 #PASSIVES
 enum skillid {Bast00, Bast01, Bast02, Bast03, Bast04, Bast05, Bast06, Bast07, Bast08, Bast09, Bast10, Bast11, Bast12, Bast13, Bast14, Bast15, Bast16, Bast17, Bast18, Bast19, Bast20 }
+var skill_book: SkillDict.books = SkillDict.books.BASTARD_FIST
+
 #STATS
 var starting_stats = {
 		stat.HP: 100,

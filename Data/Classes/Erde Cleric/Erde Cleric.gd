@@ -2,6 +2,8 @@ extends Entity
 
 enum skillid {Erde00, Erde01, Erde02, Erde03, Erde04, Erde05, Erde06, Erde07, Erde08, Erde09, Erde10, Erde11, Erde12, Erde13, Erde14, Erde15, Erde16, Erde17, Erde18, Erde19, Erde20 }
 
+var skill_book: SkillDict.books = SkillDict.books.REDEEMER
+
 #PASSIVES
 
 #STATS

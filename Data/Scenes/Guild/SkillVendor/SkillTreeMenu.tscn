@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4idmo7qcqw7l"]
+[gd_scene format=3 uid="uid://c4idmo7qcqw7l"]
 
-[ext_resource type="Script" path="res://Scenes/Guild/SkillVendor/SkillTreeMenu.gd" id="1_qvcxk"]
+[ext_resource type="Script" uid="uid://cgumjsd77p2b4" path="res://Scenes/Guild/SkillVendor/SkillTreeMenu.gd" id="1_qvcxk"]
+[ext_resource type="Theme" uid="uid://dny0ibmsfjqu5" path="res://Assets/UI/Heretic_Theme.tres" id="2_u1yda"]
 
-[node name="SkillTreeMenu" type="MarginContainer"]
+[node name="SkillTreeMenu" type="MarginContainer" unique_id=1348649476]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,48 +15,100 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 script = ExtResource("1_qvcxk")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1548063789]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=71693213]
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=1424510712]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer" unique_id=536895541]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=350431054]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=975534214]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Previous Party Member"
 
-[node name="ForwardButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="ForwardButton" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=956992757]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Next Party Member"
 
-[node name="CostItem" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=311661405]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=372203390]
+layout_mode = 2
+text = "SKILLBOOK: "
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=869496023]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Corroded Bone Fragments:"
+theme = ExtResource("2_u1yda")
+item_count = 9
+popup/item_0/text = "Fortress"
+popup/item_0/id = 0
+popup/item_1/text = "Fel Mage"
+popup/item_1/id = 1
+popup/item_2/text = "Bastard Fist"
+popup/item_2/id = 2
+popup/item_3/text = "Strider"
+popup/item_3/id = 3
+popup/item_4/text = "Redeemer"
+popup/item_4/id = 4
+popup/item_5/text = "Dancer"
+popup/item_5/id = 5
+popup/item_6/text = "Illusionist"
+popup/item_6/id = 6
+popup/item_7/text = "Samurai"
+popup/item_7/id = 7
+popup/item_8/text = "War Mage"
+popup/item_8/id = 8
 
-[node name="CostAmount" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="CharName" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=891249380]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fortress"
+
+[node name="CurrentClass" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=13898225]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Job Class: Fortress"
+
+[node name="CostItem" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=995838753]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Corroded Bone Fragments:"
+horizontal_alignment = 2
+
+[node name="CostAmount" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1774309438]
 unique_name_in_owner = true
 layout_mode = 2
 text = "99"
 
-[node name="spacer" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="spacer" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1124895232]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.02
 
-[node name="ReturnButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="ReturnButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1030752083]
 layout_mode = 2
 text = "Return"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=2058549630]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/ForwardButton" to="." method="_on_forward_button_button_up"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ForwardButton" to="." method="_on_forward_button_button_up"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

@@ -1,9 +1,7 @@
 extends Entity
 
-enum skillid {FelM00, FelM01, FelM02, FelM03, FelM04, FelM05, FelM06, FelM07, FelM08, FelM09, FelM10, FelM11, FelM12, FelM13, FelM14, FelM15, FelM16, FelM17, FelM18, FelM19, FelM20}
+var skill_book: SkillDict.books = SkillDict.books.FEL_MAGE
 
-const BOLT_MODIFIER = 1.4
-const STORM_MODIFIER = 0.7
 
 #PASSIVES
  

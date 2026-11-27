@@ -172,8 +172,8 @@ func GetUnlocks(jobid):
 func GetHireCost(jobid):
 	return job_dictionary[str(jobid)][resources.node].hire_cost
 
-func GetSkills(jobid):
-	return job_dictionary[str(jobid)][resources.node].skill_list
+func GetSkillBook(jobid):
+	return job_dictionary[str(jobid)][resources.node].skill_book
 
 func JobProfile(jobid):
 	return job_dictionary[str(jobid)][resources.profile]

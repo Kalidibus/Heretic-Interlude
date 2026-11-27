@@ -1,9 +1,9 @@
+Label
 MarginContainer
 HBoxContainer
 VBoxContainer
 Control
 Container
-Label
 TextureRect
 Panel
 SkillUpgradeButton
