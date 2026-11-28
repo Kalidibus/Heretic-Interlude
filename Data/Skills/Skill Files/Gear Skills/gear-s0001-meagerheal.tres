@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillClass" format=3 uid="uid://cxfk17eky5c42"]
+
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_spewm"]
+
+[resource]
+script = ExtResource("1_spewm")
+skill_id = &"gear-s0001"
+skill_name = "Gentle Repose"
+skill_description = "A meager heal for a single ally."
+skill_type = 1
+skill_target = 2
+skill_action = &"gear-s0001"
+metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

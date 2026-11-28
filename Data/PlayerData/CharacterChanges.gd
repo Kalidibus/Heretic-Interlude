@@ -5,6 +5,7 @@ func _ready() -> void:
 
 #Function receives the ID of character who's equipping an item, the slot, and the item ID.
 #Equips it and moves anything already in the slot to inventory space.
+#location is not the slot, it's roster / party
 func add_equipment(charid, add_eqp :StringName, location) -> void:
 	var character = PlayerData.get(location)[str(charid)]
 	
@@ -15,9 +16,11 @@ func add_equipment(charid, add_eqp :StringName, location) -> void:
 	#apply stat bonuses from gear to character in the party. 
 	var gear_stats : Dictionary = ItemDict.items_by_id.get(add_eqp).stat_modifiers
 	for n in gear_stats:
-		print("before" + str(character["stats"][n]))
 		character["stats"][n] += gear_stats[n]
-		print("after" + str(character["stats"][n]))
+
+	var gear_skills: Dictionary = ItemDict.items_by_id.get(add_eqp).granted_ability_ids
+	for skill_id in gear_skills:
+		LearnSkill(character, skill_id, gear_skills[skill_id])
 
 func remove_equipment(charid, remove_eqp, location) -> void:
 	var character = PlayerData.get(location)[str(charid)]
@@ -26,9 +29,11 @@ func remove_equipment(charid, remove_eqp, location) -> void:
 	#remove stat bonuses from gear to character in the party. 
 	var gear_stats : Dictionary = ItemDict.items_by_id.get(remove_eqp).stat_modifiers
 	for n in gear_stats:
-		print("before" + str(character["stats"][n]))
 		character["stats"][n] -= gear_stats[n]
-		print("after" + str(character["stats"][n]))
+	
+	var gear_skills: Dictionary = ItemDict.items_by_id.get(remove_eqp).granted_ability_ids
+	for n in gear_skills:
+		RemoveSkill(character["char_id"], n, gear_skills[n])
 
 func AddtoInventory(item: StringName , qty: int) -> void:
 	if not PlayerData.inventory.has(item):
@@ -84,9 +89,19 @@ func LevelUp(charid):
 	Globals.system_message(PlayerData.party[charid]["name"] + " has reached level " + str(PlayerData.party[charid]["level"]))
 	
 
-func LearnSkill(charid, skillid):
-	if not PlayerData.party[charid]["known_skills"].has(skillid):
-		PlayerData.party[charid]["known_skills"].append(skillid)
-		PlayerData.party[charid]["skill_levels"][skillid] = 1
+func LearnSkill(character, skill_id, skill_level: int = 1):
+	if not character["known_skills"].has(skill_id):
+		character["known_skills"].append(skill_id)
+		character["skill_levels"][skill_id] = skill_level
 	else:
-		PlayerData.party[charid]["skill_levels"][skillid] += 1
+		character["skill_levels"][skill_id] += skill_level
+
+func RemoveSkill(character: Dictionary, skillid, level: int = 1) -> void:
+	if not character["known_skills"].has(skillid):
+		return
+
+	character["skill_levels"][skillid] -= level
+
+	if character["skill_levels"][skillid] <= 0:
+		character["skill_levels"].erase(skillid)
+		character["known_skills"].erase(skillid)

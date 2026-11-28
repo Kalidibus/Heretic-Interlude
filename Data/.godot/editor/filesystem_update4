@@ -1,10 +1,6 @@
+res://PlayerData/CharacterChanges.gd
 res://Scenes/Guild/SkillVendor/SkillTreeMenu.tscn
 res://Assets/UI/Heretic_Theme.tres
 res://Shaders/Pulse.gdshader
 res://Shaders/Vignette.gdshader
-res://Scenes/Guild/SkillVendor/SkillTreeMenu.gd
-res://Classes/Fel Mage/Fel Mage.gd
-res://Classes/Erde Cleric/Erde Cleric.gd
-res://Classes/Shade Hunter/Shade Hunter.gd
-res://Classes/Bastard Fist/Bastard Fist.gd
-res://Classes/JobDictionary.gd
+res://Enemies/Arid/Regular/mon_misalignment.gd

@@ -5,9 +5,9 @@ func _ready():
 	reward_xp = Globals.RNG_range(10, 20)
 	loot_table = {
 		&"c0001": 55,
-		&"c0002": 15,
-		&"c0003": 15,
-		&"c0004": 15}
+		&"h0002": 15,
+		&"b0002": 15,
+		&"r0001": 15}
 	roll_count = Globals.ROLL_COUNT
 	
 	enemy = true

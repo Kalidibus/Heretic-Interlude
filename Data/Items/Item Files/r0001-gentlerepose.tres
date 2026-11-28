@@ -1,6 +1,8 @@
 [gd_resource type="Resource" script_class="ItemClass" format=3 uid="uid://lstvudhfada8"]
 
 [ext_resource type="Script" uid="uid://cmthgiwuu1hpq" path="res://Items/Items.gd" id="1_2np7i"]
+[ext_resource type="Script" uid="uid://c3q3e5vlmw8sb" path="res://Skills/Skills.gd" id="1_gyeq1"]
+[ext_resource type="Resource" uid="uid://cxfk17eky5c42" path="res://Skills/Skill Files/Gear Skills/gear-s0001-meagerheal.tres" id="2_27k2y"]
 
 [resource]
 script = ExtResource("1_2np7i")
@@ -10,7 +12,8 @@ item_subtype = 12
 item_slot = 8
 item_name = "Ring of Gentle Repose"
 description = "A small copper band. Lovingly hand wrought by a gemsmith of no renown. It's soft metal dents easily, but still holds a modest heat that is comforting to you. 
-
-Unique Passive: "
-granted_ability_ids = Array[StringName]([&""])
+Unique Ability: Gentle Repose - A meager heal for an individual ally. "
+granted_ability_ids = Dictionary[ExtResource("1_gyeq1"), int]({
+ExtResource("2_27k2y"): 1
+})
 metadata/_custom_type_script = "uid://cmthgiwuu1hpq"

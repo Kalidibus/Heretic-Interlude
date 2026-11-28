@@ -4,10 +4,11 @@
 
 [resource]
 script = ExtResource("1_2vju8")
-skill_id = &"s0002"
+skill_id = &"item-s0001"
 skill_name = "Meager Potion"
 skill_description = "Triggered upon consuming a Meager Potion	"
 skill_type = 1
 skill_target = 17
-skill_action = &"s0002a"
+skill_action = &"item-s0001"
+skill_general_modifier = 0.8
 metadata/_custom_type_script = "uid://c3q3e5vlmw8sb"

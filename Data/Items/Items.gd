@@ -23,5 +23,5 @@ enum uses {none = 0, everywhere = 1, field_only = 2, combat_only = 3}
 @export var stat_modifiers: Dictionary[Entity.stat, int] = {}
 
 # These are IDs for abilities/traits that your game code will resolve.
-@export var granted_ability_ids: Array[StringName] = []
-@export var passive_trait_ids: Array[StringName] = []
+@export var granted_ability_ids: Dictionary[SkillClass, int] = {}
+#@export var passive_trait_ids: Array[StringName] = []
