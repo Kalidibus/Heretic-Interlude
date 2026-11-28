@@ -10,22 +10,25 @@ func add_equipment(charid, add_eqp :StringName, location) -> void:
 	var character = PlayerData.get(location)[str(charid)]
 	
 	if character["equipment"].get(ItemDict.items_by_id.get(add_eqp).item_slot) != null:
-		remove_equipment(charid, add_eqp, location)
+		await remove_equipment(charid, character["equipment"].get(ItemDict.items_by_id.get(add_eqp).item_slot), location)
 	character["equipment"][ItemDict.items_by_id.get(add_eqp).item_slot] = add_eqp
+	RemovefromInventory(add_eqp, 1)
 	
 	#apply stat bonuses from gear to character in the party. 
 	var gear_stats : Dictionary = ItemDict.items_by_id.get(add_eqp).stat_modifiers
 	for n in gear_stats:
 		character["stats"][n] += gear_stats[n]
 
+	#apply gear skills to character in the party.
 	var gear_skills: Dictionary = ItemDict.items_by_id.get(add_eqp).granted_ability_ids
 	for skill_id in gear_skills:
-		LearnSkill(character, skill_id, gear_skills[skill_id])
+		await LearnSkill(character, skill_id, gear_skills[skill_id])
 
 func remove_equipment(charid, remove_eqp, location) -> void:
 	var character = PlayerData.get(location)[str(charid)]
 	character["equipment"].erase(ItemDict.items_by_id.get(remove_eqp).item_slot)
-
+	AddtoInventory(remove_eqp, 1)
+	
 	#remove stat bonuses from gear to character in the party. 
 	var gear_stats : Dictionary = ItemDict.items_by_id.get(remove_eqp).stat_modifiers
 	for n in gear_stats:
@@ -33,7 +36,7 @@ func remove_equipment(charid, remove_eqp, location) -> void:
 	
 	var gear_skills: Dictionary = ItemDict.items_by_id.get(remove_eqp).granted_ability_ids
 	for n in gear_skills:
-		RemoveSkill(character["char_id"], n, gear_skills[n])
+		await RemoveSkill(character["char_id"], n, gear_skills[n])
 
 func AddtoInventory(item: StringName , qty: int) -> void:
 	if not PlayerData.inventory.has(item):

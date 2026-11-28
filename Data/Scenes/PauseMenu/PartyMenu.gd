@@ -127,13 +127,17 @@ func FillCharInfo_Equip(current_char):
 		var equip_menu_arm = %Holder.get_node_or_null("EquipMenu/MarginContainer/V/Armourholder")
 		var equipnode = equip_node.instantiate()
 		equipnode.SetSkill(item)
+		equipnode.charid = current_char
+		equipnode.equipment_changed.connect(_on_equipment_changed)
 		
 		if item.item_slot == ItemClass.slot.main_hand or item.item_slot == ItemClass.slot.off_hand:
 			equip_menu_wep.add_child(equipnode)
 		else:
 			equip_menu_arm.add_child(equipnode)
 
-
+func _on_equipment_changed() -> void:
+	AddBlocks()
+	
 func GetLastPushed(pushed_charid, button:String):
 	for n in %PartyBlockHolder.get_children():
 		if n.charid == pushed_charid:

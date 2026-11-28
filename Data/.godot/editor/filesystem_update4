@@ -1,6 +1,12 @@
-res://PlayerData/CharacterChanges.gd
-res://Scenes/Guild/SkillVendor/SkillTreeMenu.tscn
+res://Scenes/PauseMenu/EquipmentBlock.gd
+res://Scenes/PauseMenu/EquipmentBlock.tscn
 res://Assets/UI/Heretic_Theme.tres
 res://Shaders/Pulse.gdshader
 res://Shaders/Vignette.gdshader
-res://Enemies/Arid/Regular/mon_misalignment.gd
+res://Scenes/Guild/CharacterCreate.gd
+res://Classes/Fortress/Fortress.tscn
+res://Scenes/PauseMenu/PartyMenu.gd
+res://Items/Item Files/b0002-salvagedarmour.tres
+res://PlayerData/CharacterChanges.gd
+res://Scenes/PauseMenu/PauseMenu.tscn
+res://Scenes/PauseMenu/PauseMenu.gd

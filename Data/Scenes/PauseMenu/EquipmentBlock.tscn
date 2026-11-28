@@ -85,3 +85,14 @@ custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 text = "A rusted helm which is total shit fuck you"
 autowrap_mode = 3
+
+[node name="EqpButton" type="Button" parent="." unique_id=543355420]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PopupMenu" type="PopupMenu" parent="." unique_id=1749137855]
+unique_name_in_owner = true
+oversampling_override = 1.0
+
+[connection signal="pressed" from="EqpButton" to="." method="_on_eqp_button_pressed"]
+[connection signal="id_pressed" from="PopupMenu" to="." method="_on_popup_menu_id_pressed"]

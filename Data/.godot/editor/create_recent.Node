@@ -1,3 +1,5 @@
+PopupMenu
+Button
 Label
 MarginContainer
 HBoxContainer
@@ -11,4 +13,3 @@ Node
 PanelContainer
 Sprite2D
 CanvasLayer
-ColorRect

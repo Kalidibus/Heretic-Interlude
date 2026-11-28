@@ -64,8 +64,8 @@ func _on_create_char_button_pressed() -> void:
 	CharacterChanges.add_equipment(newcharid, &"h0001", "roster")
 	CharacterChanges.add_equipment(newcharid, &"b0001", "roster")
 	CharacterChanges.add_equipment(newcharid, &"w0001", "roster")
-	CharacterChanges.add_equipment(newcharid, &"r0001", "roster")
 
+	
 	#pay hiring price
 	CharacterChanges.RemovefromInventory(unlock_resource, cost)
 	
